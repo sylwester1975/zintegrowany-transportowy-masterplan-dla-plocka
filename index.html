@@ -397,87 +397,64 @@
             z-index: 10000;
             pointer-events: none;
         }
-/* ==========================================================================
-           JEDNE, CZYSTE I BEZBŁĘDNE REGUŁY DLA GENEROWANIA PLIKU PDF I DRUKU
-           ========================================================================= */
-        @media print {
-            /* 1. BLOKADA SYSTEMOWYCH NAGŁÓWKÓW (ADRESÓW URL) */
-            @page {
-                size: A4 portrait;
-                margin: 20mm 15mm 20mm 15mm !important;
-            }
+@media print {
+  /* 1. PRZENIESIENIE MARGINESÓW DO @PAGE (ZAPOBIEGA UCINANIU KOLEJNYCH STRON) */
+  @page {
+    size: A4 portrait;
+    /* Sztywny margines dla każdej strony w PDF - odsuwa tekst od góry i dołu */
+    margin: 18mm 15mm 18mm 15mm !important; 
+  }
 
-            body {
-                background-color: white !important;
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-                padding: 0 !important;
-                margin: 0 !important;
-                font-size: 11pt;
-            }
+  body {
+    /* Zerujemy margines body, bo marginesem steruje teraz @page */
+    margin: 0 !important; 
+    padding: 0 !important;
+    background-color: #ffffff !important;
+    -webkit-print-color-adjust: exact !important; /* Gwarancja nasyconych kolorów */
+    print-color-adjust: exact !important;
+  }
 
-            /* 2. AUTOMATYCZNE UKRYWANIE ELEMENTÓW INTERFEJSU */
-            .btn-original, .btn-to-top, button, #toast-share, .btn-download-container,
-            nav, footer, .scroll-to-top, .back-to-top, #scrollUp, .netlify-badge,
-            [class*="scroll"], [id*="scroll"], [class*="rysunek"], [id*="rysunek"], [class*="zoom"], [id*="zoom"] {
-                display: none !important;
-                visibility: hidden !important;
-            }
+  /* Wymuszenie oddechu od góry na pierwszej stronie, na wypadek gdyby tytuł był za wysoko */
+  h1 {
+    padding-top: 10mm !important;
+  }
 
-            /* 3. TWÓJ ORYGINALNY, SPRAWDZONY BLOK TEŁ I REGÓŁ KOLORU */
-            .highlight-box, .toc-box {
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-                background-color: #ebf8ff !important; /* Przywrócenie pierwotnego jasnego błękitu */
-                border-left: 4px solid #3182ce !important;
-            }
+  /* 2. BEZWZGLĘDNE UKRYWANIE ELEMENTÓW INTERFEJSU */
+  button, 
+  .no-print, 
+  nav, 
+  footer, 
+  .btn-to-top,       /* Ukrywa Twój przycisk przewijania do góry */
+  .btn-original, 
+  .btn-download-container, 
+  #toast-share,
+  [class*="rysunek"], /* Ukrywa napis i ikonę o rysunku */
+  [id*="rysunek"],
+  [class*="zoom"],
+  [id*="zoom"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+  }
 
-            .custom-table tr.total-row {
-                background-color: #e6f7ff !important; /* Przywrócenie błękitu podsumowania tabeli */
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-            }
+  /* 3. ZABEZPIECZENIE PRZED BRZYDKIM ŁAMANIEM TEKSTU */
+  h1, h2, h3 { 
+    break-after: avoid !important; 
+    page-break-after: avoid !important; 
+  }
+  
+  p, table, tr, .ZINTEGROWANY-PAKIE-INVESTYCYJNY-KLASA, .signature-wrapper, .highlight-box, .toc-box { 
+    break-inside: avoid !important; 
+    page-break-inside: avoid !important; 
+  }
 
-            /* Aktywne odnośniki w pliku PDF */
-            a {
-                color: #2c5282 !important;
-                text-decoration: underline !important;
-                pointer-events: auto !important;
-            }
-
-            /* 4. POPRAWNE I BEZBŁĘDNE ŁAMANIE STRON DOKUMENTU */
-            h1, h2, h3, h4 {
-                break-after: avoid !important;
-                page-break-after: avoid !important;
-            }
-
-            p, table, tr, img, .highlight-box, .toc-box, .signature-wrapper {
-                break-inside: avoid !important;
-                page-break-inside: avoid !important;
-            }
-
-            /* 5. SMUKŁY PODPIS I TWOJA ORYGINALNA STOPKA */
-            .signature-wrapper {
-                margin-top: 60px !important;
-                clear: both !important;
-                break-inside: avoid !important;
-                page-break-inside: avoid !important;
-            }
-            
-            .print-footer {
-                display: block !important;
-                position: relative !important;
-                margin-top: 100px !important; 
-                padding-top: 15px !important;
-                border-top: 2px solid #1a365d !important; 
-                text-align: center !important;
-                font-size: 0.9rem !important;
-                color: #2d3748 !important;
-                font-weight: bold !important;
-                background-color: white !important;
-                width: 100% !important;
-            }
-        }
+  /* Odstęp dla podpisu */
+  .signature-wrapper {
+    margin-top: 50px !important;
+    clear: both !important;
+  }
+}
    /* --- NOWY STYL PODPISU (SMUKŁY I BLOKUJĄCY IKONĘ) --- */
 .signature-text-final {
   display: inline-block;
