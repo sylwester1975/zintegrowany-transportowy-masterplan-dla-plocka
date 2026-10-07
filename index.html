@@ -400,7 +400,10 @@
         h1, h2, h3, h4 {
     scroll-margin-top: 10px !important; /* Zatrzymuje przewijanie z bezpiecznym marginesem od góry */
 }
-
+/* Na stronie internetowej ten element jest niewidoczny i nie zajmuje miejsca */
+.page-break {
+    display: none;
+}
 /* ==========================================================================
            JEDNE, CZYSTE I BEZBŁĘDNE REGUŁY DLA GENEROWANIA PLIKU PDF I DRUKU
            ========================================================================== */
@@ -512,15 +515,15 @@
                 page-break-inside: avoid !important; 
             }
 
- /* SPECIFIC FIX DLA ROZDZIAŁU 6: Wymuszenie startu od nowej strony A4 w PDF.
-               Zamiast łamać sekcję w połowie, cały rozdział zacznie się czysto na nowej karcie. */
-            #rozdzial-6, 
-            [id*="rozdzia-6"], 
-            [class*="rozdzia-6"],
-            h2[id*="6"], 
-            h2[class*="6"] {
+            /* AKTYWACJA FIZYCZNEGO ŁAMANIA STRONY W PLIKU PDF */
+            .page-break {
+                display: block !important;
+                clear: both !important;
                 break-before: page !important;
-                page-break-before: always !important;
+                page-break-before: always !important; /* Bezwarunkowo wymusza nową kartę A4 w PDF */
+                height: 0 !important;
+                margin: 0 !important;
+                padding: 0 !important;
             }
             
             /* Odstęp dla podpisu autora w PDF */
@@ -982,7 +985,7 @@
     <p><strong>Najkrótsza i odseparowana marszruta:</strong> Połączony korytarz S12/S60 umożliwia całkowite ominięcie skrajnie przeciążonego łódzkiego oraz warszawskiego węzła transportowego. Gwarantuje to bezpośredni i błyskawiczny przerzut ciężkich transportów wojskowych z głębi kraju pod newralgiczne rejony przygraniczne: granicę z obwodem królewieckim, granicę polsko-białoruską, Przesmyk Suwalski oraz dalej, ku państwom bałtyckim.</p>
 
     <p><strong>Płock jako strategiczne zaplecze paliwowe w marszu:</strong> W tak skonstruowanej osi transportowej Płock staje się kluczowym, centralnym portem zaopatrzeniowym dla operujących wojsk. Masowe kolumny i transporty logistyczne poruszające się z południowego zachodu mogą w sposób bezkolizyjny i bezpieczny (odizolowany od centrów miast) zatankować oraz pobrać paliwa klasyczne i wodorowe bezpośrednio z płockiego kompleksu rafineryjno-petrochemicznego, kontynuując natychmiastowy marsz w stronę teatru działań wojennych.</p>
-
+<div class="page-break"></div>
     <hr>
 
     <h2 id="etapowanie" style="margin-bottom: 33px;">6. STRATEGIA ETAPOWANIA INWESTYCJI I HARMONOGRAM IMPLEMENTACJI</h2>
