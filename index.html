@@ -397,76 +397,59 @@
             z-index: 10000;
             pointer-events: none;
         }
+/* Jedne, czyste i bezbłędne reguły dla generowania pliku PDF i druku */
+        @media print {
+            .btn-original, .btn-to-top, button, #toast-share, .btn-download-container {
+                display: none !important;
+            }
+            body {
+                background-color: white !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .highlight-box, .toc-box {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                background-color: #ebf8ff !important;
+                border-left: 4px solid #3182ce !important;
+            }
+            .author-signature {
+                margin-top: 60px !important;
+                page-break-inside: avoid;
+            }
+            
+            /* KOREKTA: Zwiększamy margines, aby zepchnąć stopkę z adresem URL niżej */
+            .print-footer {
+                display: block !important;
+                position: relative !important;
+                margin-top: 100px !important; /* Zwiększono z 40px na 100px dla lepszego oddechu */
+                padding-top: 15px !important;
+                border-top: 2px solid #1a365d !important; /* Ciemnoniebieska linia odcinająca */
+                text-align: center !important;
+                font-size: 0.9rem !important;
+                color: #2d3748 !important;
+                font-weight: bold !important;
+                background-color: white !important;
+                width: 100% !important;
+            }
+        }
+        /* Inteligentny kontener pozycjonujący podpis do prawej krawędzi */
+        .signature-wrapper {
+            display: flex !important;
+            justify-content: flex-end !important; /* Wymusza przesunięcie zawartości na sam koniec prawej strony */
+            width: 100% !important;
+            margin-top: 50px !important;
+            margin-bottom: 20px !important;
+        }
 
-/* =======================================================
-   EFEKT DRUKU I GENEROWANIA PDF (AKTYWNY TYLKO PODCZAS POBIERANIA)
-   ======================================================= */
-@media print {
-  /* 1. USTAWIEŃIE STRONY A4 I BEZPIECZNYCH MARGINESÓW (ZAPOBIEGA UCINANIU GÓRY) */
-  @page {
-    size: A4 portrait;
-    margin: 18mm 12mm 18mm 12mm !important; /* Odsuwa treść od krawędzi, likwidując ucinanie */
-  }
-
-  html, body {
-    background: #ffffff !important;
-    color: #000000 !important;
-    font-size: 11pt;
-    line-height: 1.5;
-  }
-
-  /* 2. UKRYWANIE PRZEWIJAKA, ELEMENTÓW NETLIFY I INTERFEJSU */
-  .no-print, 
-  button, 
-  nav, 
-  footer,
-  .scroll-to-top, 
-  .back-to-top, 
-  #scrollUp,
-  [class*="scroll"], 
-  [id*="scroll"],
-  .netlify-badge, 
-  [class*="netlify"], 
-  [id*="netlify"] {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    height: 0 !important;
-    position: absolute !important;
-    top: -9999px !important;
-  }
-
-  /* 3. WYMUSZENIE KOLORÓW I BIAŁEGO TŁA W SEKCJI ETAPOWANIA INWESTYCJI */
-  * {
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-  
-  /* Wymuszenie czystego tła dla sekcji ze Streszczenia */
-  .sekcja-etapowania, .white-box, section, div {
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-
-  /* 4. LINKI ZACHOWUJĄ KLIKALNOŚĆ I NIE DOSTAJĄ TEKSTOWYCH DOPISKÓW */
-  a {
-    text-decoration: underline !important;
-    color: #0056b3 !important;
-    pointer-events: auto !important; /* Przywraca interaktywność w PDF */
-  }
-  a[href]:after {
-    content: "" !important; /* Blokuje dopisywanie adresu URL w nawiasach obok linku */
-  }
-
-  /* 5. BLOKOWANIE BRZYDKIEGO ŁAMANIA AKAPITÓW I RAMEK */
-  h1, h2, h3, h4 { 
-    break-after: avoid !important; 
-    page-break-after: avoid !important; 
-  }
-  p, table, tr, .box, [class*="pakiet"] { 
-    break-inside: avoid !important; 
-    page-break-inside: avoid !important; 
-  }
+        /* Nowy, niezależny styl dla samego tekstu sygnatury */
+        .signature-text-final {
+            color: #4a5568 !important; /* Twój biznesowy grafit */
+            font-size: 0.95rem !important;
+            font-weight: bold !important;
+            letter-spacing: 0.5px !important;
+            text-align: right !important;
+        }
     </style>
 </head>
 <body>
