@@ -458,18 +458,17 @@
                 content: "" !important;
             }
 
-  /* 4. NATURALNE ŁAMANIE ROZDZIAŁÓW Z LINIAMI HR W PLIKU PDF */
+            /* 4. NATURALNE ŁAMANIE ROZDZIAŁÓW Z LINIAMI HR W PLIKU PDF */
             h1, h2, h3, h4 { 
                 break-after: avoid !important; 
                 page-break-after: avoid !important;
-                margin-top: 0 !important; /* Czyścimy kapryśny margines górny */
+                margin-top: 10px !important; /* Bezpieczny powrót do stabilnych wartości */
+                padding-top: 0 !important;   /* Całkowity reset problematycznych paddingów */
             }
 
-            /* BEZWZGLĘDNY ODDECH DLA PIERWSZEGO NAGŁÓWKA POD LINIA TYTUŁOWĄ */
-            h1 + h2, hr + h2 {
-                display: block !important;  /* Wymusza poprawne renderowanie bloku */
-                padding-top: 25px !important; /* <--- To bezwarunkowo stworzy przerwę z grafiki rekomendowanej */
-                margin-bottom: 20px !important;
+            /* POPRAWKA DLA PDF: Odsunięcie tekstu poprzez dolny margines linii wyżej */
+            h1 {
+                margin-bottom: 55px !important; /* Zwiększenie odstępu pod tytułem głównym, aby odsunąć h2 */
             }
 
             /* Wymuszenie, aby linia HR nad rozdziałem zawsze szła w parze z nagłówkiem */
@@ -477,8 +476,13 @@
                 break-after: avoid !important;
                 page-break-after: avoid !important;
                 margin-top: 0 !important;
-                margin-bottom: 15px !important;
+                margin-bottom: 30px !important; /* Zwiększone z 15px na 30px - odsuwa h2 od linii na dalszych stronach */
                 background: #cbd5e0 !important; 
+            }
+            
+            p, table, tr, .custom-table, .ZINTEGROWANY-PAKIE-INVESTYCYJNY-KLASA, .signature-wrapper, .highlight-box, .toc-box { 
+                break-inside: avoid !important; 
+                page-break-inside: avoid !important; 
             }
             
             
