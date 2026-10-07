@@ -442,19 +442,14 @@
             margin-bottom: 20px !important;
         }
 
-/* --- STYL PODPISU (DLA STRONY I PDF) --- */
-.signature-text-final {
-  display: inline-block;
-  font-size: 10pt !important;  /* Zmniejsza rozmiar, co wysmukla litery */
-  font-weight: 300 !important; /* Wymusza cienką, lekką czcionkę zamiast pogrubienia */
-  color: #444444 !important;   /* Rekomendowany, elegancki ciemny grafit */
-}
-
-.signature-wrapper {
-  text-align: right;           /* Przesuwa podpis do prawej strony */
-  margin-top: 40px;            /* Tworzy ładny odstęp pod Podsumowaniem */
-  margin-bottom: 20px;
-}
+        /* Nowy, niezależny styl dla samego tekstu sygnatury */
+        .signature-text-final {
+            color: #4a5568 !important; /* Twój biznesowy grafit */
+            font-size: 0.95rem !important;
+            font-weight: bold !important;
+            letter-spacing: 0.5px !important;
+            text-align: right !important;
+        }
     </style>
 </head>
 <body>
@@ -1046,7 +1041,7 @@
     
     <div class="signature-wrapper">
         <span class="signature-text-final">Sylwester Fiet &nbsp;|&nbsp; Płock &nbsp;|&nbsp; 2026</span>
-    </div
+    </div>
 
     <div id="lightbox" class="lightbox" onclick="closeLightbox()">
         <span class="lightbox-close">&times;</span>
