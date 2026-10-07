@@ -458,23 +458,27 @@
                 content: "" !important;
             }
 
-       /* 4. NATURALNE ŁAMANIE ROZDZIAŁÓW Z LINIAMI HR W PLIKU PDF */
+/* 4. NATURALNE ŁAMANIE ROZDZIAŁÓW Z LINIAMI HR W PLIKU PDF */
             h1, h2, h3, h4 { 
                 break-after: avoid !important; 
                 page-break-after: avoid !important;
-                margin-top: 10px !important; /* Minimalny, estetyczny odstęp pod linią hr */
-                padding-top: 0 !important;   /* Reset wcześniejszych testowych paddingów */
+                padding-top: 0 !important;   
             }
 
-            /* Wymuszenie, aby linia HR nad rozdziałem zawsze szła w parze z nagłówkiem 
-               i była traktowana jako punkt startowy nowej strony w PDF */
+            /* SPECYFICZNA POPRAWKA DLA PDF: Odsunięcie pierwszego nagłówka od linii tytułowej */
+            h1 + h2, hr + h2 {
+                margin-top: 25px !important; /* Tworzy lekką przerwę (oddech) dokładnie tak jak w wersji rekomendowanej */
+            }
+
+            /* Wymuszenie, aby linia HR nad rozdziałem zawsze szła w parze z nagłówkiem */
             hr {
                 break-after: avoid !important;
                 page-break-after: avoid !important;
                 margin-top: 0 !important;
                 margin-bottom: 15px !important;
-                background: #cbd5e0 !important; /* Zachowanie Twojego oryginalnego koloru linii */
+                background: #cbd5e0 !important; 
             }
+            
             
             p, table, tr, .custom-table, .ZINTEGROWANY-PAKIE-INVESTYCYJNY-KLASA, .signature-wrapper, .highlight-box, .toc-box { 
                 break-inside: avoid !important; 
