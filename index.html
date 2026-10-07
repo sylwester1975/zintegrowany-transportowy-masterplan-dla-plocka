@@ -512,6 +512,17 @@
                 page-break-inside: avoid !important; 
             }
 
+ /* SPECIFIC FIX DLA ROZDZIAŁU 6: Wymuszenie startu od nowej strony A4 w PDF.
+               Zamiast łamać sekcję w połowie, cały rozdział zacznie się czysto na nowej karcie. */
+            #rozdzial-6, 
+            [id*="rozdzia-6"], 
+            [class*="rozdzia-6"],
+            h2[id*="6"], 
+            h2[class*="6"] {
+                break-before: page !important;
+                page-break-before: always !important;
+            }
+            
             /* Odstęp dla podpisu autora w PDF */
             .signature-wrapper {
                 margin-top: 50px !important;
