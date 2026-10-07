@@ -401,12 +401,10 @@
   /* 1. PRZENIESIENIE MARGINESÓW DO @PAGE (ZAPOBIEGA UCINANIU KOLEJNYCH STRON) */
   @page {
     size: A4 portrait;
-    /* Sztywny margines dla każdej strony w PDF - odsuwa tekst od góry i dołu */
-    margin: 18mm 15mm 18mm 15mm !important; 
+    margin: 18mm 15mm 18mm 15mm !important; /* Sztywny, bezpieczny margines na każdej stronie */
   }
 
   body {
-    /* Zerujemy margines body, bo marginesem steruje teraz @page */
     margin: 0 !important; 
     padding: 0 !important;
     background-color: #ffffff !important;
@@ -414,21 +412,20 @@
     print-color-adjust: exact !important;
   }
 
-  /* Wymuszenie oddechu od góry na pierwszej stronie, na wypadek gdyby tytuł był za wysoko */
   h1 {
     padding-top: 10mm !important;
   }
 
-  /* 2. BEZWZGLĘDNE UKRYWANIE ELEMENTÓW INTERFEJSU */
+  /* 2. BEZWZGLĘDNE UKRYWANIE ELEMENTÓW INTERFEJSU (PRZEWIJAK, PRZYCISKI) */
+  /* UWAGA: Usunięto stąd ogólny selektor 'footer', aby nie ukrywać Twojej stopki z linkiem */
   button, 
   .no-print, 
   nav, 
-  footer, 
-  .btn-to-top,       /* Ukrywa Twój przycisk przewijania do góry */
+  .btn-to-top,       
   .btn-original, 
   .btn-download-container, 
   #toast-share,
-  [class*="rysunek"], /* Ukrywa napis i ikonę o rysunku */
+  [class*="rysunek"], 
   [id*="rysunek"],
   [class*="zoom"],
   [id*="zoom"] {
@@ -438,7 +435,19 @@
     height: 0 !important;
   }
 
-  /* 3. ZABEZPIECZENIE PRZED BRZYDKIM ŁAMANIEM TEKSTU */
+  /* 3. WYMUSZENIE INTERAKTYWNYCH I KLIKALNYCH LINKÓW W CYFROWYM PDF */
+  a, .toc-box a {
+    color: #2c5282 !important;     /* Przywrócenie Twojego błękitu dla odnośników */
+    text-decoration: underline !important;
+    pointer-events: auto !important; /* Przywraca pełną interaktywność i klikalność w PDF */
+    cursor: pointer !important;
+  }
+  /* Blokada dopisywania surowego adresu URL w nawiasach obok tekstu linku */
+  a[href]:after {
+    content: "" !important;
+  }
+
+  /* 4. ZABEZPIECZENIE PRZED BRZYDKIM ŁAMANIEM TEKSTU */
   h1, h2, h3 { 
     break-after: avoid !important; 
     page-break-after: avoid !important; 
@@ -453,6 +462,25 @@
   .signature-wrapper {
     margin-top: 50px !important;
     clear: both !important;
+  }
+
+  /* 5. TWOJA ORYGINALNA STOPKA DRUKU Z LINKIEM NA SAMYM DOLE DOKUMENTU */
+  .print-footer {
+    display: block !important;
+    position: relative !important;
+    margin-top: 80px !important;
+    padding-top: 15px !important;
+    border-top: 2px solid #1a365d !important; /* Ciemnoniebieska linia odcinająca */
+    text-align: center !important;
+    font-size: 0.9rem !important;
+    color: #2d3748 !important;
+    font-weight: bold !important;
+    background-color: #ffffff !important;
+    width: 100% !important;
+  }
+  .print-footer a {
+    color: #1a365d !important; /* Kolor linku w stopce */
+    text-decoration: none !important;
   }
 }
    /* --- NOWY STYL PODPISU (SMUKŁY I BLOKUJĄCY IKONĘ) --- */
