@@ -458,16 +458,18 @@
                 content: "" !important;
             }
 
-/* 4. NATURALNE ŁAMANIE ROZDZIAŁÓW Z LINIAMI HR W PLIKU PDF */
+  /* 4. NATURALNE ŁAMANIE ROZDZIAŁÓW Z LINIAMI HR W PLIKU PDF */
             h1, h2, h3, h4 { 
                 break-after: avoid !important; 
                 page-break-after: avoid !important;
-                padding-top: 0 !important;   
+                margin-top: 0 !important; /* Czyścimy kapryśny margines górny */
             }
 
-            /* SPECYFICZNA POPRAWKA DLA PDF: Odsunięcie pierwszego nagłówka od linii tytułowej */
+            /* BEZWZGLĘDNY ODDECH DLA PIERWSZEGO NAGŁÓWKA POD LINIA TYTUŁOWĄ */
             h1 + h2, hr + h2 {
-                margin-top: 40px !important; /* Tworzy lekką przerwę (oddech) dokładnie tak jak w wersji rekomendowanej */
+                display: block !important;  /* Wymusza poprawne renderowanie bloku */
+                padding-top: 25px !important; /* <--- To bezwarunkowo stworzy przerwę z grafiki rekomendowanej */
+                margin-bottom: 20px !important;
             }
 
             /* Wymuszenie, aby linia HR nad rozdziałem zawsze szła w parze z nagłówkiem */
