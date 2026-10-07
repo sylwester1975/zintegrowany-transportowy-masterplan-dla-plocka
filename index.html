@@ -459,11 +459,10 @@
             }
 
             /* 4. ZABEZPIECZENIE PRZED BRZYDKIM ŁAMANIEM TEKSTU */
-            h1, h2, h3 { 
+            h1, h2, h3, h4 { 
                 break-after: avoid !important; 
-                page-break-after: avoid !important; 
+                page-break-after: avoid !important; /* Nagłówek nigdy nie zostanie sam na dole strony */
             }
-            
             p, table, tr, .custom-table, .ZINTEGROWANY-PAKIE-INVESTYCYJNY-KLASA, .signature-wrapper, .highlight-box, .toc-box { 
                 break-inside: avoid !important; 
                 page-break-inside: avoid !important; 
