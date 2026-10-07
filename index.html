@@ -458,18 +458,20 @@
                 content: "" !important;
             }
 
-            /* 4. ZABEZPIECZENIE PRZED BRZYDKIM ŁAMANIEM TEKSTU */
+            /* 4. ZABEZPIECZENIE PRZED ŁAMANIEM STRON I FIX PRZEWIJANIA W PDF */
             h1, h2, h3, h4 { 
                 break-after: avoid !important; 
-                page-break-after: avoid !important; /* Nagłówek nigdy nie zostanie sam na dole strony */
-            }
-            /* 4.1. KOREKTA POZYCJONOWANIA TEKSTU NA NOWYCH STRONACH PDF */
-            h1, h2, h3, h4, p, .highlight-box, .toc-box, table {
-                /* Zerujemy górny margines w PDF, aby treść nie zjeżdżała za nisko */
-                margin-top: 0 !important; 
+                page-break-after: avoid !important;
                 
-                /* Odstęp zostawiamy tylko na dole, aby elementy nie kleiły się do siebie */
-                margin-bottom: 15px !important; 
+                /* TRIK DLA LINKÓW W PDF: Tworzymy niewidzialną poduszkę powietrzną o grubości 20mm. 
+                   Dzięki temu po kliknięciu w link w PDF, nagłówek zatrzyma się idealnie pod marginesem kartki! */
+                padding-top: 20mm !important;
+                margin-top: -20mm !important; 
+            }
+            
+            p, table, tr, .custom-table, .ZINTEGROWANY-PAKIE-INVESTYCYJNY-KLASA, .signature-wrapper, .highlight-box, .toc-box { 
+                break-inside: avoid !important; 
+                page-break-inside: avoid !important; 
             }
             
             /* Przywracamy estetyczny wewnętrzny oddech dla boksów i tabel */
