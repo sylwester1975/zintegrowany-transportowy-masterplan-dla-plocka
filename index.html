@@ -401,23 +401,28 @@
            JEDNE, CZYSTE I BEZBŁĘDNE REGUŁY DLA GENEROWANIA PLIKU PDF I DRUKU
            ========================================================================== */
         @media print {
-            /* 1. RESET MARGINESÓW @PAGE - ODBLOKOWUJE KLIKALNOŚĆ LINKÓW W CYFROWYM PDF */
+            /* 1. BEZPIECZNY MARGINES DLA KAŻDEJ STRONY W DOKUMENCIE PDF (ZAPOBIEGA UCINANIU) */
             @page {
                 size: A4 portrait;
-                margin: 0mm !important; 
+                margin: 20mm 15mm 20mm 15mm !important; /* Równe odstępy u góry i dołu na każdej stronie */
+            }
+
+            /* Wymuszenie czystego, białego tła wyłącznie wewnątrz struktury pliku PDF */
+            html {
+                background-color: #ffffff !important;
+                -webkit-print-color-adjust: exact !important; /* Gwarancja nasyconych kolorów */
+                print-color-adjust: exact !important;
+                position: relative !important; /* Odblokowuje interaktywność linków pod maską marginesu */
             }
 
             body {
-                /* Bezpieczne odsunięcie treści od krawędzi kartki w pliku PDF */
-                padding-top: 22mm !important; 
-                padding-bottom: 22mm !important; 
-                padding-left: 18mm !important; 
-                padding-right: 18mm !important; 
-                
+                background: transparent !important; /* Zapobiega zalewaniu białym kolorem całej strony WWW */
+                color: #333333 !important;
                 margin: 0 !important;
-                background-color: #ffffff !important; /* Czysta biel WYŁĄCZNIE na wydruku PDF */
-                -webkit-print-color-adjust: exact !important; /* Gwarancja nasyconych teł i grafik */
-                print-color-adjust: exact !important;
+                padding: 0 !important;
+                font-size: 11pt;
+                line-height: 1.6;
+                position: relative !important;
             }
 
             /* 2. BEZWZGLĘDNE UKRYWANIE ELEMENTÓW INTERFEJSU (PRZEWIJAK, PRZYCISKI) */
@@ -438,12 +443,14 @@
                 height: 0 !important;
             }
 
-            /* 3. FORMATOWANIE LINKÓW (KLIKALNOŚĆ, KOLOR BIZNESOWY, BRAK PODKREŚLEŃ) */
-            a, .toc-box a {
+            /* 3. FORMATOWANIE LINKÓW (BRAK PODKREŚLEŃ, BIZNESOWY BŁĘKIT, KLIKALNOŚĆ) */
+            a, .toc-box a, .print-footer a {
                 color: #2c5282 !important;       /* Twój oryginalny, elegancki błękit */
                 text-decoration: none !important; /* USUNIĘCIE PODKREŚLEŃ W CAŁYM DOKUMENCIE PDF */
-                pointer-events: auto !important;   /* Przywrócenie interakcji cyfrowej po pobraniu */
+                pointer-events: auto !important;   /* Wymuszenie interakcji cyfrowej po pobraniu */
                 cursor: pointer !important;
+                position: relative !important;    /* Wyciąga linki nad warstwę maskującą Chrome */
+                z-index: 100 !important;
             }
             
             /* Wyłączenie domyślnego dopisywania adresu URL w nawiasach obok tekstu przez przeglądarkę */
