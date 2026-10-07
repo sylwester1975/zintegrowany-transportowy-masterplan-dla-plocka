@@ -397,39 +397,143 @@
             z-index: 10000;
             pointer-events: none;
         }
-/* Jedne, czyste i bezbłędne reguły dla generowania pliku PDF i druku */
+/* ==========================================================================
+           JEDNE, CZYSTE I BEZBŁĘDNE REGUŁY DLA GENEROWANIA PLIKU PDF I DRUKU
+           ========================================================================== */
         @media print {
-            .btn-original, .btn-to-top, button, #toast-share, .btn-download-container {
-                display: none !important;
+            /* 1. USTAWIEŃIE STRONY A4 I BEZPIECZNYCH MARGINESÓW (ZAPOBIEGA UCINANIU GÓRY) */
+            @page {
+                size: A4 portrait;
+                margin: 20mm 15mm 20mm 15mm !important; /* Odsuwa treść od krawędzi, likwidując ucinanie */
             }
+
+            /* Wymuszenie zachowania kolorystyki tła i tekstów dla całego dokumentu */
+            *, html, body, div, section, p, span {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
             body {
-                background-color: white !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
+                background-color: #ffffff !important;
+                color: #333333 !important; /* Przywrócenie Twojego antracytu */
+                font-size: 11pt;
+                line-height: 1.6;
+                padding: 0 !important;
+                margin: 0 !important;
             }
-            .highlight-box, .toc-box {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-                background-color: #ebf8ff !important;
-                border-left: 4px solid #3182ce !important;
+
+            /* 2. UKRYWANIE ELEMENTÓW INTERFEJSU (PRZEWIJAK, PRZYCISKI, INTERFEJSY) */
+            .btn-original, 
+            .btn-to-top, 
+            button, 
+            #toast-share, 
+            .btn-download-container, 
+            nav, 
+            footer,
+            .scroll-to-top, 
+            .back-to-top, 
+            #scrollUp,
+            [class*="scroll"], 
+            [id*="scroll"],
+            [class*="rysunek"], 
+            [id*="rysunek"],
+            [class*="zoom"], 
+            [id*="zoom"] {
+                display: none !important;
+                visibility: hidden !important;
+                opacity: 0 !important;
+                height: 0 !important;
+                position: absolute !important;
+                top: -9999px !important;
             }
-            .author-signature {
+
+            /* 3. PEŁNE ODWZOROWANIE TWÓICH KOLORÓW W PDF */
+            h1 {
+                color: #1a365d !important; /* Granat królewski */
+                border-bottom: 3px solid #1a365d !important;
+            }
+            h2, .toc-title {
+                color: #2c5282 !important; /* Błękit */
+                border-bottom: 1px solid #e2e8f0 !important;
+            }
+            h3 {
+                color: #4a5568 !important; /* Inżynieryjny grafit */
+            }
+            h4, .highlight-box strong {
+                color: #2d3748 !important; /* Głęboki antracyt */
+            }
+
+            /* Boksy wyróżniające i Spis treści */
+            .highlight-box {
+                background-color: #ebf8ff !important; /* Oryginalny jasnoniebieski */
+                border-left: 4px solid #3182ce !important; /* Niebieska pionowa kreska */
+            }
+            .toc-box {
+                background-color: #f7fafc !important;
+                border: 1px solid #e2e8f0 !important;
+            }
+            .toc-box a {
+                color: #2c5282 !important;
+                pointer-events: auto !important; /* Zachowanie klikalności linków w PDF */
+            }
+
+            /* Tabela Finansowa i siatka wewnętrzna */
+            .custom-table {
+                border: 2px solid #4a5568 !important;
+            }
+            .custom-table th {
+                background-color: #f2f2f2 !important;
+                color: #2c5282 !important;
+            }
+            .custom-table th, .custom-table td {
+                border: 1px solid #4a5568 !important;
+            }
+            .custom-table tr.total-row {
+                background-color: #e6f7ff !important; /* Pastelowy błękit podsumowania */
+                color: #1a365d !important;
+            }
+            .custom-table td strong {
+                color: #000000 !important;
+            }
+
+            /* WYMUSZENIE INTERAKTYWNYCH LINKÓW W PDF */
+            a {
+                color: #2b6cb0 !important;
+                text-decoration: underline !important;
+                pointer-events: auto !important;
+            }
+            a[href]:after {
+                content: "" !important; /* Blokuje dopisywanie adresu URL w nawiasach obok linku */
+            }
+
+            /* 4. BLOKOWANIE BRZYDKIEGO ŁAMANIA ELEMENTÓW */
+            h1, h2, h3, h4 { 
+                break-after: avoid !important; 
+                page-break-after: avoid !important; 
+            }
+            p, table, tr, img, .custom-table, .highlight-box, .toc-box, .signature-wrapper { 
+                break-inside: avoid !important; 
+                page-break-inside: avoid !important; 
+            }
+
+            /* Stopka autorska w PDF */
+            .signature-wrapper {
                 margin-top: 60px !important;
-                page-break-inside: avoid;
+                clear: both !important;
             }
             
-            /* KOREKTA: Zwiększamy margines, aby zepchnąć stopkę z adresem URL niżej */
+            /* Twoja oryginalna stopka końcowa */
             .print-footer {
                 display: block !important;
                 position: relative !important;
-                margin-top: 100px !important; /* Zwiększono z 40px na 100px dla lepszego oddechu */
+                margin-top: 80px !important;
                 padding-top: 15px !important;
-                border-top: 2px solid #1a365d !important; /* Ciemnoniebieska linia odcinająca */
+                border-top: 2px solid #1a365d !important;
                 text-align: center !important;
                 font-size: 0.9rem !important;
                 color: #2d3748 !important;
                 font-weight: bold !important;
-                background-color: white !important;
+                background-color: #ffffff !important;
                 width: 100% !important;
             }
         }
