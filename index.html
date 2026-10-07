@@ -400,25 +400,33 @@
 
                 /* Jedne, czyste i bezbłędne reguły dla generowania pliku PDF i druku */
         @media print {
-            .btn-original, .btn-to-top, button, #toast-share, .btn-download-container {
-                display: none !important;
-            }
-            body {
-                background-color: white !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .highlight-box, .toc-box {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-                background-color: #ebf8ff !important;
-                border-left: 4px solid #3182ce !important;
-            }
-            .author-signature {
-                margin-top: 60px !important;
-                page-break-inside: avoid;
-            }
-            
+  @page {
+    size: A4 portrait;
+    margin: 0mm; /* To całkowicie usuwa adres URL i datę z telefonu */
+  }
+
+  body {
+    margin: 20mm 15mm 20mm 15mm !important; /* Bezpieczny margines tekstu od krawędzi kartki */
+    -webkit-print-color-adjust: exact !important; /* Wymusza drukowanie niebieskich teł na smartfonie */
+    print-color-adjust: exact !important;
+  }
+
+  /* Tutaj wpisz elementy, które mają ZNIKNĄĆ na pliku PDF (np. przycisk pobierania) */
+  button, .no-print, nav, footer {
+    display: none !important;
+  }
+
+  /* Zapobieganie brzydkiemu łamaniu tekstu */
+  h1, h2, h3 { 
+    break-after: avoid !important; 
+    page-break-after: avoid !important; 
+  }
+  
+  p, table, .ZINTEGROWANY-PAKIE-INVESTYCYJNY-KLASA { 
+    break-inside: avoid !important; 
+    page-break-inside: avoid !important; 
+  }
+}
             /* KOREKTA: Zwiększamy margines, aby zepchnąć stopkę z adresem URL niżej */
             .print-footer {
                 display: block !important;
