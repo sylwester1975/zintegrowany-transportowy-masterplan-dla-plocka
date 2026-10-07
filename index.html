@@ -458,15 +458,20 @@
                 content: "" !important;
             }
 
-            /* 4. ZABEZPIECZENIE PRZED ŁAMANIEM STRON I FIX PRZEWIJANIA W PDF */
+         /* 4. ZABEZPIECZENIE PRZED ŁAMANIEM STRON I FIX PRZEWIJANIA W PDF */
             h1, h2, h3, h4 { 
                 break-after: avoid !important; 
                 page-break-after: avoid !important;
                 
-                /* TRIK DLA LINKÓW W PDF: Tworzymy niewidzialną poduszkę powietrzną o grubości 20mm. 
-                   Dzięki temu po kliknięciu w link w PDF, nagłówek zatrzyma się idealnie pod marginesem kartki! */
-                padding-top: 20mm !important;
-                margin-top: -20mm !important; 
+                /* ODWROTNY TRIK DLA PDF: Ujemny padding i dodatni margines zepchną 
+                   punkt celowania linku w dół, wyciągając tytuł spod marginesu strony! */
+                padding-top: -20mm !important;
+                margin-top: 20mm !important; 
+            }
+            
+            p, table, tr, .custom-table, .ZINTEGROWANY-PAKIE-INVESTYCYJNY-KLASA, .signature-wrapper, .highlight-box, .toc-box { 
+                break-inside: avoid !important; 
+                page-break-inside: avoid !important; 
             }
             
             p, table, tr, .custom-table, .ZINTEGROWANY-PAKIE-INVESTYCYJNY-KLASA, .signature-wrapper, .highlight-box, .toc-box { 
