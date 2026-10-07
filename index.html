@@ -405,27 +405,23 @@
            JEDNE, CZYSTE I BEZBŁĘDNE REGUŁY DLA GENEROWANIA PLIKU PDF I DRUKU
            ========================================================================== */
         @media print {
-            /* 1. BEZPIECZNY MARGINES DLA KAŻDEJ STRONY W DOKUMENCIE PDF (ZAPOBIEGA UCINANIU) */
+            /* 1. BEZPIECZNY MARGINES DLA KAŻDEJ STRONY W DOKUMENCIE PDF */
             @page {
                 size: A4 portrait;
-                margin: 20mm 15mm 20mm 15mm !important; /* Równe odstępy u góry i dołu na każdej stronie */
+                margin: 20mm 15mm 20mm 15mm !important; /* Odsuwa treść od góry i dołu KAŻDEJ strony */
             }
 
-            /* Wymuszenie czystego, białego tła wyłącznie wewnątrz struktury pliku PDF */
-            html {
-                background-color: #ffffff !important;
-                -webkit-print-color-adjust: exact !important; /* Gwarancja nasyconych kolorów */
-                print-color-adjust: exact !important;
-                position: relative !important; /* Odblokowuje interaktywność linków pod maską marginesu */
-            }
-
-            body {
-                background: transparent !important; /* Zapobiega zalewaniu białym kolorem całej strony WWW */
+            html, body {
+                background-color: #ffffff !important; /* Czysta biel WYŁĄCZNIE na wydruku PDF */
                 color: #333333 !important;
                 margin: 0 !important;
                 padding: 0 !important;
                 font-size: 11pt;
                 line-height: 1.6;
+                -webkit-print-color-adjust: exact !important; /* Gwarancja nasyconych teł i grafik */
+                print-color-adjust: exact !important;
+                
+                /* KLUCZOWE: Wymuszenie relatywnego pozycjonowania odblokowuje linki pod maską marginesu @page */
                 position: relative !important;
             }
 
@@ -447,13 +443,13 @@
                 height: 0 !important;
             }
 
-            /* 3. FORMATOWANIE LINKÓW (BRAK PODKREŚLEŃ, BIZNESOWY BŁĘKIT, KLIKALNOŚĆ) */
+            /* 3. FORMATOWANIE LINKÓW (ZACHOWANIE KLIKALNOŚCI I KROJU CZCIONKI, BRAK PODKREŚLEŃ) */
             a, .toc-box a, .print-footer a {
                 color: #2c5282 !important;       /* Twój oryginalny, elegancki błękit */
                 text-decoration: none !important; /* USUNIĘCIE PODKREŚLEŃ W CAŁYM DOKUMENCIE PDF */
                 pointer-events: auto !important;   /* Wymuszenie interakcji cyfrowej po pobraniu */
                 cursor: pointer !important;
-                position: relative !important;    /* Wyciąga linki nad warstwę maskującą Chrome */
+                position: relative !important;    /* Wyciąga linki nad systemową maskę marginesu */
                 z-index: 100 !important;
             }
             
