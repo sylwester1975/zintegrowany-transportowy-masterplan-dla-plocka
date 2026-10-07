@@ -458,15 +458,22 @@
                 content: "" !important;
             }
 
-         /* 4. ZABEZPIECZENIE PRZED ŁAMANIEM STRON I FIX PRZEWIJANIA W PDF */
+       /* 4. NATURALNE ŁAMANIE ROZDZIAŁÓW Z LINIAMI HR W PLIKU PDF */
             h1, h2, h3, h4 { 
                 break-after: avoid !important; 
                 page-break-after: avoid !important;
-                
-                /* ODWROTNY TRIK DLA PDF: Ujemny padding i dodatni margines zepchną 
-                   punkt celowania linku w dół, wyciągając tytuł spod marginesu strony! */
-                padding-top: -20mm !important;
-                margin-top: 20mm !important; 
+                margin-top: 10px !important; /* Minimalny, estetyczny odstęp pod linią hr */
+                padding-top: 0 !important;   /* Reset wcześniejszych testowych paddingów */
+            }
+
+            /* Wymuszenie, aby linia HR nad rozdziałem zawsze szła w parze z nagłówkiem 
+               i była traktowana jako punkt startowy nowej strony w PDF */
+            hr {
+                break-after: avoid !important;
+                page-break-after: avoid !important;
+                margin-top: 0 !important;
+                margin-bottom: 15px !important;
+                background: #cbd5e0 !important; /* Zachowanie Twojego oryginalnego koloru linii */
             }
             
             p, table, tr, .custom-table, .ZINTEGROWANY-PAKIE-INVESTYCYJNY-KLASA, .signature-wrapper, .highlight-box, .toc-box { 
