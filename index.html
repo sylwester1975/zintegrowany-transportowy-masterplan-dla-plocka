@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>zintegrowany-transportowy-masterplan-dla-plocka</title>
-    <style>
+<style>
         /* ==========================================================================
-           GLOBALNE PARAMETRY TEKSTU I INTERLINII (Executive Navy & Steel)
+           1. PARAMETRY GLOBALNE I TEKSTOWE (EKRAN)
            ========================================================================== */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -18,7 +18,6 @@
             background-color: #f8f9fa;
         }
         
-        /* Tytuł Główny - Granat królewski (Navy Blue) */
         h1 {
             color: #1a365d;
             font-size: 2.2rem;
@@ -29,7 +28,6 @@
             line-height: 1.3;
         }
         
-        /* Główne Rozdziały oraz Streszczenie Menedżerskie */
         h2 {
             color: #2c5282;
             font-size: 1.6rem;
@@ -39,7 +37,6 @@
             padding-bottom: 8px;
         }
         
-        /* Podrozdziały (2.1, 3.1 itd.) - Inżynieryjny grafit stalowy */
         h3 {
             color: #4a5568;
             font-size: 1.25rem;
@@ -47,7 +44,6 @@
             margin-bottom: 15px;
         }
         
-        /* Śródtytuły najgłębsze (3.4.1 itd.) - Głęboki antracyt */
         h4 {
             color: #2d3748;
             font-weight: bold;
@@ -56,7 +52,7 @@
             margin-bottom: 15px;
         }
         
-         p {
+        p {
             margin-bottom: 25px;
             text-align: justify;
             text-align-last: left;
@@ -73,10 +69,10 @@
         }
 
         /* ==========================================================================
-           BOKS WYRÓŻNIAJĄCY W STRESZCZENIU (FILARY STRATEGICZNE)
+           2. KOMPONENTY BLOKOWE I WYSKAKUJĄCE (EKRAN)
            ========================================================================== */
         .highlight-box {
-            background-color: #e6f7ff;
+            background-color: #e6f7ff; /* Żywy, spójny niebieski dla obu elementów */
             border-left: 4px solid #3182ce;
             padding: 20px;
             margin: 30px 0;
@@ -96,14 +92,10 @@
         .highlight-box li:last-child {
             margin-bottom: 0 !important;
         }
-        /* Wymuszenie ciemnoniebieskiego koloru dla haseł startowych filarów */
         .highlight-box strong {
             color: #2c5282 !important;
         }
 
-        /* ==========================================================================
-           BOKS NAWIGACYJNY (SPIS TREŚCI I WYKAZ RYSUNKÓW)
-           ========================================================================== */
         .toc-box {
             background-color: #f7fafc;
             border: 1px solid #e2e8f0;
@@ -111,16 +103,12 @@
             padding: 20px;
             margin: 35px 0;
         }
-        
-        /* Gwarancja niebieskiego koloru dla nagłówków SPIS TREŚCI i WYKAZ RYSUNKÓW */
         .toc-title {
             font-weight: bold;
             color: #2c5282 !important;
             margin-bottom: 12px;
             font-size: 1.1rem;
         }
-        
-        /* Główny kontener spisu treści i podlist */
         .toc-container {
             margin-top: 20px;
             margin-bottom: 0;
@@ -139,23 +127,17 @@
         .toc-item-sub:last-child {
             margin-bottom: 0;
         }
-        
-        /* STAN SPOCZYNKU: Spis i Wykaz otrzymują kolor tytułów rozdziałów #2c5282 */
         .toc-box a {
             color: #2c5282 !important;
             text-decoration: none !important;
             font-weight: inherit;
             transition: color 0.2s ease, text-decoration-color 0.2s ease;
         }
-        
-        /* STAN PO NAJECHANIU MYSZKĄ: Płynne ściemnienie do granatu #1a365d + granatowa kreska */
         .toc-box a:hover {
             color: #1a365d !important;
             text-decoration: underline !important;
             text-decoration-color: #1a365d !important;
         }
-        
-        /* Wykaz Rysunków wewnątrz boksu - wymuszenie estetycznych kropek */
         .toc-box ul {
             list-style-type: disc !important;
             padding-left: 20px !important;
@@ -172,7 +154,7 @@
         }
 
         /* ==========================================================================
-           SEKCJA MAP, PASÓW RUCHU I PRZYCISKÓW (LIGHTBOX)
+           3. MEDIA, GALERIE I PANEL LINKÓW (EKRAN)
            ========================================================================== */
         .map-section {
             margin: 35px 0;
@@ -268,11 +250,9 @@
             cursor: pointer;
         }
         
-        /* Płynne przewijanie całej strony */
         html {
             scroll-behavior: smooth;
         }
-        /* Przycisk Przewiń do góry */
         .btn-to-top {
             position: fixed;
             bottom: 20px;
@@ -297,7 +277,7 @@
         }
 
         /* ==========================================================================
-           DŁUGIE LISTY BEZPUNKTOWE DO LEWEJ KRAWĘDZI (Rozdziały 4.2 i 8)
+           4. STRUKTURY SPECJALISTYCZNE I LISTY (EKRAN)
            ========================================================================== */
         .clean-left-list {
             list-style-type: none !important;
@@ -314,22 +294,18 @@
             margin-bottom: 0 !important;
         }
         
-                /* Krótkie wyliczenia z zachowaniem kropek (Fazy realizacyjne i ochrona GWPK) */
         .phase-list {
             padding-left: 20px !important;
             margin-top: 15px;
-            margin-bottom: 25px !important; /* KOREKTA: Dodano 25px oddechu od tekstu poniżej */
+            margin-bottom: 25px !important;
         }
         .phase-list li {
             margin-bottom: 15px !important;
         }
         .phase-list li:last-child {
-            margin-bottom: 0 !important; /* Ostatni punkt nie dubluje marginesu */
+            margin-bottom: 0 !important;
         }
 
-        /* ==========================================================================
-           ZABEZPIECZENIE I KOLORYSTYKA TABELI FINANSOWEJ (CapEx)
-           ========================================================================== */
         .table-container {
             overflow-x: auto;
             margin: 25px 0;
@@ -339,227 +315,174 @@
             width: 100%;
             text-align: left;
             font-family: inherit;
-            border: 2px solid #4a5568; /* Grafitowa rama zewnętrzna */
+            border: 2px solid #4a5568;
         }
         .custom-table th, .custom-table td {
-            border: 1px solid #4a5568; /* Grafitowa siatka wewnętrzna */
+            border: 1px solid #4a5568;
             padding: 12px 10px;
             line-height: 1.5;
         }
         .custom-table th {
             background-color: #f2f2f2;
-            color: #2c5282; /* Nagłówki tabeli niebieskie */
+            color: #2c5282;
             font-weight: bold;
         }
-        
-        /* Gwarancja głębokiej czerni dla nazw filarów w pierwszej kolumnie tabeli */
         .custom-table td strong {
             color: #000000 !important;
         }
-        
         .custom-table tr.total-row {
-            background-color: #e6f7ff; /* Pastelowy błękit podsumowania */
-            color: #1a365d; /* Wynik finansowy granatowy */
+            background-color: #e6f7ff;
+            color: #1a365d;
             font-weight: bold;
         }
         .custom-table td:nth-child(3) {
-            white-space: nowrap; /* Blokada rozbijania kwot */
-        }
-
-        /* ==========================================================================
-           OFICJALNA STOPKA AUTORSKA (NA SAMYM DOLE STRONY)
-           ========================================================================== */
-        .author-signature {
-            text-align: right;
-            color: #4a5568; /* Podpis inżynieryjno-grafitowy */
-            font-size: 0.95rem;
-            font-weight: bold;
-            margin-top: 50px;
-            margin-bottom: 20px;
-            letter-spacing: 0.5px;
-        }
-
-        /* Powiadomienie Toast */
-        #toast-share {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #2d3748;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: 10000;
-            pointer-events: none;
-        }
-        h1, h2, h3, h4 {
-    scroll-margin-top: 10px !important; /* Zatrzymuje przewijanie z bezpiecznym marginesem od góry */
+white-space: nowrap;
 }
-/* Na stronie internetowej ten element jest niewidoczny i nie zajmuje miejsca */
+.author-signature {
+text-align: right;
+color: #4a5568;
+font-size: 0.95rem;
+font-weight: bold;
+margin-top: 50px;
+margin-bottom: 20px;
+letter-spacing: 0.5px;
+}
+#toast-share {
+position: fixed;
+bottom: 30px;
+left: 50%;
+transform: translateX(-50%);
+background-color: #2d3748;
+color: white;
+padding: 12px 24px;
+border-radius: 8px;
+font-size: 0.9rem;
+font-weight: bold;
+box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+opacity: 0;
+transition: opacity 0.3s ease;
+z-index: 10000;
+pointer-events: none;
+}
+h1, h2, h3, h4 {
+scroll-margin-top: 10px !important; /* Komfortowe przewijanie */
+}
 .page-break {
-    display: none;
+display: none;
 }
-        /* ==========================================================================
-           JEDNE, CZYSTE I BEZBŁĘDNE REGUŁY DLA GENEROWANIA PLIKU PDF I DRUKU
-           ========================================================================== */
-        @media print {
-            /* 1. BEZPIECZNY MARGINES DLA KAŻDEJ STRONY W DOKUMENCIE PDF */
-            @page {
-                size: A4 portrait;
-                margin: 20mm 15mm 20mm 15mm !important; /* Odsuwa treść od góry i dołu KAŻDEJ strony */
-            }
-
-            html, body {
-                background-color: #ffffff !important; /* Czysta biel WYŁĄCZNIE na wydruku PDF */
-                color: #333333 !important;
-                margin: 0 !important;
-                padding: 0 !important;
-                font-size: 11pt;
-                line-height: 1.6;
-                -webkit-print-color-adjust: exact !important; /* Gwarancja nasyconych teł i grafik */
-                print-color-adjust: exact !important;
-                
-                /* KLUCZOWE: Wymuszenie relatywnego pozycjonowania odblokowuje linki pod maską marginesu @page */
-                position: relative !important;
-            }
-
-            /* 2. BEZWZGLĘDNE UKRYWANIE ELEMENTÓW INTERFEJSU (PRZEWIJAK, PRZYCISKI) */
-            button, 
-            .no-print, 
-            nav, 
-            .btn-to-top,       
-            .btn-original, 
-            .btn-download-container, 
-            #toast-share,
-            [class*="rysunek"], 
-            [id*="rysunek"],
-            [class*="zoom"], 
-            [id*="zoom"] {
-                display: none !important;
-                visibility: hidden !important;
-                opacity: 0 !important;
-                height: 0 !important;
-            }
-
-            /* 3. FORMATOWANIE LINKÓW (ZACHOWANIE KLIKALNOŚCI I KROJU CZCIONKI, BRAK PODKREŚLEŃ) */
-            a, .toc-box a, .print-footer a {
-                color: #2c5282 !important;       /* Twój oryginalny, elegancki błękit */
-                text-decoration: none !important; /* USUNIĘCIE PODKREŚLEŃ W CAŁYM DOKUMENCIE PDF */
-                pointer-events: auto !important;   /* Wymuszenie interakcji cyfrowej po pobraniu */
-                cursor: pointer !important;
-                position: relative !important;    /* Wyciąga linki nad systemową maskę marginesu */
-                z-index: 100 !important;
-            }
-            
-            /* Wyłączenie domyślnego dopisywania adresu URL w nawiasach obok tekstu przez przeglądarkę */
-            a[href]:after {
-                content: "" !important;
-            }
-
-/* 4. NATURALNE ŁAMANIE ROZDZIAŁÓW Z LINIAMI HR W PLIKU PDF */
-            h1, h2, h3, h4 { 
-                break-after: avoid !important; 
-                page-break-after: avoid !important;
-                box-sizing: border-box !important;
-                
-                /* Blokada rozrywania samego nagłówka */
-                break-inside: avoid !important;
-                page-break-inside: avoid !important;
-            }
-
-            /* Regularne nagłówki h2 i h3 otrzymują standardowy, bezpieczny oddech */
-            h2, h3 {
-                margin-top: 10px !important;    
-                padding-top: 25px !important;   /* Gwarancja, że podpunkty (np. 4.3) idealnie się odkleją */
-                margin-bottom: 15px !important; 
-            }
-
-            /* Specyficzna poprawka dla pierwszej strony PDF: odstęp Streszczenia pod tytułem h1 */
-            h1 + h2 {
-                margin-top: 55px !important;    
-                padding-top: 0 !important;      
-            }
-
-            /* ULEPSZONA REGUŁA DLA LINII HR DOKUMENTU: 
-               Teraz linia oraz nagłówek pod nią tworzą nierozerwalną całość. 
-               Jeśli nie mieszczą się na dole strony, przeglądarka przeniesie je RAZEM na nową kartę! */
-            hr {
-                break-after: avoid !important;
-                page-break-after: avoid !important;
-                break-inside: avoid !important;
-                page-break-inside: avoid !important;
-                margin-top: 0 !important;
-                margin-bottom: 15px !important;
-                background: #cbd5e0 !important; 
-            }
-            
-            p, table, tr, .custom-table, .ZINTEGROWANY-PAKIE-INVESTYCYJNY-KLASA, .signature-wrapper, .highlight-box, .toc-box { 
-                break-inside: avoid !important; 
-                page-break-inside: avoid !important; 
-            }
-            
-            /* Przywracamy estetyczny wewnętrzny oddech dla boksów i tabel */
-            .highlight-box, .toc-box {
-                padding: 15px !important;
-            }
-
-            /* AKTYWACJA FIZYCZNEGO ŁAMANIA STRONY W PLIKU PDF */
-            .page-break {
-                display: block !important;
-                clear: both !important;
-                break-before: page !important;
-                page-break-before: always !important; /* Bezwarunkowo wymusza nową kartę A4 w PDF */
-                height: 0 !important;
-                margin: 0 !important;
-                padding: 0 !important;
-            }
-            
-            /* Odstęp dla podpisu autora w PDF */
-            .signature-wrapper {
-                margin-top: 50px !important;
-                clear: both !important;
-            }
-
-            /* 5. TWOJA ORYGINALNA STOPKA DRUKU Z LINKIEM NA SAMYM DOLE DOKUMENTU */
-            .print-footer {
-                display: block !important;
-                position: relative !important;
-                margin-top: 80px !important;
-                padding-top: 15px !important;
-                border-top: 2px solid #1a365d !important; /* Twoja ciemnoniebieska linia */
-                text-align: center !important;
-                font-size: 0.9rem !important;
-                color: #2d3748 !important;
-                font-weight: bold !important;
-                background-color: #ffffff !important;
-                width: 100% !important;
-            }
-            
-            .print-footer a {
-                color: #1a365d !important;       /* Głęboki granat dla linku w stopce */
-                text-decoration: none !important; /* Brak podkreślenia w stopce */
-            }
-        }
-   /* --- NOWY STYL PODPISU (SMUKŁY I BLOKUJĄCY IKONĘ) --- */
 .signature-text-final {
-  display: inline-block;
-  font-size: 10pt !important;  
-  font-weight: 400 !important; /* Sprawia, że podpis jest smukły */
-  color: #555555 !important;   /* Elegancki grafit */
+display: inline-block;
+font-size: 10pt !important;
+font-weight: 400 !important;
+color: #555555 !important;
 }
-
 .signature-wrapper {
-  text-align: right;           
-  margin-top: 40px;            
-  margin-bottom: 20px;
-  clear: both !important;      /* To sprawia, że ikona rysunku nie wyskakuje obok */
+text-align: right;
+margin-top: 40px;
+margin-bottom: 20px;
+clear: both !important;
 }
-    </style>
+/* ==========================================================================
+5. REGUŁY DRUKU I EKSPORTU DO PLIKU PDF
+========================================================================== */
+@media print {
+@page {
+size: A4 portrait;
+margin: 20mm 15mm 20mm 15mm !important;
+}
+html, body {
+background-color: #ffffff !important;
+color: #333333 !important;
+margin: 0 !important;
+padding: 0 !important;
+font-size: 11pt;
+line-height: 1.6;
+-webkit-print-color-adjust: exact !important;
+print-color-adjust: exact !important;
+position: relative !important;
+}
+button, .no-print, nav, .btn-to-top, .btn-original, .btn-download-container,
+#toast-share, [class*="rysunek"], [id*="rysunek"], [class*="zoom"], [id*="zoom"] {
+display: none !important;
+visibility: hidden !important;
+opacity: 0 !important;
+height: 0 !important;
+}
+a, .toc-box a, .print-footer a {
+color: #2c5282 !important;
+text-decoration: none !important;
+pointer-events: auto !important;
+cursor: pointer !important;
+position: relative !important;
+z-index: 100 !important;
+}
+a[href]:after {
+content: "" !important;
+}
+h1, h2, h3, h4 {
+break-after: avoid !important;
+page-break-after: avoid !important;
+box-sizing: border-box !important;
+break-inside: avoid !important;
+page-break-inside: avoid !important;
+}
+h2, h3 {
+margin-top: 10px !important;
+padding-top: 25px !important;
+margin-bottom: 15px !important;
+}
+h1 + h2 {
+margin-top: 55px !important;
+padding-top: 0 !important;
+}
+hr {
+break-after: avoid !important;
+page-break-after: avoid !important;
+break-inside: avoid !important;
+page-break-inside: avoid !important;
+margin-top: 0 !important;
+margin-bottom: 15px !important;
+background: #cbd5e0 !important;
+}
+.highlight-box, .toc-box {
+padding: 15px !important;
+}
+/* --- PORZĄDEK: Tylko jedna, czysta reguła zabezpieczająca przed łamaniem --- */
+p, table, tr, .custom-table, .ZINTEGROWANY-PAKIE-INVESTYCYJNY-KLASA, .signature-wrapper, .highlight-box, .toc-box {
+break-inside: avoid !important;
+page-break-inside: avoid !important;
+}
+.page-break {
+display: block !important;
+clear: both !important;
+break-before: page !important;
+page-break-before: always !important;
+height: 0 !important;
+margin: 0 !important;
+padding: 0 !important;
+}
+.signature-wrapper {
+margin-top: 50px !important;
+clear: both !important;
+}
+.print-footer {
+display: block !important;
+position: relative !important;
+margin-top: 80px !important;
+padding-top: 15px !important;
+border-top: 2px solid #1a365d !important;
+text-align: center !important;
+font-size: 0.9rem !important;
+color: #2d3748 !important;
+font-weight: bold !important;
+background-color: #ffffff !important;
+width: 100% !important;
+}
+.print-footer a {
+color: #1a365d !important;
+text-decoration: none !important;
+}
+}
 </head>
 <body>
 
