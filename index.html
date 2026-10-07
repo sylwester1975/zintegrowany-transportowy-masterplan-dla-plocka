@@ -462,21 +462,28 @@
             h1, h2, h3, h4 { 
                 break-after: avoid !important; 
                 page-break-after: avoid !important;
-                margin-top: 10px !important; /* Bezpieczny powrót do stabilnych wartości */
-                padding-top: 0 !important;   /* Całkowity reset problematycznych paddingów */
+                box-sizing: border-box !important;
             }
 
-            /* POPRAWKA DLA PDF: Odsunięcie tekstu poprzez dolny margines linii wyżej */
-            h1 {
-                margin-bottom: 55px !important; /* Zwiększenie odstępu pod tytułem głównym, aby odsunąć h2 */
+            /* Regularne nagłówki h2 i h3 otrzymują standardowy, bezpieczny oddech */
+            h2, h3 {
+                margin-top: 10px !important;    
+                padding-top: 25px !important;   /* To gwarantuje, że podpunkt 4.3 idealnie się odklei */
+                margin-bottom: 15px !important; 
             }
 
-            /* Wymuszenie, aby linia HR nad rozdziałem zawsze szła w parze z nagłówkiem */
+            /* SPECYFICZNA POPRAWKA DLA PDF: Idealny, głęboki odstęp Streszczenia bezpośrednio pod tytułem h1 */
+            h1 + h2 {
+                margin-top: 55px !important;    /* Dopasowanie odległości do wyglądu ze strony internetowej */
+                padding-top: 0 !important;      /* Kasuje padding w PDF, bo nie ma już nad nim linii */
+            }
+
+            /* Wymuszenie, aby linie HR nad pozostałymi rozdziałami zawsze szła w parze z nagłówkiem */
             hr {
                 break-after: avoid !important;
                 page-break-after: avoid !important;
                 margin-top: 0 !important;
-                margin-bottom: 30px !important; /* Zwiększone z 15px na 30px - odsuwa h2 od linii na dalszych stronach */
+                margin-bottom: 15px !important;
                 background: #cbd5e0 !important; 
             }
             
