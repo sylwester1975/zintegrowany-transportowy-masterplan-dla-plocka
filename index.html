@@ -433,23 +433,20 @@
                 width: 100% !important;
             }
         }
-        /* Inteligentny kontener pozycjonujący podpis do prawej krawędzi */
-        .signature-wrapper {
-            display: flex !important;
-            justify-content: flex-end !important; /* Wymusza przesunięcie zawartości na sam koniec prawej strony */
-            width: 100% !important;
-            margin-top: 50px !important;
-            margin-bottom: 20px !important;
-        }
+   /* --- NOWY STYL PODPISU (SMUKŁY I BLOKUJĄCY IKONĘ) --- */
+.signature-text-final {
+  display: inline-block;
+  font-size: 10pt !important;  
+  font-weight: 300 !important; /* Sprawia, że podpis jest smukły */
+  color: #444444 !important;   /* Elegancki grafit */
+}
 
-        /* Nowy, niezależny styl dla samego tekstu sygnatury */
-        .signature-text-final {
-            color: #4a5568 !important; /* Twój biznesowy grafit */
-            font-size: 0.95rem !important;
-            font-weight: bold !important;
-            letter-spacing: 0.5px !important;
-            text-align: right !important;
-        }
+.signature-wrapper {
+  text-align: right;           
+  margin-top: 40px;            
+  margin-bottom: 20px;
+  clear: both !important;      /* To sprawia, że ikona rysunku nie wyskakuje obok */
+}
     </style>
 </head>
 <body>
