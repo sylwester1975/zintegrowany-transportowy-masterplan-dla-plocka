@@ -397,88 +397,42 @@
             z-index: 10000;
             pointer-events: none;
         }
-@media print {
-  /* 1. RESET MARGINESÓW @PAGE - TO ODBLOKOWUJE KLIKALNOŚĆ LINKÓW W PDF */
-  @page {
-    size: A4 portrait;
-    margin: 0mm !important; /* Wyzerowanie usuwa niewidzialną blokadę linków Chromium */
-  }
-
-  body {
-    /* Przenosimy bezpieczny margines tutaj jako padding, aby tekst nie dotykał krawędzi */
-    padding-top: 22mm !important; 
-    padding-bottom: 22mm !important; 
-    padding-left: 18mm !important; 
-    padding-right: 18mm !important; 
-    
-    margin: 0 !important;
-    background-color: #ffffff !important;
-    -webkit-print-color-adjust: exact !important; /* Gwarancja nasyconych kolorów */
-    print-color-adjust: exact !important;
-  }
-
-  /* 2. BEZWZGLĘDNE UKRYWANIE ELEMENTÓW INTERFEJSU (PRZEWIJAK, PRZYCISKI) */
-  button, 
-  .no-print, 
-  nav, 
-  .btn-to-top,       
-  .btn-original, 
-  .btn-download-container, 
-  #toast-share,
-  [class*="rysunek"], 
-  [id*="rysunek"],
-  [class*="zoom"], 
-  [id*="zoom"] {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    height: 0 !important;
-  }
-
-  /* 3. WYMUSZENIE KLIKALNOŚCI DLA LINKÓW (SPIS TREŚCI I STOPKA) */
-  a, .toc-box a, .print-footer a {
-    color: #2c5282 !important;       /* Twój oryginalny niebieski kolor linków */
-    text-decoration: underline !important;
-    pointer-events: auto !important;   /* Przywrócenie interakcji cyfrowej w PDF */
-    cursor: pointer !important;
-  }
-  /* Blokada dopisywania surowego adresu URL w nawiasach obok tekstu linku */
-  a[href]:after {
-    content: "" !important;
-  }
-
-  /* 4. ZABEZPIECZENIE PRZED BRZYDKIM ŁAMANIEM TEKSTU */
-  h1, h2, h3 { 
-    break-after: avoid !important; 
-    page-break-after: avoid !important; 
-  }
-  
-  p, table, tr, .ZINTEGROWANY-PAKIE-INVESTYCYJNY-KLASA, .signature-wrapper, .highlight-box, .toc-box { 
-    break-inside: avoid !important; 
-    page-break-inside: avoid !important; 
-  }
-
-  /* Odstęp dla podpisu autora */
-  .signature-wrapper {
-    margin-top: 50px !important;
-    clear: both !important;
-  }
-
-  /* 5. TWOJA ORYGINALNA STOPKA DRUKU Z LINKIEM NA SAMYM DOLE DOKUMENTU */
-  .print-footer {
-    display: block !important;
-    position: relative !important;
-    margin-top: 80px !important;
-    padding-top: 15px !important;
-    border-top: 2px solid #1a365d !important; /* Twoja ciemnoniebieska linia */
-    text-align: center !important;
-    font-size: 0.9rem !important;
-    color: #2d3748 !important;
-    font-weight: bold !important;
-    background-color: #ffffff !important;
-    width: 100% !important;
-  }
-}
+/* Jedne, czyste i bezbłędne reguły dla generowania pliku PDF i druku */
+        @media print {
+            .btn-original, .btn-to-top, button, #toast-share, .btn-download-container {
+                display: none !important;
+            }
+            body {
+                background-color: white !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .highlight-box, .toc-box {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                background-color: #ebf8ff !important;
+                border-left: 4px solid #3182ce !important;
+            }
+            .author-signature {
+                margin-top: 60px !important;
+                page-break-inside: avoid;
+            }
+            
+            /* KOREKTA: Zwiększamy margines, aby zepchnąć stopkę z adresem URL niżej */
+            .print-footer {
+                display: block !important;
+                position: relative !important;
+                margin-top: 100px !important; /* Zwiększono z 40px na 100px dla lepszego oddechu */
+                padding-top: 15px !important;
+                border-top: 2px solid #1a365d !important; /* Ciemnoniebieska linia odcinająca */
+                text-align: center !important;
+                font-size: 0.9rem !important;
+                color: #2d3748 !important;
+                font-weight: bold !important;
+                background-color: white !important;
+                width: 100% !important;
+            }
+        }
    /* --- NOWY STYL PODPISU (SMUKŁY I BLOKUJĄCY IKONĘ) --- */
 .signature-text-final {
   display: inline-block;
