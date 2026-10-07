@@ -398,26 +398,26 @@
             pointer-events: none;
         }
 @media print {
-  /* 1. PRZENIESIENIE MARGINESÓW DO @PAGE (ZAPOBIEGA UCINANIU KOLEJNYCH STRON) */
+  /* 1. RESET MARGINESÓW @PAGE - TO ODBLOKOWUJE KLIKALNOŚĆ LINKÓW W PDF */
   @page {
     size: A4 portrait;
-    margin: 18mm 15mm 18mm 15mm !important; /* Sztywny, bezpieczny margines na każdej stronie */
+    margin: 0mm !important; /* Wyzerowanie usuwa niewidzialną blokadę linków Chromium */
   }
 
   body {
-    margin: 0 !important; 
-    padding: 0 !important;
+    /* Przenosimy bezpieczny margines tutaj jako padding, aby tekst nie dotykał krawędzi */
+    padding-top: 22mm !important; 
+    padding-bottom: 22mm !important; 
+    padding-left: 18mm !important; 
+    padding-right: 18mm !important; 
+    
+    margin: 0 !important;
     background-color: #ffffff !important;
     -webkit-print-color-adjust: exact !important; /* Gwarancja nasyconych kolorów */
     print-color-adjust: exact !important;
   }
 
-  h1 {
-    padding-top: 10mm !important;
-  }
-
   /* 2. BEZWZGLĘDNE UKRYWANIE ELEMENTÓW INTERFEJSU (PRZEWIJAK, PRZYCISKI) */
-  /* UWAGA: Usunięto stąd ogólny selektor 'footer', aby nie ukrywać Twojej stopki z linkiem */
   button, 
   .no-print, 
   nav, 
@@ -427,7 +427,7 @@
   #toast-share,
   [class*="rysunek"], 
   [id*="rysunek"],
-  [class*="zoom"],
+  [class*="zoom"], 
   [id*="zoom"] {
     display: none !important;
     visibility: hidden !important;
@@ -435,11 +435,11 @@
     height: 0 !important;
   }
 
-  /* 3. WYMUSZENIE INTERAKTYWNYCH I KLIKALNYCH LINKÓW W CYFROWYM PDF */
-  a, .toc-box a {
-    color: #2c5282 !important;     /* Przywrócenie Twojego błękitu dla odnośników */
+  /* 3. WYMUSZENIE KLIKALNOŚCI DLA LINKÓW (SPIS TREŚCI I STOPKA) */
+  a, .toc-box a, .print-footer a {
+    color: #2c5282 !important;       /* Twój oryginalny niebieski kolor linków */
     text-decoration: underline !important;
-    pointer-events: auto !important; /* Przywraca pełną interaktywność i klikalność w PDF */
+    pointer-events: auto !important;   /* Przywrócenie interakcji cyfrowej w PDF */
     cursor: pointer !important;
   }
   /* Blokada dopisywania surowego adresu URL w nawiasach obok tekstu linku */
@@ -458,7 +458,7 @@
     page-break-inside: avoid !important; 
   }
 
-  /* Odstęp dla podpisu */
+  /* Odstęp dla podpisu autora */
   .signature-wrapper {
     margin-top: 50px !important;
     clear: both !important;
@@ -470,17 +470,13 @@
     position: relative !important;
     margin-top: 80px !important;
     padding-top: 15px !important;
-    border-top: 2px solid #1a365d !important; /* Ciemnoniebieska linia odcinająca */
+    border-top: 2px solid #1a365d !important; /* Twoja ciemnoniebieska linia */
     text-align: center !important;
     font-size: 0.9rem !important;
     color: #2d3748 !important;
     font-weight: bold !important;
     background-color: #ffffff !important;
     width: 100% !important;
-  }
-  .print-footer a {
-    color: #1a365d !important; /* Kolor linku w stopce */
-    text-decoration: none !important;
   }
 }
    /* --- NOWY STYL PODPISU (SMUKŁY I BLOKUJĄCY IKONĘ) --- */
