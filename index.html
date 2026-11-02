@@ -399,101 +399,68 @@ clear: both !important;
 5. REGUŁY DRUKU I&nbsp;EKSPORTU DO PLIKU PDF
 ========================================================================== */
 @media print {
-    @page {
-        size: A4 portrait;
-        margin: 20mm 15mm 20mm 15mm !important;
-    }
-
-    html, body {
-        background-color: #ffffff !important;
-        color: #333333 !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        font-size: 11pt;
-        line-height: 1.6;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-        position: relative !important;
-    }
-
-    /* NOWY, BEZPIECZNY FRAGMENT UKRYWAJĄCY ELEMENTY INTERFEJSU I ZBĘDNE TEKSTY KOŃCOWE */
-    button, .no-print, nav, .btn-to-top, .btn-original, .btn-download-container,
-    #toast-share, [class*="rysunek"], [id*="rysunek"], [class*="zoom"], [id*="zoom"],
-    footer + p, body > p:last-of-type, .zoom-box, #zoom-container {
-        display: none !important;
-        visibility: hidden !important;
-        opacity: 0 !important;
-        height: 0 !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-
-    /* --- UREGULOWANIE LINKÓW W PLIKU PDF --- */
-    a, .toc-box a, .print-footer a {
-        color: #2c5282 !important; /* Granat instytucjonalny */
-        text-decoration: underline !important; /* Stałe podkreślenie */
-        pointer-events: auto !important;
-        cursor: pointer !important;
-        position: relative !important;
-        z-index: 100 !important;
-    }
-
-    /* WYŁĄCZNIE W BIBLIOGRAFII: automatyczne dopisanie pełnego adresu URL w nawiasie na papierze */
-    .bibliografia a[href^="http"]::after {
-        content: " (" attr(href) ")" !important;
-        font-size: 0.85em !important;
-        color: #555555 !important;
-        text-decoration: none !important;
-        font-weight: normal !important;
-        display: inline !important;
-    }
-
-    /* DLA GOOGLE MAPS: automatyczne dopisanie adresu URL pod lub obok odnośnika na wydruku */
-    a[href*="://google.com"]::after,
-    a[href*="maps.app.goo.gl"]::after {
-        content: " (Link do mapy: " attr(href) ")" !important;
-        font-size: 0.85em !important;
-        color: #555555 !important;
-        text-decoration: none !important;
-        font-weight: normal !important;
-        display: inline-block !important;
-        margin-left: 10px !important;
-    }
-
-    /* --- KONTROLA PODZIAŁU STRON (STRUKTURA DOKUMENTU) --- */
-    h1, h2, h3, h4 {
-        break-after: avoid !important;
-        page-break-after: avoid !important;
-        box-sizing: border-box !important;
-        break-inside: avoid !important;
-        page-break-inside: avoid !important;
-    }
-
-    h2, h3 {
-        margin-top: 10px !important;
-        padding-top: 25px !important;
-        margin-bottom: 15px !important;
-    }
-
-    h1 + h2 {
-        margin-top: 55px !important;
-        padding-top: 0 !important;
-    }
-
-    hr {
-        break-after: avoid !important;
-        page-break-after: avoid !important;
-        break-inside: avoid !important;
-        page-break-inside: avoid !important;
-        margin-top: 0 !important;
-        margin-bottom: 15px !important;
-        background: #cbd5e0 !important;
-    }
-
-    .highlight-box, .toc-box {
-        padding: 15px !important;
-    }
+@page {
+size: A4 portrait;
+margin: 20mm 15mm 20mm 15mm !important;
 }
+html, body {
+background-color: #ffffff !important;
+color: #333333 !important;
+margin: 0 !important;
+padding: 0 !important;
+font-size: 11pt;
+line-height: 1.6;
+-webkit-print-color-adjust: exact !important;
+print-color-adjust: exact !important;
+position: relative !important;
+}
+button, .no-print, nav, .btn-to-top, .btn-original, .btn-download-container,
+#toast-share, [class*="rysunek"], [id*="rysunek"], [class*="zoom"], [id*="zoom"] {
+display: none !important;
+visibility: hidden !important;
+opacity: 0 !important;
+height: 0 !important;
+}
+a, .toc-box a, .print-footer a {
+color: #2c5282 !important;
+text-decoration: none !important;
+pointer-events: auto !important;
+cursor: pointer !important;
+position: relative !important;
+z-index: 100 !important;
+}
+a[href]:after {
+content: "" !important;
+}
+h1, h2, h3, h4 {
+break-after: avoid !important;
+page-break-after: avoid !important;
+box-sizing: border-box !important;
+break-inside: avoid !important;
+page-break-inside: avoid !important;
+}
+h2, h3 {
+margin-top: 10px !important;
+padding-top: 25px !important;
+margin-bottom: 15px !important;
+}
+h1 + h2 {
+margin-top: 55px !important;
+padding-top: 0 !important;
+}
+hr {
+break-after: avoid !important;
+page-break-after: avoid !important;
+break-inside: avoid !important;
+page-break-inside: avoid !important;
+margin-top: 0 !important;
+margin-bottom: 15px !important;
+background: #cbd5e0 !important;
+}
+.highlight-box, .toc-box {
+padding: 15px !important;
+}
+    }
 /* --- PORZĄDEK: Tylko jedna, czysta reguła&nbsp;zabezpieczająca przed łamaniem --- */
 p, table, tr, .custom-table, .ZINTEGROWANY-PAKIE-INVESTYCYJNY-KLASA, .signature-wrapper, .highlight-box, .toc-box {
 break-inside: avoid !important;
