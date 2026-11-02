@@ -400,9 +400,17 @@ clear: both !important;
 ========================================================================== */
 /* 1. TUTAJ WKLEJASZ (POZA KLAMRĄ @MEDIA PRINT) */
 p a, li a {
-    color: #27374d !important;
-    text-decoration: underline !important;
+    color: #1a365d !important;         /* Twój prestiżowy granat */
+    text-decoration: none !important;  /* USUNIĘCIE STAŁEGO PODKREŚLENIA W SPOCZYNKU */
     font-weight: 500;
+    transition: color 0.2s ease;       /* Gładkie przejście koloru pod kursorem */
+}
+
+/* EFEKT HOVER - Podkreślenie i rozjaśnienie pojawia się tylko po najechaniu myszką */
+p a:hover, li a:hover {
+    color: #2563eb !important;         /* Podświetlenie do żywego błękitu */
+    text-decoration: underline !important; /* Linia wysuwa się tylko podczas interakcji */
+    text-underline-offset: 4px;        /* Nowoczesne odsunięcie linii */
 }
 @media print {
 @page {
