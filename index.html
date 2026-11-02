@@ -517,25 +517,27 @@ body, h1, h2, h3, h4, th, td, .title, .btn {
         text-wrap: normal;
         vertical-align: top;
     }
-  /* ==========================================================================
-   1. GLOBALNY STYL LINKÓW DLA CAŁEGO DOKUMENTU (WYRÓŻNIONY W SPOCZYNKU)
+/* ==========================================================================
+   NOWOCZESNY STYL LINKÓW - BEZ PODKREŚLEŃ W STANIE SPOCZYNKU
    ========================================================================== */
 a {
-    color: #1a365d !important;         /* Twój granat - silny kontrast z grafitem #333333 */
-    text-decoration: none !important;  /* Brak podkreślenia w spoczynku dla lekkości formy */
-    font-weight: 600 !important;       /* KLUCZOWE: Wyraźne pogrubienie, by link od razu odcinał się od tekstu */
-    transition: all 0.2s ease;         /* Płynna animacja przejścia */
+    /* Używamy nasyconego błękitu cyfrowego - idealnie odcina się od grafitu #333333, 
+       sygnując klikalność bez szpecących linii */
+    color: #1d4ed8 !important;         
+    text-decoration: none !important;  /* CAŁKOWITY BRAK PODKREŚLEŃ W SPOCZYNKU */
+    font-weight: inherit;              /* Bezpieczne dziedziczenie grubości czcionki */
+    transition: color 0.2s ease;       /* Płynna zmiana koloru pod kursorem */
 }
 
-/* Efekt po najechaniu myszką (Hover) */
+/* EFEKT HOVER - LINK PODKREŚLA SIĘ DOPIERO PO NAJECHANIU MYSZKĄ */
 a:hover {
-    color: #2563eb !important;         /* Dynamiczne rozjaśnienie do błękitu */
-    text-decoration: underline !important; /* Podkreślenie wysuwa się pod kursorem */
-    text-underline-offset: 4px;        /* Nowoczesne odsunięcie linii */
+    color: #1a365d !important;         /* Płynnie ciemnieje do Twojego granatu nagłówkowego */
+    text-decoration: underline !important; /* Linia wysuwa się TYLKO podczas interakcji */
+    text-underline-offset: 4px;        /* Nowoczesne, estetyczne odsunięcie linii */
 }
 
 /* ==========================================================================
-   2. SYSTEM HYBRYDOWEGO WYDRUKU BIBLIOGRAFII
+   SYSTEM HYBRYDOWEGO WYDRUKU BIBLIOGRAFII
    ========================================================================== */
 .tylko-druk {
     display: none !important;          /* Ukryte na ekranie komputera i w cyfrowym PDF */
@@ -547,13 +549,12 @@ a:hover {
         display: none !important;
     }
 
-    /* Ujawniamy i formatujemy surowy adres URL na wydrukowanej kartce */
+    /* Ujawniamy surowy adres URL wyłącznie na wydrukowanej kartce */
     .tylko-druk {
         display: inline !important;
         font-size: 0.85rem !important;  
         color: #64748b !important;     
         font-style: italic !important; 
-        font-weight: normal !important; /* Reset pogrubienia na papierze */
     }
 }
 </style>
