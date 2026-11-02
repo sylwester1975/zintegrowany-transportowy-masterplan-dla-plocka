@@ -416,20 +416,22 @@ clear: both !important;
         position: relative !important;
     }
 
-    /* Ukrywanie elementów interfejsu WWW, których nie ma być w dokumencie PDF */
+    /* NOWY, BEZPIECZNY FRAGMENT UKRYWAJĄCY ELEMENTY INTERFEJSU I ZBĘDNE TEKSTY KOŃCOWE */
     button, .no-print, nav, .btn-to-top, .btn-original, .btn-download-container,
-    #toast-share, [class*="rysunek"], [id*="rysunek"], [class*="zoom"], [id*="zoom"] {
+    #toast-share, [class*="rysunek"], [id*="rysunek"], [class*="zoom"], [id*="zoom"],
+    footer + p, body > p:last-of-type, .zoom-box, #zoom-container {
         display: none !important;
         visibility: hidden !important;
         opacity: 0 !important;
         height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
 
     /* --- UREGULOWANIE LINKÓW W PLIKU PDF --- */
-    /* Wszystkie aktywne linki w dokumencie otrzymują Twój granat i stałe podkreślenie */
     a, .toc-box a, .print-footer a {
-        color: #2c5282 !important;
-        text-decoration: underline !important; /* Włączenie podkreślenia dla widoczności w PDF */
+        color: #2c5282 !important; /* Granat instytucjonalny */
+        text-decoration: underline !important; /* Stałe podkreślenie */
         pointer-events: auto !important;
         cursor: pointer !important;
         position: relative !important;
@@ -440,7 +442,7 @@ clear: both !important;
     .bibliografia a[href^="http"]::after {
         content: " (" attr(href) ")" !important;
         font-size: 0.85em !important;
-        color: #555555 !important; /* Subtelny, szary kolor adresu */
+        color: #555555 !important;
         text-decoration: none !important;
         font-weight: normal !important;
         display: inline !important;
