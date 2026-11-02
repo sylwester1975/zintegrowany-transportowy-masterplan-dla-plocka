@@ -516,7 +516,46 @@ body, h1, h2, h3, h4, th, td, .title, .btn {
         hyphens: none;
         text-wrap: normal;
         vertical-align: top;
-    } 
+    }
+   /* ==========================================================================
+   1. GLOBALNY STYL LINKÓW DLA CAŁEGO DOKUMENTU
+   ========================================================================== */
+a {
+    color: #1a365d !important;         /* Prestiżowy granat w stanie spoczynku */
+    text-decoration: none !important;  /* BRAK PODKREŚLEŃ - czysta i lekka forma */
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+/* Efekt po najechaniu myszką (Hover) */
+a:hover {
+    color: #2563eb !important;         /* Płynne podświetlenie do żywego błękitu */
+    text-decoration: underline !important; /* Podkreślenie wysuwa się pod kursorem */
+    text-underline-offset: 4px;        /* Nowoczesne odsunięcie linii od tekstu */
+}
+
+/* ==========================================================================
+   2. SYSTEM HYBRYDOWEGO WYDRUKU BIBLIOGRAFII
+   ========================================================================== */
+/* Ten blok ukrywa surowy adres URL (w znaczniku .tylko-druk) na monitorze i w cyfrowym PDF */
+.tylko-druk {
+    display: none !important;
+}
+
+@media print {
+    /* Ukrywamy słowa "Link do dokumentu" na papierze, bo są tam bezużyteczne */
+    .bibliografia a {
+        display: none !important;
+    }
+
+    /* Ujawniamy i formatujemy surowy adres URL - pojawi się wyłącznie na wydrukowanej kartce */
+    .tylko-druk {
+        display: inline !important;
+        font-size: 0.85rem !important;  /* Mniejsza, dyskretna czcionka */
+        color: #64748b !important;     /* Subtelny szary kolor, który nie szpeci dokumentu */
+        font-style: italic !important; /* Kursywa dla odróżnienia źródła */
+    }
+} 
 </style>
 </head>
 <body>
