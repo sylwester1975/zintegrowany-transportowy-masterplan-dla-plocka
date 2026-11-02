@@ -398,6 +398,12 @@ clear: both !important;
 /* ==========================================================================
 5. REGUŁY DRUKU I&nbsp;EKSPORTU DO PLIKU PDF
 ========================================================================== */
+/* 1. TUTAJ WKLEJASZ (POZA KLAMRĄ @MEDIA PRINT) */
+p a, li a {
+    color: #2c5282 !important;
+    text-decoration: underline !important;
+    font-weight: 500;
+}
 @media print {
 @page {
 size: A4 portrait;
