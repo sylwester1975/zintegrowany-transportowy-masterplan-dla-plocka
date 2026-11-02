@@ -517,45 +517,45 @@ body, h1, h2, h3, h4, th, td, .title, .btn {
         text-wrap: normal;
         vertical-align: top;
     }
-   /* ==========================================================================
-   1. GLOBALNY STYL LINKÓW DLA CAŁEGO DOKUMENTU
+  /* ==========================================================================
+   1. GLOBALNY STYL LINKÓW DLA CAŁEGO DOKUMENTU (WYRÓŻNIONY W SPOCZYNKU)
    ========================================================================== */
 a {
-    color: #1a365d !important;         /* Prestiżowy granat w stanie spoczynku */
-    text-decoration: none !important;  /* BRAK PODKREŚLEŃ - czysta i lekka forma */
-    font-weight: 500;
-    transition: color 0.2s ease;
+    color: #1a365d !important;         /* Twój granat - silny kontrast z grafitem #333333 */
+    text-decoration: none !important;  /* Brak podkreślenia w spoczynku dla lekkości formy */
+    font-weight: 600 !important;       /* KLUCZOWE: Wyraźne pogrubienie, by link od razu odcinał się od tekstu */
+    transition: all 0.2s ease;         /* Płynna animacja przejścia */
 }
 
 /* Efekt po najechaniu myszką (Hover) */
 a:hover {
-    color: #2563eb !important;         /* Płynne podświetlenie do żywego błękitu */
+    color: #2563eb !important;         /* Dynamiczne rozjaśnienie do błękitu */
     text-decoration: underline !important; /* Podkreślenie wysuwa się pod kursorem */
-    text-underline-offset: 4px;        /* Nowoczesne odsunięcie linii od tekstu */
+    text-underline-offset: 4px;        /* Nowoczesne odsunięcie linii */
 }
 
 /* ==========================================================================
    2. SYSTEM HYBRYDOWEGO WYDRUKU BIBLIOGRAFII
    ========================================================================== */
-/* Ten blok ukrywa surowy adres URL (w znaczniku .tylko-druk) na monitorze i w cyfrowym PDF */
 .tylko-druk {
-    display: none !important;
+    display: none !important;          /* Ukryte na ekranie komputera i w cyfrowym PDF */
 }
 
 @media print {
-    /* Ukrywamy słowa "Link do dokumentu" na papierze, bo są tam bezużyteczne */
+    /* Ukrywamy tekst "Link do dokumentu" na papierze */
     .bibliografia a {
         display: none !important;
     }
 
-    /* Ujawniamy i formatujemy surowy adres URL - pojawi się wyłącznie na wydrukowanej kartce */
+    /* Ujawniamy i formatujemy surowy adres URL na wydrukowanej kartce */
     .tylko-druk {
         display: inline !important;
-        font-size: 0.85rem !important;  /* Mniejsza, dyskretna czcionka */
-        color: #64748b !important;     /* Subtelny szary kolor, który nie szpeci dokumentu */
-        font-style: italic !important; /* Kursywa dla odróżnienia źródła */
+        font-size: 0.85rem !important;  
+        color: #64748b !important;     
+        font-style: italic !important; 
+        font-weight: normal !important; /* Reset pogrubienia na papierze */
     }
-} 
+}
 </style>
 </head>
 <body>
