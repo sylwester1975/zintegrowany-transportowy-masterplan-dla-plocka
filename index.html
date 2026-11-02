@@ -502,6 +502,25 @@ text-decoration: none !important;
 body, h1, h2, h3, h4, th, td, .title, .btn {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
 } 
+
+   /* 1. Globalne reguły dla tekstu dokumentu i list */
+    p, li {
+        text-align: justify;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+        hyphens: auto;
+        text-wrap: pretty;
+    }
+
+    /* 2. Wyjątek dla tabeli – tekst wyrównany do lewej, bez sztucznego rozciągania */
+    td, th {
+        text-align: left;
+        -webkit-hyphens: none;
+        -ms-hyphens: none;
+        hyphens: none;
+        text-wrap: normal;
+        vertical-align: top;
+    } 
 </style>
 </head>
 <body>
