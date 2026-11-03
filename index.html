@@ -725,13 +725,13 @@ a:hover {
 <!-- Sekcja przycisków i zmiany języka -->
 <div style="display: flex; align-items: center; gap: 10px;">
     
-<!-- Przycisk Kopiowania Linku -->
-<button onclick="copyCurrentLink()" class="btn-original" style="background-color: #27374d; font-size: 1rem; padding: 12px 24px; border: none; border-radius: 4px; color: white; font-weight: bold; cursor: pointer; transition: background-color 0.2s;">
-    🔗 Kopiuj link do Masterplanu
-</button>
-    
-    <!-- Wersja Angielska po prawej (Poprawiony adres xmlns biblioteki SVG) -->
-    <a href="https://master-plan-for-plock.netlify.app/" title="Change language to English" style="display: flex; align-items: center; text-decoration: none; margin-left: 5px;">
+ <!-- Przycisk Kopiowania Linku -->
+    <button onclick="copyCurrentLink()" class="btn-original" style="background-color: #27374d; font-size: 1rem; padding: 12px 24px; border: none; border-radius: 4px; color: white; font-weight: bold; cursor: pointer; transition: background-color 0.2s;">
+        🔗 Kopiuj link do Masterplanu
+    </button>
+        
+    <!-- Wersja Angielska po prawej -->
+    <a href="https://master-plan-for-plock.netlify.app/" title="Change language to English" style="display: flex; align-items: center; text-decoration: none;">
         <svg xmlns="http://w3.org" viewBox="0 0 50 25" height="38" style="border-radius: 3px; border: 1px solid #cbd5e0; cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
             <clipPath id="uk-clip"><rect width="50" height="25"/></clipPath>
             <g clip-path="url(#uk-clip)">
@@ -744,7 +744,9 @@ a:hover {
         </svg>
     </a>
 
-<!-- Komunikat o skopiowaniu (początkowo ukryty dzięki display: none) -->
+</div> <!-- Tutaj zamyka się kontener przycisku i flagi -->
+
+<!-- Komunikat o skopiowaniu (teraz jest w bezpiecznym miejscu w strukturze) -->
 <div id="copy-notification" style="display: none; color: #2ecc71; font-weight: bold; margin-top: 10px; font-size: 0.9rem;">
     🔗 Link do Masterplanu został skopiowany do schowka!
 </div>
