@@ -723,12 +723,17 @@ a:hover {
             📄 Pobierz Masterplan w formacie PDF
         </button>
 
-<!-- KONTENER GRUPUJĄCY PRZYCISK I FLAGĘ OBOK SIEBIE -->
-<div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
-    <!-- Przycisk Kopiowania Linku -->
+      <!-- NOWY, ZINTEGROWANY PANEL NARZĘDZIOWY (Zabezpieczony przed rozciąganiem) -->
+<div style="display: flex; gap: 15px; justify-content: center; align-items: center; flex-wrap: wrap; margin: 25px 0 35px 0;">
+    
+    <!-- Przycisk PDF (Dopasowany optycznie) -->
+    <button onclick="window.print()" class="btn-original" style="background-color: #c53030; font-size: 1rem; padding: 12px 24px; border: none; border-radius: 4px; color: white; font-weight: bold; cursor: pointer; transition: background-color 0.2s; white-space: nowrap;">
+        📄 Pobierz Masterplan jako PDF
     </button>
-        <button onclick="copyCurrentLink()" class="btn-original" style="background-color: #1a365d; font-size: 1rem; padding: 12px 24px; border: none; border-radius: 4px; color: white; font-weight: bold; cursor: pointer; transition: background-color 0.2s;">
-            🔗 Copy Link to Master Plan
+    
+    <!-- Przycisk Kopiowania Linku -->
+    <button onclick="copyCurrentLink()" class="btn-original" style="background-color: #4a5568; font-size: 1rem; padding: 12px 24px; border: none; border-radius: 4px; color: white; font-weight: bold; cursor: pointer; transition: background-color 0.2s; white-space: nowrap;">
+        🔗 Kopiuj link do Masterplanu
     </button>
         
     <!-- Wersja Angielska po prawej (Poprawiony xmlns!) -->
