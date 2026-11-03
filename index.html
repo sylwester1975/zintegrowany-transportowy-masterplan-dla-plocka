@@ -1258,29 +1258,31 @@ function copyCurrentLink() {
     });
 }
 
-        // 2. FUNKCJE LIGHTBOXA DLA MAP NA STRONIE GŁÓWNEJ
-        function openLightbox(element) {
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = document.getElementById('lightbox-img');
-            if (lightbox && lightboxImg) {
-                lightboxImg.src = element.src;
-                lightbox.style.display = 'flex';
-                document.body.style.overflow = 'hidden'; // Blokada przewijania tła&nbsp;            }
-        }
+// 2. FUNKCJE LIGHTBOXA DLA MAP NA STRONIE GŁÓWNEJ
+function openLightbox(element) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    if (lightbox && lightboxImg) {
+        lightboxImg.src = element.src;
+        lightbox.style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // Blokada przewijania tła
+    }
+}
 
-        function closeLightbox() {
-            const lightbox = document.getElementById('lightbox');
-            if (lightbox) {
-                lightbox.style.display = 'none';
-                document.body.style.overflow = 'auto'; // Przywrócenie przewijania tła&nbsp;            }
-        }
+function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox) {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Przywrócenie przewijania tła
+    }
+}
 
-        // Zamknięcie Lightboxa klawiszem Escape
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeLightbox();
-            }
-        });
-    </script>
+// Zamknięcie Lightboxa klawiszem Escape
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeLightbox();
+    }
+});
+</script>
 </body>
 </html>
