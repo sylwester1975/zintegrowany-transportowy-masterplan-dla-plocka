@@ -262,33 +262,33 @@
             font-weight: bold;
             cursor: pointer;
         }
-        
-        html {
-            scroll-behavior: smooth;
-        }
-        .btn-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 30px;
-            background-color: #1a365d;
-            color: white;
-            text-decoration: none;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.5rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            transition: background-color 0.2s, transform 0.2s;
-            z-index: 999;
-        }
-        .btn-to-top:hover {
-            background-color: #2b6cb0;
-            transform: scale(1.05);
-        }
 
+html {
+    scroll-behavior: smooth;
+}
+.btn-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    background-color: #1a365d;
+    color: #f8fafc !important; /* ZMIANA: Strzałka ma teraz kolor tła strony (biel) */
+    text-decoration: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: background-color 0.2s, transform 0.2s;
+    z-index: 999;
+}
+.btn-to-top:hover {
+    background-color: #2b6cb0;
+    color: #f8fafc !important; /* ZMIANA: Strzałka zachowuje kolor tła strony po najechaniu */
+    transform: scale(1.05);
+}
         /* ==========================================================================
            4. STRUKTURY SPECJALISTYCZNE I LISTY (EKRAN)
            ========================================================================== */
