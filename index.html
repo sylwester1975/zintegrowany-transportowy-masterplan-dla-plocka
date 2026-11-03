@@ -1241,22 +1241,28 @@ document.getElementById('copy-link-btn').addEventListener('click', function() {
     // 1. Definiowanie tekstu do skopiowania (możesz podmienić URL na właściwy)
     var textToCopy = "https://netlify.app";
     
-    // 2. Kopiowanie do schowka
-    navigator.clipboard.writeText(textToCopy).then(function() {
-        // 3. Pobranie elementu powiadomienia
+<script>
+function copyCurrentLink() {
+    // 1. Pobranie aktualnego adresu URL strony
+    var currentUrl = window.location.href;
+    
+    // 2. Kopiowanie adresu do schowka
+    navigator.clipboard.writeText(currentUrl).then(function() {
+        // 3. Znalezienie elementu z komunikatem po ID
         var notification = document.getElementById('copy-notification');
         
-        // 4. Pokazanie powiadomienia w polskiej wersji
-        notification.style.display = 'block';
-        
-        // 5. Automatyczne ukrycie powiadomienia po 3 sekundach
-        setTimeout(function() {
-            notification.style.display = 'none';
-        }, 3000);
+        if (notification) {
+            notification.style.display = 'block'; // Pokazanie komunikatu
+            
+            // 4. Automatyczne ukrycie po 3 sekundach
+            setTimeout(function() {
+                notification.style.display = 'none';
+            }, 3000);
+        }
     }).catch(function(err) {
-        console.error('Błąd podczas kopiowania: ', err);
+        console.error('Błąd podczas kopiowania linku: ', err);
     });
-});
+}
 
         // 2. FUNKCJE LIGHTBOXA DLA MAP NA STRONIE GŁÓWNEJ
         function openLightbox(element) {
