@@ -547,22 +547,22 @@ a:hover {
 /* ==========================================================================
    SYSTEM HYBRYDOWEGO WYDRUKU BIBLIOGRAFII
    ========================================================================== */
-.tylko-druk {
-    display: none !important;          /* Ukryte na ekranie komputera i w cyfrowym PDF */
-}
-
+/* --- WYDRUK I EKSPORT PDF (WERSJA PL + EN) --- */
 @media print {
-    /* Ukrywamy tekst "Link do dokumentu" na papierze */
-    .bibliografia a {
-        display: none !important;
-    }
-
-    /* Ujawniamy surowy adres URL wyłącznie na wydrukowanej kartce */
-    .tylko-druk {
+    /* Wymuś prawidłowe wyświetlanie bloku druku */
+    .tylko-druk, .only-print {
         display: inline !important;
-        font-size: 0.85rem !important;  
-        color: #64748b !important;     
-        font-style: italic !important; 
+    }
+    
+    /* Ukryty adres URL dziedziczy neutralny, ciemny kolor opisu */
+    .tylko-druk a, .only-print a {
+        color: inherit !important;
+        text-decoration: none !important;
+    }
+    
+    /* Blokuje ewentualne dopisywanie adresów przez frameworki systemowe */
+    .bibliografia a:after, .bibliography a:after {
+        content: "" !important;
     }
 }
 </style>
