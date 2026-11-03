@@ -716,21 +716,16 @@ a:hover {
         </ul>
     </div>
 
-<!-- NOWY, ZINTEGROWANY PANEL NARZĘDZIOWY -->
-    <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin: 25px 0 35px 0;">
-       
-<!-- Przycisk PDF -->
-        <button onclick="window.print()" class="btn-original" style="background-color: #c53030; font-size: 1rem; padding: 12px 24px; border: none; border-radius: 4px; color: white; font-weight: bold; cursor: pointer; transition: background-color 0.2s;">
-            📄 Pobierz Masterplan w formacie PDF
-        </button>
+    <!-- KONTENER GRUPUJĄCY PRZYCISK I FLAGĘ OBOK SIEBIE -->
+<div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
     
-    <!-- Przycisk Kopiowania Linku z nową, unikalną nazwą funkcji -->
-    <button onclick="uruchomKopiowaniePolskie()" class="btn-original" style="background-color: #1a365d; font-size: 1rem; padding: 12px 24px; border: none; border-radius: 4px; color: white; font-weight: bold; cursor: pointer; transition: background-color 0.2s;">
+    <!-- Przycisk Kopiowania Linku -->
+    <button onclick="copyCurrentLink()" class="btn-original" style="background-color: #27374d; font-size: 1rem; padding: 12px 24px; border: none; border-radius: 4px; color: white; font-weight: bold; cursor: pointer; transition: background-color 0.2s;">
         🔗 Kopiuj link do Masterplanu
     </button>
         
-    <!-- Wersja Angielska po prawej -->
-    <a href="https://netlify.app" title="Change language to English" style="display: flex; align-items: center; text-decoration: none;">
+    <!-- Wersja Angielska po prawej (POPRAWIONY ADRES XMLNS!) -->
+    <a href="https://master-plan-for-plock.netlify.app/" title="Change language to English" style="display: flex; align-items: center; text-decoration: none;">
         <svg xmlns="http://w3.org" viewBox="0 0 50 25" height="38" style="border-radius: 3px; border: 1px solid #cbd5e0; cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
             <clipPath id="uk-clip"><rect width="50" height="25"/></clipPath>
             <g clip-path="url(#uk-clip)">
@@ -745,8 +740,8 @@ a:hover {
 
 </div>
 
-<!-- Nowe, unikalne ID komunikatu: polskie-powiadomienie -->
-<div id="polskie-powiadomienie" style="display: none; color: #2ecc71; font-weight: bold; margin-top: 10px; font-size: 0.9rem;">
+<!-- KOMUNIKAT O SKOPIOWANIU (Teraz w bezpiecznym miejscu w kodzie) -->
+<div id="copy-notification" style="display: none; color: #2ecc71; font-weight: bold; margin-top: 10px; font-size: 0.9rem;">
     🔗 Link do Masterplanu został skopiowany do schowka!
 </div>
     
@@ -1239,24 +1234,23 @@ a:hover {
     <a href="javascript:void(0);" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); history.pushState(null, null, window.location.pathname);" class="btn-to-top" title="Przewiń do góry">⬆</a>
 
 <script>
-function uruchomKopiowaniePolskie() {
-    // Pobieramy adres URL aktualnej strony, na której znajduje się użytkownik
+function copyCurrentLink() {
+    // Automatycznie pobiera adres URL strony, na której aktualnie znajduje się użytkownik
     var currentUrl = window.location.href;
     
     navigator.clipboard.writeText(currentUrl).then(function() {
-        // Szukamy nowego, unikalnego identyfikatora powiadomienia
-        var notification = document.getElementById('polskie-powiadomienie');
+        var notification = document.getElementById('copy-notification');
         
         if (notification) {
-            notification.style.display = 'block'; // Pokazujemy komunikat
+            notification.style.display = 'block'; // Pokazuje komunikat
             
-            // Ukrywamy po 3 sekundach
+            // Ukrywa komunikat po 3 sekundach
             setTimeout(function() {
                 notification.style.display = 'none';
             }, 3000);
         }
     }).catch(function(err) {
-        console.error('Błąd kopiowania:', err);
+        console.error('Błąd podczas kopiowania linku: ', err);
     });
 }
 
