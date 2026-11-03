@@ -547,20 +547,27 @@ a:hover {
 /* ==========================================================================
    SYSTEM HYBRYDOWEGO WYDRUKU BIBLIOGRAFII
    ========================================================================== */
-/* --- WYDRUK I EKSPORT PDF (WERSJA PL + EN) --- */
+/* --- REGÓŁA DLA EKRANU (UKRYWA LINKI W INTERNECIE) --- */
+.tylko-druk, .only-print {
+    display: none;
+}
+
+/* --- REGÓŁA DLA WYDRUKU I PDF (ZALECANE FORMATOWANIE) --- */
 @media print {
-    /* Wymuś prawidłowe wyświetlanie bloku druku */
+    /* Formatujemy cały znacznik span (tekst + link w środku dziedziczą te style) */
     .tylko-druk, .only-print {
         display: inline !important;
+        font-style: italic !important;  /* Pochylenie całego przypisu */
+        font-size: 14px !important;     /* Pomniejszenie całego przypisu */
     }
     
-    /* Ukryty adres URL dziedziczy neutralny, ciemny kolor opisu */
+    /* Zabezpieczamy link w nawiasie przed zmianą koloru */
     .tylko-druk a, .only-print a {
         color: inherit !important;
         text-decoration: none !important;
     }
     
-    /* Blokuje ewentualne dopisywanie adresów przez frameworki systemowe */
+    /* Blokuje ewentualne automatyczne dopisywanie adresów przez przeglądarki */
     .bibliografia a:after, .bibliography a:after {
         content: "" !important;
     }
