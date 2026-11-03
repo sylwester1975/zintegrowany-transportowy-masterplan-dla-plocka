@@ -1237,28 +1237,26 @@ a:hover {
     <a href="javascript:void(0);" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); history.pushState(null, null, window.location.pathname);" class="btn-to-top" title="Przewiń do góry">⬆</a>
 
 <script>
-        function copyCurrentLink() {
-            const cleanUrl = window.location.protocol + '//' + window.location.host + window.location.pathname;
-            navigator.clipboard.writeText(cleanUrl).then(() => {
-                const toast = document.getElementById('toast-share');
-                toast.style.display = 'block';
-                setTimeout(() => { toast.style.opacity = '1'; }, 10);
-                setTimeout(() => {
-                    toast.style.opacity = '0';
-                    setTimeout(() => { toast.style.display = 'none'; }, 300);
-                }, 2500);
-            }).catch(err => { console.error('Error copying link: ', err); });
-        }
-
-        function openLightbox(element) {
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = document.getElementById('lightbox-img');
-            if (lightbox && lightboxImg) {
-                lightboxImg.src = element.src;
-                lightbox.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-            }
-        }
+document.getElementById('copy-link-btn').addEventListener('click', function() {
+    // 1. Definiowanie tekstu do skopiowania (możesz podmienić URL na właściwy)
+    var textToCopy = "https://netlify.app";
+    
+    // 2. Kopiowanie do schowka
+    navigator.clipboard.writeText(textToCopy).then(function() {
+        // 3. Pobranie elementu powiadomienia
+        var notification = document.getElementById('copy-notification');
+        
+        // 4. Pokazanie powiadomienia w polskiej wersji
+        notification.style.display = 'block';
+        
+        // 5. Automatyczne ukrycie powiadomienia po 3 sekundach
+        setTimeout(function() {
+            notification.style.display = 'none';
+        }, 3000);
+    }).catch(function(err) {
+        console.error('Błąd podczas kopiowania: ', err);
+    });
+});
 
         // 2. FUNKCJE LIGHTBOXA DLA MAP NA STRONIE GŁÓWNEJ
         function openLightbox(element) {
