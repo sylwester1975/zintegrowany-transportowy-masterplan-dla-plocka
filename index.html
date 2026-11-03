@@ -1233,29 +1233,28 @@ a:hover {
     <!-- Przycisk Przewiń do góry - płynnie przewija i wymusza czysty adres główny w przeglądarce -->
     <a href="javascript:void(0);" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); history.pushState(null, null, window.location.pathname);" class="btn-to-top" title="Przewiń do góry">⬆</a>
 
-    <script>
-        // 1. FUNKCJA KOPIOWANIA LINKU DO SCHOWKA Z TOASTEM
+<script>
         function copyCurrentLink() {
             const cleanUrl = window.location.protocol + '//' + window.location.host + window.location.pathname;
             navigator.clipboard.writeText(cleanUrl).then(() => {
                 const toast = document.getElementById('toast-share');
-                
-                // Włączamy widoczność elementu jako wyskakujący boks
                 toast.style.display = 'block';
-                setTimeout(() => {
-                    toast.style.opacity = '1';
-                }, 10);
-                
-                // Po 2,5 sekundach płynnie ukrywamy element z powrotem
+                setTimeout(() => { toast.style.opacity = '1'; }, 10);
                 setTimeout(() => {
                     toast.style.opacity = '0';
-                    setTimeout(() => {
-                        toast.style.display = 'none';
-                    }, 300);
+                    setTimeout(() => { toast.style.display = 'none'; }, 300);
                 }, 2500);
-            }).catch(err => {
-                console.error('Błąd podczas kopiowania linku: ', err);
-            });
+            }).catch(err => { console.error('Error copying link: ', err); });
+        }
+
+        function openLightbox(element) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            if (lightbox && lightboxImg) {
+                lightboxImg.src = element.src;
+                lightbox.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
         }
 
         // 2. FUNKCJE LIGHTBOXA DLA MAP NA STRONIE GŁÓWNEJ
