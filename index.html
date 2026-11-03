@@ -716,21 +716,18 @@ a:hover {
         </ul>
     </div>
 
-    <!-- NOWY, ZINTEGROWANY PANEL NARZĘDZIOWY -->
+<!-- NOWY, ZINTEGROWANY PANEL NARZĘDZIOWY -->
     <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin: 25px 0 35px 0;">
         <!-- Przycisk PDF -->
         <button onclick="window.print()" class="btn-original" style="background-color: #c53030; font-size: 1rem; padding: 12px 24px; border: none; border-radius: 4px; color: white; font-weight: bold; cursor: pointer; transition: background-color 0.2s;">
-            📄 Pobierz Masterplan w&nbsp;formacie PDF
+            📄 Pobierz Masterplan w formacie PDF
         </button>
-<!-- Sekcja przycisków i zmiany języka -->
-<div style="display: flex; align-items: center; gap: 10px;">
-    
-    <!-- Przycisk Kopiowania Linku - Poprawnie otwarty i zamknięty -->
-    <button onclick="copyCurrentLink()" class="btn-original" style="background-color: #27374d; font-size: 1rem; padding: 12px 24px; border: none; border-radius: 4px; color: white; font-weight: bold; cursor: pointer; transition: background-color 0.2s;">
-        🔗 Kopiuj link do Masterplanu
-    </button>
-    
-    <!-- Wersja Angielska po prawej (Poprawiony adres xmlns biblioteki SVG) -->
+        <!-- Przycisk Kopiowania Linku -->
+        <button onclick="copyCurrentLink()" class="btn-original" style="background-color: #4a5568; font-size: 1rem; padding: 12px 24px; border: none; border-radius: 4px; color: white; font-weight: bold; cursor: pointer; transition: background-color 0.2s;">
+            🔗 Kopiuj link do Masterplanu
+        </button>
+        
+<!-- Wersja Angielska po prawej -->
     <a href="https://master-plan-for-plock.netlify.app/" title="Change language to English" style="display: flex; align-items: center; text-decoration: none; margin-left: 5px;">
         <svg xmlns="http://w3.org" viewBox="0 0 50 25" height="38" style="border-radius: 3px; border: 1px solid #cbd5e0; cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
             <clipPath id="uk-clip"><rect width="50" height="25"/></clipPath>
@@ -742,14 +739,12 @@ a:hover {
                 <path d="M25 0v25M0 12.5h50" stroke="#c8102e" stroke-width="6"/>
             </g>
         </svg>
-    </a>
+    </a> <!-- To jest tag kończący link flagi -->
 </div>
 
-<!-- Ukryty element powiadomienia o skopiowaniu (Toast) -->
-<div id="toast-share" style="display: none; position: fixed; bottom: 20px; right: 20px; background-color: #1a365d; color: white; padding: 12px 24px; border-radius: 4px; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1); z-index: 9999; opacity: 0; transition: opacity 0.3s ease;">
-    🔗 Link do Masterplanu został skopiowany do schowka!
-</div>
-
+    <!-- Ukryty element powiadomienia o skopiowaniu -->
+    <div id="toast-share" style="display: none;">🔗 Link do Masterplanu został skopiowany do schowka!</div>
+    
     <hr>
 
    <h2 id="wstep" style="margin-bottom: 33px;">1. WSTĘP I&nbsp;ISTOTA PROBLEMÓW&nbsp;STRATEGICZNYCH</h2></div>
@@ -1238,33 +1233,30 @@ a:hover {
     <!-- Przycisk Przewiń do góry - płynnie przewija i wymusza czysty adres główny w przeglądarce -->
     <a href="javascript:void(0);" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); history.pushState(null, null, window.location.pathname);" class="btn-to-top" title="Przewiń do góry">⬆</a>
 
-<script>
-document.getElementById('copy-link-btn').addEventListener('click', function() {
-    // 1. Definiowanie tekstu do skopiowania (możesz podmienić URL na właściwy)
-    var textToCopy = "https://netlify.app";
-    
-<script>
-function copyCurrentLink() {
-    // 1. Pobranie aktualnego adresu URL strony
-    var currentUrl = window.location.href;
-    
-    // 2. Kopiowanie adresu do schowka
-    navigator.clipboard.writeText(currentUrl).then(function() {
-        // 3. Znalezienie elementu z komunikatem po ID
-        var notification = document.getElementById('copy-notification');
-        
-        if (notification) {
-            notification.style.display = 'block'; // Pokazanie komunikatu
-            
-            // 4. Automatyczne ukrycie po 3 sekundach
-            setTimeout(function() {
-                notification.style.display = 'none';
-            }, 3000);
+    <script>
+        // 1. FUNKCJA KOPIOWANIA LINKU DO SCHOWKA Z TOASTEM
+        function copyCurrentLink() {
+            const cleanUrl = window.location.protocol + '//' + window.location.host + window.location.pathname;
+            navigator.clipboard.writeText(cleanUrl).then(() => {
+                const toast = document.getElementById('toast-share');
+                
+                // Włączamy widoczność elementu jako wyskakujący boks
+                toast.style.display = 'block';
+                setTimeout(() => {
+                    toast.style.opacity = '1';
+                }, 10);
+                
+                // Po 2,5 sekundach płynnie ukrywamy element z powrotem
+                setTimeout(() => {
+                    toast.style.opacity = '0';
+                    setTimeout(() => {
+                        toast.style.display = 'none';
+                    }, 300);
+                }, 2500);
+            }).catch(err => {
+                console.error('Błąd podczas kopiowania linku: ', err);
+            });
         }
-    }).catch(function(err) {
-        console.error('Błąd podczas kopiowania linku: ', err);
-    });
-}
 
         // 2. FUNKCJE LIGHTBOXA DLA MAP NA STRONIE GŁÓWNEJ
         function openLightbox(element) {
