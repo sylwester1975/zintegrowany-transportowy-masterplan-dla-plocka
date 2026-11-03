@@ -723,10 +723,10 @@ a:hover {
             📄 Pobierz Masterplan w formacie PDF
         </button>
 
-<!-- KOMUNIKAT O SKOPIOWANIU (Dostosowany do nowego skryptu z płynną animacją) -->
-<div id="toast-share" style="display: none; opacity: 0; color: #2ecc71; font-weight: bold; margin-top: 10px; font-size: 0.9rem; transition: opacity 0.3s ease;">
-    🔗 Link do Masterplanu został skopiowany do schowka!
-</div>
+<!-- PRZYCISK SAMOWYSTARCZALNY - CAŁY KOD JEST WEWNĄTRZ ONCLICK -->
+    <button onclick="navigator.clipboard.writeText(window.location.href).then(function(){var n=document.getElementById('copy-notification');if(n){n.style.display='block';setTimeout(function(){n.style.display='none';},3000);}}).catch(function(e){console.error(e);});" class="btn-original" style="background-color: #27374d; font-size: 1rem; padding: 12px 24px; border: none; border-radius: 4px; color: white; font-weight: bold; cursor: pointer; transition: background-color 0.2s;">
+        🔗 Kopiuj link do Masterplanu
+    </button>
         
     <!-- Wersja Angielska po prawej (POPRAWIONY ADRES XMLNS!) -->
     <a href="https://master-plan-for-plock.netlify.app/" title="Change language to English" style="display: flex; align-items: center; text-decoration: none;">
