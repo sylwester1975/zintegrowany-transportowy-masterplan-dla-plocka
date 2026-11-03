@@ -722,11 +722,11 @@ a:hover {
         <button onclick="window.print()" class="btn-original" style="background-color: #c53030; font-size: 1rem; padding: 12px 24px; border: none; border-radius: 4px; color: white; font-weight: bold; cursor: pointer; transition: background-color 0.2s;">
             📄 Pobierz Masterplan w formacie PDF
         </button>
-    
-    <!-- Przycisk Kopiowania Linku -->
-    <button onclick="copyCurrentLink()" class="btn-original" style="background-color: #27374d; font-size: 1rem; padding: 12px 24px; border: none; border-radius: 4px; color: white; font-weight: bold; cursor: pointer; transition: background-color 0.2s;">
-        🔗 Kopiuj link do Masterplanu
-    </button>
+
+<!-- KOMUNIKAT O SKOPIOWANIU (Dostosowany do nowego skryptu z płynną animacją) -->
+<div id="toast-share" style="display: none; opacity: 0; color: #2ecc71; font-weight: bold; margin-top: 10px; font-size: 0.9rem; transition: opacity 0.3s ease;">
+    🔗 Link do Masterplanu został skopiowany do schowka!
+</div>
         
     <!-- Wersja Angielska po prawej (POPRAWIONY ADRES XMLNS!) -->
     <a href="https://master-plan-for-plock.netlify.app/" title="Change language to English" style="display: flex; align-items: center; text-decoration: none;">
@@ -1238,51 +1238,45 @@ a:hover {
     <a href="javascript:void(0);" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); history.pushState(null, null, window.location.pathname);" class="btn-to-top" title="Przewiń do góry">⬆</a>
 
 <script>
-function copyCurrentLink() {
-    // Automatycznie pobiera adres URL strony, na której aktualnie znajduje się użytkownik
-    var currentUrl = window.location.href;
-    
-    navigator.clipboard.writeText(currentUrl).then(function() {
-        var notification = document.getElementById('copy-notification');
-        
-        if (notification) {
-            notification.style.display = 'block'; // Pokazuje komunikat
-            
-            // Ukrywa komunikat po 3 sekundach
-            setTimeout(function() {
-                notification.style.display = 'none';
-            }, 3000);
+        function copyCurrentLink() {
+            // Czyszczenie linku z parametrów wyszukiwania/sesyjnych dla schludnego udostępniania
+            const cleanUrl = window.location.protocol + '//' + window.location.host + window.location.pathname;
+            navigator.clipboard.writeText(cleanUrl).then(() => {
+                const toast = document.getElementById('toast-share');
+                if (toast) {
+                    toast.style.display = 'block';
+                    setTimeout(() => { toast.style.opacity = '1'; }, 10);
+                    setTimeout(() => {
+                        toast.style.opacity = '0';
+                        setTimeout(() => { toast.style.display = 'none'; }, 300);
+                    }, 2500);
+                }
+            }).catch(err => { console.error('Error copying link: ', err); });
         }
-    }).catch(function(err) {
-        console.error('Błąd podczas kopiowania linku: ', err);
-    });
-}
 
-// 2. FUNKCJE LIGHTBOXA DLA MAP NA STRONIE GŁÓWNEJ
-function openLightbox(element) {
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    if (lightbox && lightboxImg) {
-        lightboxImg.src = element.src;
-        lightbox.style.display = 'flex';
-        document.body.style.overflow = 'hidden'; // Blokada przewijania tła
-    }
-}
+        // 2. FUNKCJE LIGHTBOXA DLA MAP NA STRONIE GŁÓWNEJ
+        function openLightbox(element) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            if (lightbox && lightboxImg) {
+                lightboxImg.src = element.src;
+                lightbox.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
+        }
 
-function closeLightbox() {
-    const lightbox = document.getElementById('lightbox');
-    if (lightbox) {
-        lightbox.style.display = 'none';
-        document.body.style.overflow = 'auto'; // Przywrócenie przewijania tła
-    }
-}
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            if (lightbox) {
+                lightbox.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
 
-// Zamknięcie Lightboxa klawiszem Escape
-document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
-        closeLightbox();
-    }
-});
-</script>
+        // Zamknięcie Lightboxa klawiszem Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') { closeLightbox(); }
+        });
+    </script>
 </body>
 </html>
