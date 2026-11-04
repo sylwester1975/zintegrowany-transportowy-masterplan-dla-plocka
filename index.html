@@ -399,27 +399,27 @@ clear: both !important;
    5. REGUŁY DRUKU I INTERAKCJI DLA LINKÓW (WERSJA POLSKA)
    ========================================================================== */
 
-    /* --- INTERAKCJA LINKÓW NA EKRANIE --- */
+/* --- INTERAKCJA LINKÓW NA EKRANIE --- */
 p a, li a, td a {
-    color: #1a365d !important;             /* DODANO !IMPORTANT - Głęboki granat w spoczynku */
-    text-decoration: none !important;      /* DODANO !IMPORTANT - Brak linii w spoczynku */
+    color: #1a365d !important;         /* Prestiżowy granat w stanie spoczynku */
+    text-decoration: none !important;  
     font-weight: 500;
     transition: color 0.2s ease;       
 }
 
 p a:hover, li a:hover, td a:hover {
-    color: #2563eb !important;             /* DODANO !IMPORTANT - Jasny błękit pod kursorem */
-    text-decoration: underline !important; /* Linia wysuwa się pod kursorem */
+    color: #2563eb !important;         /* Jasny błękit pod kursorem */
+    text-decoration: underline !important; 
     text-underline-offset: 4px;        
 }
 
-/* --- REGUŁA EKRANOWA DLA BIBLIOGRAFII --- */
-/* Bezwzględne ukrycie surowych adresów URL na monitorach */
+/* --- REGUŁA EKRANOWA I CYFROWA PDF --- */
+/* Bezwzględne ukrycie surowych adresów URL na monitorach oraz w cyfrowym PDF */
 .tylko-druk {
     display: none !important;
 }
 
-/* --- REGUŁY RESTRYKCYJNE DLA WYDRUKU I PLIKÓW PDF --- */
+/* --- REGUŁY RESTRYKCYJNE WYŁĄCZNIE DLA FIZYCZNEGO WYDRUKU (PAPIER) --- */
 @media print {
     @page {
         size: A4 portrait;
@@ -432,8 +432,6 @@ p a:hover, li a:hover, td a:hover {
         padding: 0 !important;
         font-size: 11pt;
         line-height: 1.6;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
     }
     button, .no-print, nav, .btn-to-top, .btn-original, .btn-download-container,
     #toast-share, [class*="rysunek"], [id*="rysunek"], [class*="zoom"], [id*="zoom"] {
@@ -443,26 +441,10 @@ p a:hover, li a:hover, td a:hover {
         height: 0 !important;
     }
     
-    /* Ujawniamy przypis URL na papierze w zdefiniowanym formacie 14px i kursywie */
-    .tylko-druk {
-        display: inline !important;
-        font-style: italic !important;
-        font-size: 14px !important;     
-        color: #333333 !important;      /* Przypis URL w nawiasie pozostaje dyskretny, szary */
-    }
-    
-    /* ZMIANA: Główne tytuły instytucji w polskiej bibliografii drukują się w prestiżowym granacie */
     .bibliografia a {
-        color: #1a365d !important;       /* Kolor identyczny jak na stronie ekranowej */
+        color: #1a365d !important;       
         text-decoration: none !important; 
         font-weight: 600 !important;      
-    }
-    
-    /* Adres URL wewnątrz kontenera traci granat na rzecz szarości nadrzędnej i traci grubość */
-    .tylko-druk a {
-        color: inherit !important;
-        text-decoration: none !important;
-        font-weight: normal !important;   
     }
     
     h1, h2, h3, h4 {
@@ -505,12 +487,27 @@ p a:hover, li a:hover, td a:hover {
         margin-top: 50px !important;
         clear: both !important;
     }
+}
+
+/* AUTOMATYCZNE WYCIĄGANIE LINKÓW NA FIZYCZNYM PAPIERZE DLA PRZEGLĄDAREK */
+@media print and (min-resolution: 200dpi) {
+    /* Ujawniamy przypis URL tylko na urządzeniach o wysokiej rozdzielczości druku (papier) */
+    .tylko-druk {
+        display: inline !important;
+        font-style: italic !important;
+        font-size: 14px !important;     
+        color: #333333 !important;      
+    }
+    .tylko-druk a {
+        color: inherit !important;
+        text-decoration: none !important;
+        font-weight: normal !important;   
+    }
     a::after {
         content: "" !important;
     }
 }
 
-/* BLOK DLA CZCIONKI GLOBALNEJ */
 @import url('https://googleapis.com');
 body, h1, h2, h3, h4, th, td, .title, .btn {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
@@ -522,7 +519,7 @@ td, th {
     hyphens: none;
     text-wrap: normal;
     vertical-align: top;
-} 
+}
 </style>
 </head>
 <body>
