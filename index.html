@@ -413,6 +413,12 @@ p a:hover, li a:hover, td a:hover {
     text-underline-offset: 4px;        
 }
 
+/* --- REGUŁA EKRANOWA I CYFROWA PDF --- */
+/* Bezwzględne ukrycie surowych adresów URL na monitorach (w trybie screen) */
+.tylko-druk, .only-print {
+    display: none !important;
+}
+
 /* --- REGUŁY RESTRYKCYJNE WYŁĄCZNIE DLA FIZYCZNEGO WYDRUKU (PAPIER) --- */
 @media print {
     @page {
@@ -435,6 +441,7 @@ p a:hover, li a:hover, td a:hover {
         height: 0 !important;
     }
     
+    /* Obsługa koloru linków w druku dla polskiej oraz angielskiej klasy listy */
     .bibliography a, .bibliografia a {
         color: #1a365d !important;       
         text-decoration: none !important; 
@@ -485,18 +492,14 @@ p a:hover, li a:hover, td a:hover {
         clear: both !important;
     }
 
-    /* [TUTAJ] Wymuszamy pokazanie adresów na papierze – przed czcionką globalną */
-    .tylko-druk {
+    /* Wymuszamy stabilne pokazanie adresów w trybie wydruku i w pliku PDF */
+    .tylko-druk, .only-print {
         display: inline !important;
-        font-size: 0.85rem !important;
-        font-style: italic !important;
     }
-    .tylko-druk a {
+    .tylko-druk a, .only-print a {
         color: #333333 !important;
         text-decoration: none !important;
         font-weight: normal !important;
-        font-size: 0.85rem !important;
-        font-style: italic !important;
     }
 }
 
@@ -1141,7 +1144,7 @@ td, th {
     
 <hr>
 
-    <h2 id="materialy-wyjsciowe" style="margin-bottom: 33px;">MATERIAŁY WYJŚCIOWE I&nbsp;ŹRÓDŁA&nbsp;DANYCH</h2>
+   <h2 id="materialy-wyjsciowe" style="margin-bottom: 33px;">MATERIAŁY WYJŚCIOWE I&nbsp;ŹRÓDŁA&nbsp;DANYCH</h2>
 
 <p style="text-align: justify;">
     Niniejszy Masterplan oraz załączone rysunki koncepcyjne zostały opracowane w&nbsp;oparciu o&nbsp;analizę własną, a&nbsp;także publicznie dostępne, oficjalne dokumenty strategiczne, plany rozwoju i&nbsp;podkłady topograficzne następujących instytucji:
@@ -1149,19 +1152,19 @@ td, th {
 
 <ul class="bibliografia" style="padding-left: 20px; color: #333333;">
     <li style="margin-bottom: 15px; text-align: justify;">
-        <a href="https://gddkia.gov.pl" target="_blank" style="color: #1a365d; font-weight: 600;">Generalna Dyrekcja Dróg Krajowych i&nbsp;Autostrad (GDDKiA)</a><span class="tylko-druk" style="display: none !important; font-size: 0.85rem !important; font-style: italic !important;"> (Dostęp online: <a href="https://gddkia.gov.pl" target="_blank" style="color: inherit; text-decoration: none; font-size: 0.85rem !important; font-style: italic !important;">drogi.gddkia.gov.pl</a>)</span>&nbsp;– w&nbsp;zakresie aktualnych i&nbsp;perspektywicznych planów&nbsp;budowy sieci dróg ekspresowych i&nbsp;autostrad w&nbsp;centralnej Polsce, map stanu budowy dróg oraz studiów&nbsp;korytarzowych;
+        <a href="https://gddkia.gov.pl" target="_blank" style="color: #1a365d; font-weight: 600;">Generalna Dyrekcja Dróg Krajowych i&nbsp;Autostrad (GDDKiA)</a><span class="tylko-druk" style="font-size: 0.85rem !important; font-style: italic !important;"> (Dostęp online: <a href="https://gddkia.gov.pl" target="_blank" style="color: inherit; text-decoration: none; font-size: 0.85rem !important; font-style: italic !important;">drogi.gddkia.gov.pl</a>)</span>&nbsp;– w&nbsp;zakresie aktualnych i&nbsp;perspektywicznych planów&nbsp;budowy sieci dróg ekspresowych i&nbsp;autostrad w&nbsp;centralnej Polsce, map stanu budowy dróg oraz studiów&nbsp;korytarzowych;
     </li>
     <li style="margin-bottom: 15px; text-align: justify;">
-        <a href="https://plk-sa.pl" target="_blank" style="color: #1a365d; font-weight: 600;">PKP Polskie Linie Kolejowe S.A. (PKP PLK)</a><span class="tylko-druk" style="display: none !important; font-size: 0.85rem !important; font-style: italic !important;"> (Dostęp online: <a href="https://plk-sa.pl" target="_blank" style="color: inherit; text-decoration: none; font-size: 0.85rem !important; font-style: italic !important;">plk-sa.pl</a>)</span>&nbsp;– w&nbsp;zakresie założeń modernizacyjnych istniejącej sieci kolejowej oraz założeń i&nbsp;konsultacji regionalnych w&nbsp;ramach projektu „Zintegrowana Sieć Kolejowa” (ZSK);
+        <a href="https://plk-sa.pl" target="_blank" style="color: #1a365d; font-weight: 600;">PKP Polskie Linie Kolejowe S.A. (PKP PLK)</a><span class="tylko-druk" style="font-size: 0.85rem !important; font-style: italic !important;"> (Dostęp online: <a href="https://plk-sa.pl" target="_blank" style="color: inherit; text-decoration: none; font-size: 0.85rem !important; font-style: italic !important;">plk-sa.pl</a>)</span>&nbsp;– w&nbsp;zakresie założeń modernizacyjnych istniejącej sieci kolejowej oraz założeń i&nbsp;konsultacji regionalnych w&nbsp;ramach projektu „Zintegrowana Sieć Kolejowa” (ZSK);
     </li>
     <li style="margin-bottom: 15px; text-align: justify;">
-        <a href="https://zsk.gov.pl" target="_blank" style="color: #1a365d; font-weight: 600;">Zintegrowana Sieć Kolejowa (Portal Rządowy ZSK)</a><span class="tylko-druk" style="display: none !important; font-size: 0.85rem !important; font-style: italic !important;"> (Dostęp online: <a href="https://zsk.gov.pl" target="_blank" style="color: inherit; text-decoration: none; font-size: 0.85rem !important; font-style: italic !important;">zsk.gov.pl</a>)</span>&nbsp;– w&nbsp;zakresie oficjalnego, wieloletniego planu rozwoju i&nbsp;schematycznego układu korytarzy transportowych oraz nowych linii kolejowych i&nbsp;terminali intermodalnych;
+        <a href="https://zsk.gov.pl" target="_blank" style="color: #1a365d; font-weight: 600;">Zintegrowana Sieć Kolejowa (Portal Rządowy ZSK)</a><span class="tylko-druk" style="font-size: 0.85rem !important; font-style: italic !important;"> (Dostęp online: <a href="https://zsk.gov.pl" target="_blank" style="color: inherit; text-decoration: none; font-size: 0.85rem !important; font-style: italic !important;">zsk.gov.pl</a>)</span>&nbsp;– w&nbsp;zakresie oficjalnego, wieloletniego planu rozwoju i&nbsp;schematycznego układu korytarzy transportowych oraz nowych linii kolejowych i&nbsp;terminali intermodalnych;
     </li>
     <li style="margin-bottom: 15px; text-align: justify;">
-        <a href="https://portpolska.pl" target="_blank" style="color: #1a365d; font-weight: 600;">Port Polska (Centralny Port Komunikacyjny)</a><span class="tylko-druk" style="display: none !important; font-size: 0.85rem !important; font-style: italic !important;"> (Dostęp online: <a href="https://portpolska.pl" target="_blank" style="color: inherit; text-decoration: none; font-size: 0.85rem !important; font-style: italic !important;">portpolska.pl</a>)</span>&nbsp;– w&nbsp;zakresie oficjalnych planów&nbsp;strategicznych i&nbsp;korytarzy planowanej magistrali kolejowej CMK-Północ, programu inwestycyjnego węzła&nbsp;transportowego w&nbsp;Baranowie oraz powiązanych strategicznych centrów&nbsp;logistycznych;
+        <a href="https://portpolska.pl" target="_blank" style="color: #1a365d; font-weight: 600;">Port Polska (Centralny Port Komunikacyjny)</a><span class="tylko-druk" style="font-size: 0.85rem !important; font-style: italic !important;"> (Dostęp online: <a href="https://portpolska.pl" target="_blank" style="color: inherit; text-decoration: none; font-size: 0.85rem !important; font-style: italic !important;">portpolska.pl</a>)</span>&nbsp;– w&nbsp;zakresie oficjalnych planów&nbsp;strategicznych i&nbsp;korytarzy planowanej magistrali kolejowej CMK-Północ, programu inwestycyjnego węzła&nbsp;transportowego w&nbsp;Baranowie oraz powiązanych strategicznych centrów&nbsp;logistycznych;
     </li>
     <li style="margin-bottom: 0; text-align: justify;">
-        <a href="https://www.gov.pl" target="_blank" style="color: #1a365d; font-weight: 600;">Organy administracji rządowej i&nbsp;samorządowej (Portal Gov.pl)</a><span class="tylko-druk" style="display: none !important; font-size: 0.85rem !important; font-style: italic !important;"> (Dostęp online: <a href="https://www.gov.pl" target="_blank" style="color: inherit; text-decoration: none; font-size: 0.85rem !important; font-style: italic !important;">gov.pl</a>)</span>&nbsp;– w&nbsp;zakresie publicznie dostępnych centralnych strategii rozwoju (w&nbsp;tym Ministerstwa Infrastruktury), studiów&nbsp;uwarunkowań, planów&nbsp;zagospodarowania przestrzennego oraz lokalnych strategii rozwoju transformacji energetycznej i&nbsp;transportowej regionu płockiego.
+        <a href="https://www.gov.pl" target="_blank" style="color: #1a365d; font-weight: 600;">Organy administracji rządowej i&nbsp;samorządowej (Portal Gov.pl)</a><span class="tylko-druk" style="font-size: 0.85rem !important; font-style: italic !important;"> (Dostęp online: <a href="https://www.gov.pl" target="_blank" style="color: inherit; text-decoration: none; font-size: 0.85rem !important; font-style: italic !important;">gov.pl</a>)</span>&nbsp;– w&nbsp;zakresie publicznie dostępnych centralnych strategii rozwoju (w&nbsp;tym Ministerstwa Infrastruktury), studiów&nbsp;uwarunkowań, planów&nbsp;zagospodarowania przestrzennego oraz lokalnych strategii rozwoju transformacji energetycznej i&nbsp;transportowej regionu płockiego.
     </li>
 </ul>
     
