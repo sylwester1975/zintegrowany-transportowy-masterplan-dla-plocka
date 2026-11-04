@@ -489,25 +489,6 @@ p a:hover, li a:hover, td a:hover {
     }
 }
 
-/* AUTOMATYCZNE WYCIĄGANIE LINKÓW NA FIZYCZNYM PAPIERZE DLA PRZEGLĄDAREK */
-@media print and (min-resolution: 200dpi) {
-    /* Ujawniamy przypis URL tylko na urządzeniach o wysokiej rozdzielczości druku (papier) */
-    .tylko-druk {
-        display: inline !important;
-        font-style: italic !important;
-        font-size: 14px !important;     
-        color: #333333 !important;      
-    }
-    .tylko-druk a {
-        color: inherit !important;
-        text-decoration: none !important;
-        font-weight: normal !important;   
-    }
-    a::after {
-        content: "" !important;
-    }
-}
-
 @import url('https://googleapis.com');
 body, h1, h2, h3, h4, th, td, .title, .btn {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
