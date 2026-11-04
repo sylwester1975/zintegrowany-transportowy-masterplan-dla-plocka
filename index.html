@@ -399,17 +399,17 @@ clear: both !important;
    5. REGUŁY DRUKU I INTERAKCJI DLA LINKÓW (WERSJA POLSKA)
    ========================================================================== */
 
-/* --- INTERAKCJA LINKÓW NA EKRANIE --- */
+    /* --- INTERAKCJA LINKÓW NA EKRANIE --- */
 p a, li a, td a {
-    color: #1a365d;         
-    text-decoration: none;  
+    color: #1a365d !important;             /* DODANO !IMPORTANT - Głęboki granat w spoczynku */
+    text-decoration: none !important;      /* DODANO !IMPORTANT - Brak linii w spoczynku */
     font-weight: 500;
     transition: color 0.2s ease;       
 }
 
 p a:hover, li a:hover, td a:hover {
-    color: #2563eb;         
-    text-decoration: underline !important; 
+    color: #2563eb !important;             /* DODANO !IMPORTANT - Jasny błękit pod kursorem */
+    text-decoration: underline !important; /* Linia wysuwa się pod kursorem */
     text-underline-offset: 4px;        
 }
 
