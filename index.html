@@ -398,12 +398,7 @@ clear: both !important;
 /* ==========================================================================
    5. REGUŁY DRUKU I INTERAKCJI DLA LINKÓW (WERSJA POLSKA - OSTATECZNA)
    ========================================================================== */
-
-body, h1, h2, h3, h4, th, td, .title, .btn {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
-}
-
-/* B. INTERAKCJA LINKÓW NA EKRANIE (Style widoczne na monitorach) */
+/* --- INTERAKCJA LINKÓW NA EKRANIE --- */
 p a, li a, td a {
     color: #1a365d !important;         /* Prestiżowy granat w stanie spoczynku */
     text-decoration: none !important;  
@@ -417,30 +412,19 @@ p a:hover, li a:hover, td a:hover {
     text-underline-offset: 4px;        
 }
 
-td, th {
-    text-align: left;
-    -webkit-hyphens: none;
-    -ms-hyphens: none;
-    hyphens: none;
-    text-wrap: normal;
-    vertical-align: top;
-}
-
+/* --- REGUŁA EKRANOWA I CYFROWA PDF --- */
 /* Bezwzględne ukrycie surowych adresów URL na monitorach oraz w cyfrowym PDF */
 .tylko-druk {
     display: none !important;
 }
 
-
-/* C. REGUŁY RESTRYKCYJNE WYŁĄCZNIE DLA FIZYCZNEGO WYDRUKU ORAZ EKSPORTU (PAPIER) */
+/* --- REGUŁY RESTRYKCYJNE WYŁĄCZNIE DLA FIZYCZNEGO WYDRUKU (PAPIER) --- */
 @media print {
     @page {
         size: A4 portrait;
         margin: 20mm 15mm 20mm 15mm !important;
     }
-
-    body {
-        background: #ffffff !important;
+    html, body {
         background-color: #ffffff !important;
         color: #333333 !important;
         margin: 0 !important;
@@ -448,25 +432,6 @@ td, th {
         font-size: 11pt;
         line-height: 1.6;
     }
-
-    /* Automatyczne wyciąganie surowych adresów URL i doklejanie ich w nawiasie za tekstem na papierze */
-    a[href]:after {
-        content: " (URL: " attr(href) ")";
-        font-size: 85%;
-        color: #333333;
-        font-weight: normal;
-        text-decoration: none;
-    }
-
-    /* Blokada dopisywania URL dla kotwic wewnątrzstronnych, skryptów i przycisków */
-    a[href^="#"]:after, 
-    a[href^="javascript:"]:after,
-    button:after,
-    .btn:after {
-        content: "" !important;
-    }
-
-    /* Ukrywanie elementów interaktywnych, przycisków i paneli nawigacji na papierze */
     button, .no-print, nav, .btn-to-top, .btn-original, .btn-download-container,
     #toast-share, [class*="rysunek"], [id*="rysunek"], [class*="zoom"], [id*="zoom"] {
         display: none !important;
@@ -475,32 +440,27 @@ td, th {
         height: 0 !important;
     }
     
-    /* Wygląd linków w bibliografii na wydruku */
     .bibliografia a {
         color: #1a365d !important;       
         text-decoration: none !important; 
         font-weight: 600 !important;      
     }
     
-    /* Kontrola dzielenia nagłówków ( Page Breaks ) */
     h1, h2, h3, h4 {
         break-after: avoid !important;
         page-break-after: avoid !important;
         break-inside: avoid !important;
         page-break-inside: avoid !important;
     }
-
     h2, h3 {
         margin-top: 10px !important;
         padding-top: 25px !important;
         margin-bottom: 15px !important;
     }
-
     h1 + h2 {
         margin-top: 55px !important;
         padding-top: 0 !important;
     }
-
     hr {
         break-after: avoid !important;
         page-break-after: avoid !important;
@@ -508,18 +468,13 @@ td, th {
         margin-bottom: 15px !important;
         background: #cbd5e0 !important;
     }
-
     .highlight-box, .toc-box {
         padding: 15px !important;
     }
-
-    /* Ochrona przed rozrywaniem akapitów, bloków i tabel finansowych CapEx na pół strony */
     p, table, tr, .custom-table, .signature-wrapper, .highlight-box, .toc-box {
         break-inside: avoid !important;
         page-break-inside: avoid !important;
     }
-
-    /* Wymuszenie nowej strony w wyznaczonym miejscu pliku HTML */
     .page-break {
         display: block !important;
         clear: both !important;
@@ -527,15 +482,23 @@ td, th {
         page-break-before: always !important;
         height: 0 !important;
     }
-
     .signature-wrapper {
         margin-top: 50px !important;
         clear: both !important;
     }
 }
- <link rel="preconnect" href="https://googleapis.com">
-<link rel="preconnect" href="https://gstatic.com" crossorigin>
-<link href="https://googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">   
+@import url('https://googleapis.com');
+body, h1, h2, h3, h4, th, td, .title, .btn {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+} 
+td, th {
+    text-align: left;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+    text-wrap: normal;
+    vertical-align: top;
+}  
 </style>
 </head>
 <body>
