@@ -396,195 +396,133 @@ margin-bottom: 20px;
 clear: both !important;
 }
 /* ==========================================================================
-5. REGUŁY DRUKU I&nbsp;EKSPORTU DO PLIKU PDF
-========================================================================== */
-/* 1. TUTAJ WKLEJASZ (POZA KLAMRĄ @MEDIA PRINT) */
+   5. REGUŁY DRUKU I INTERAKCJI DLA LINKÓW (WERSJA POLSKA)
+   ========================================================================== */
+
+/* --- INTERAKCJA LINKÓW NA EKRANIE --- */
 p a, li a, td a {
-    color: #1a365d !important;         /* Twój prestiżowy granat */
-    text-decoration: none !important;  /* USUNIĘCIE STAŁEGO PODKREŚLENIA W SPOCZYNKU */
+    color: #1a365d;         
+    text-decoration: none;  
     font-weight: 500;
-    transition: color 0.2s ease;       /* Gładkie przejście koloru pod kursorem */
+    transition: color 0.2s ease;       
 }
 
-/* EFEKT HOVER - Podkreślenie i rozjaśnienie pojawia się tylko po najechaniu myszką */
 p a:hover, li a:hover, td a:hover {
-    color: #2563eb !important;         /* Podświetlenie do żywego błękitu */
-    text-decoration: underline !important; /* Linia wysuwa się tylko podczas interakcji */
-    text-underline-offset: 4px;        /* Nowoczesne odsunięcie linii */
-}
-@media print {
-@page {
-size: A4 portrait;
-margin: 20mm 15mm 20mm 15mm !important;
-}
-html, body {
-background-color: #ffffff !important;
-color: #333333 !important;
-margin: 0 !important;
-padding: 0 !important;
-font-size: 11pt;
-line-height: 1.6;
--webkit-print-color-adjust: exact !important;
-print-color-adjust: exact !important;
-position: relative !important;
-}
-button, .no-print, nav, .-to-top, .-original, .-download-container,
-#toast-share, [class*="rysunek"], [id*="rysunek"], [class*="zoom"], [id*="zoom"] {
-display: none !important;
-visibility: hidden !important;
-opacity: 0 !important;
-height: 0 !important;
-}
-a, .toc-box a, .print-footer a {
-color: #1a365d !important;
-text-decoration: none !important;
-pointer-events: auto !important;
-cursor: pointer !important;
-position: relative !important;
-z-index: 100 !important;
-}
-a[href]:after {
-content: "" !important;
-}
-h1, h2, h3, h4 {
-break-after: avoid !important;
-page-break-after: avoid !important;
-box-sizing: border-box !important;
-break-inside: avoid !important;
-page-break-inside: avoid !important;
-}
-h2, h3 {
-margin-top: 10px !important;
-padding-top: 25px !important;
-margin-bottom: 15px !important;
-}
-h1 + h2 {
-margin-top: 55px !important;
-padding-top: 0 !important;
-}
-hr {
-break-after: avoid !important;
-page-break-after: avoid !important;
-break-inside: avoid !important;
-page-break-inside: avoid !important;
-margin-top: 0 !important;
-margin-bottom: 15px !important;
-background: #cbd5e0 !important;
-}
-.highlight-box, .toc-box {
-padding: 15px !important;
-}
-/* --- PORZĄDEK: Tylko jedna, czysta reguła&nbsp;zabezpieczająca przed łamaniem --- */
-p, table, tr, .custom-table, .ZINTEGROWANY-PAKIE-INVESTYCYJNY-KLASA, .signature-wrapper, .highlight-box, .toc-box {
-break-inside: avoid !important;
-page-break-inside: avoid !important;
-}
-.page-break {
-display: block !important;
-clear: both !important;
-break-before: page !important;
-page-break-before: always !important;
-height: 0 !important;
-margin: 0 !important;
-padding: 0 !important;
-}
-.signature-wrapper {
-margin-top: 50px !important;
-clear: both !important;
-}
-.print-footer {
-display: block !important;
-position: relative !important;
-margin-top: 80px !important;
-padding-top: 15px !important;
-border-top: 2px solid #1a365d !important;
-text-align: center !important;
-font-size: 0.9rem !important;
-color: #333333 !important;
-font-weight: bold !important;
-background-color: #ffffff !important;
-width: 100% !important;
-}
-.print-footer a&nbsp;{
-color: #1a365d !important;
-text-decoration: none !important;
-}
-}
-/* W&nbsp;100% POPRAWNY URZĘDOWY BLOK DLA CZCIONKI INTER */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
-body, h1, h2, h3, h4, th, td, .title, .btn {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
-} 
-    /* 2. Wyjątek dla tabeli – tekst wyrównany do lewej, bez sztucznego rozciągania */
-    td, th {
-        text-align: left;
-        -webkit-hyphens: none;
-        -ms-hyphens: none;
-        hyphens: none;
-        text-wrap: normal;
-        vertical-align: top;
-    }
-/* ==========================================================================
-   NOWOCZESNY STYL LINKÓW - BEZ PODKREŚLEŃ W STANIE SPOCZYNKU
-   ========================================================================== */
-a {
-    /* Używamy nasyconego błękitu cyfrowego - idealnie odcina się od grafitu #333333, 
-       sygnując klikalność bez szpecących linii */
-    color: #1d4ed8 !important;         
-    text-decoration: none !important;  /* CAŁKOWITY BRAK PODKREŚLEŃ W SPOCZYNKU */
-    font-weight: inherit;              /* Bezpieczne dziedziczenie grubości czcionki */
-    transition: color 0.2s ease;       /* Płynna zmiana koloru pod kursorem */
+    color: #2563eb;         
+    text-decoration: underline; 
+    text-underline-offset: 4px;        
 }
 
-/* EFEKT HOVER - LINK PODKREŚLA SIĘ DOPIERO PO NAJECHANIU MYSZKĄ */
-a:hover {
-    color: #1a365d !important;         /* Płynnie ciemnieje do Twojego granatu nagłówkowego */
-    text-decoration: underline !important; /* Linia wysuwa się TYLKO podczas interakcji */
-    text-underline-offset: 4px;        /* Nowoczesne, estetyczne odsunięcie linii */
-}
-
-/* ==========================================================================
-   STYLIZACJA WYDRUKU I LINKÓW DLA BIBLIOGRAFII (WERSJA POLSKA)
-   ========================================================================== */
-
-/* --- REGUŁA EKRANOWA --- */
-/* Ukrywa surowe nawiasy WWW podczas przeglądania dokumentu w internecie */
+/* --- REGUŁA EKRANOWA DLA BIBLIOGRAFII --- */
+/* Bezwzględne ukrycie surowych adresów URL na monitorach */
 .tylko-druk {
-    display: none;
+    display: none !important;
 }
 
-/* --- REGUŁA DRUKU I GENEROWANIA DOKUMENTÓW PDF --- */
+/* --- REGUŁY RESTRYKCYJNE DLA WYDRUKU I PLIKÓW PDF --- */
 @media print {
-    /* Wymuszamy ujawnienie i profesjonalne formatowanie przypisu URL na papierze */
+    @page {
+        size: A4 portrait;
+        margin: 20mm 15mm 20mm 15mm !important;
+    }
+    html, body {
+        background-color: #ffffff !important;
+        color: #333333 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: 11pt;
+        line-height: 1.6;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+    button, .no-print, nav, .btn-to-top, .btn-original, .btn-download-container,
+    #toast-share, [class*="rysunek"], [id*="rysunek"], [class*="zoom"], [id*="zoom"] {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+    }
+    
+    /* Ujawniamy przypis URL na papierze w zdefiniowanym formacie 14px i kursywie */
     .tylko-druk {
         display: inline !important;
         font-style: italic !important;
-        font-size: 14px !important;     /* Precyzyjnie zdefiniowany rozmiar przypisu */
-        color: #333333 !important;      /* Kolor dopasowany semantycznie do reszty opisu */
+        font-size: 14px !important;     
+        color: #333333 !important;      /* Przypis URL w nawiasie pozostaje dyskretny, szary */
     }
     
-    /* Wszystkie linki wewnątrz bibliografii na wydruku tracą kolory i podkreślenia interaktywne */
+    /* ZMIANA: Główne tytuły instytucji w polskiej bibliografii drukują się w prestiżowym granacie */
     .bibliografia a {
-        color: #333333 !important;       
+        color: #1a365d !important;       /* Kolor identyczny jak na stronie ekranowej */
         text-decoration: none !important; 
-        font-weight: 600 !important;      /* Nazwa instytucji pozostaje pogrubiona w druku */
-        cursor: default !important;
+        font-weight: 600 !important;      
     }
     
-    /* Adres URL w nawiasie dziedziczy styl kontenera, ale traci pogrubienie dla lepszej czytelności */
+    /* Adres URL wewnątrz kontenera traci granat na rzecz szarości nadrzędnej i traci grubość */
     .tylko-druk a {
         color: inherit !important;
         text-decoration: none !important;
         font-weight: normal !important;   
     }
     
-    /* Blokada przed automatycznym dopisywaniem linków przez natywne silniki przeglądarek */
+    h1, h2, h3, h4 {
+        break-after: avoid !important;
+        page-break-after: avoid !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+    }
+    h2, h3 {
+        margin-top: 10px !important;
+        padding-top: 25px !important;
+        margin-bottom: 15px !important;
+    }
+    h1 + h2 {
+        margin-top: 55px !important;
+        padding-top: 0 !important;
+    }
+    hr {
+        break-after: avoid !important;
+        page-break-after: avoid !important;
+        margin-top: 0 !important;
+        margin-bottom: 15px !important;
+        background: #cbd5e0 !important;
+    }
+    .highlight-box, .toc-box {
+        padding: 15px !important;
+    }
+    p, table, tr, .custom-table, .signature-wrapper, .highlight-box, .toc-box {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+    }
+    .page-break {
+        display: block !important;
+        clear: both !important;
+        break-before: page !important;
+        page-break-before: always !important;
+        height: 0 !important;
+    }
+    .signature-wrapper {
+        margin-top: 50px !important;
+        clear: both !important;
+    }
     a::after {
         content: "" !important;
     }
 }
-    
+
+/* BLOK DLA CZCIONKI GLOBALNEJ */
+@import url('https://googleapis.com');
+body, h1, h2, h3, h4, th, td, .title, .btn {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+} 
+td, th {
+    text-align: left;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+    text-wrap: normal;
+    vertical-align: top;
+} 
 </style>
 </head>
 <body>
@@ -1215,26 +1153,25 @@ a:hover {
     
 <h2 id="materialy-wyjsciowe" style="margin-bottom: 33px;">MATERIAŁY WYJŚCIOWE I&nbsp;ŹRÓDŁA&nbsp;DANYCH</h2>
 
-<!-- Tekst w pełni dziedziczy styl bazowy strony, wyjustowany -->
 <p style="text-align: justify;">
     Niniejszy Masterplan oraz załączone rysunki koncepcyjne zostały opracowane w&nbsp;oparciu o&nbsp;analizę własną, a&nbsp;także publicznie dostępne, oficjalne dokumenty strategiczne, plany rozwoju i&nbsp;podkłady topograficzne następujących instytucji:
 </p>
 
 <ul class="bibliografia" style="padding-left: 20px; color: #333333;">
     <li style="margin-bottom: 15px; text-align: justify;">
-        <a href="https://drogi.gddkia.gov.pl" target="_blank" style="color: #1a365d; text-decoration: none; font-weight: 600;">Generalna Dyrekcja Dróg Krajowych i&nbsp;Autostrad (GDDKiA)</a><span class="tylko-druk"> (Dostęp online: <a href="https://drogi.gddkia.gov.pl" target="_blank" style="color: inherit; text-decoration: none;">drogi.gddkia.gov.pl</a>)</span>&nbsp;– w&nbsp;zakresie aktualnych i&nbsp;perspektywicznych planów&nbsp;budowy sieci dróg ekspresowych i&nbsp;autostrad w&nbsp;centralnej Polsce, map stanu budowy dróg oraz studiów&nbsp;korytarzowych;
+        <a href="https://gddkia.gov.pl" target="_blank" style="color: #1a365d; text-decoration: none; font-weight: 600;">Generalna Dyrekcja Dróg Krajowych i&nbsp;Autostrad (GDDKiA)</a><span class="tylko-druk" style="display: none;"> (Dostęp online: <a href="https://gddkia.gov.pl" target="_blank" style="color: inherit; text-decoration: none;">drogi.gddkia.gov.pl</a>)</span>&nbsp;– w&nbsp;zakresie aktualnych i&nbsp;perspektywicznych planów&nbsp;budowy sieci dróg ekspresowych i&nbsp;autostrad w&nbsp;centralnej Polsce, map stanu budowy dróg oraz studiów&nbsp;korytarzowych;
     </li>
     <li style="margin-bottom: 15px; text-align: justify;">
-        <a href="https://plk-sa.pl" target="_blank" style="color: #1a365d; text-decoration: none; font-weight: 600;">PKP Polskie Linie Kolejowe S.A. (PKP PLK)</a><span class="tylko-druk"> (Dostęp online: <a href="https://plk-sa.pl" target="_blank" style="color: inherit; text-decoration: none;">plk-sa.pl</a>)</span>&nbsp;– w&nbsp;zakresie założeń modernizacyjnych istniejącej sieci kolejowej oraz założeń i&nbsp;konsultacji regionalnych w&nbsp;ramach projektu „Zintegrowana Sieć Kolejowa” (ZSK);
+        <a href="https://plk-sa.pl" target="_blank" style="color: #1a365d; text-decoration: none; font-weight: 600;">PKP Polskie Linie Kolejowe S.A. (PKP PLK)</a><span class="tylko-druk" style="display: none;"> (Dostęp online: <a href="https://plk-sa.pl" target="_blank" style="color: inherit; text-decoration: none;">plk-sa.pl</a>)</span>&nbsp;– w&nbsp;zakresie założeń modernizacyjnych istniejącej sieci kolejowej oraz założeń i&nbsp;konsultacji regionalnych w&nbsp;ramach projektu „Zintegrowana Sieć Kolejowa” (ZSK);
     </li>
     <li style="margin-bottom: 15px; text-align: justify;">
-        <a href="https://zsk.gov.pl" target="_blank" style="color: #1a365d; text-decoration: none; font-weight: 600;">Zintegrowana Sieć Kolejowa (Portal Rządowy ZSK)</a><span class="tylko-druk"> (Dostęp online: <a href="https://zsk.gov.pl" target="_blank" style="color: inherit; text-decoration: none;">zsk.gov.pl</a>)</span>&nbsp;– w&nbsp;zakresie oficjalnego, wieloletniego planu rozwoju i&nbsp;schematycznego układu korytarzy transportowych oraz nowych linii kolejowych i&nbsp;terminali intermodalnych;
+        <a href="https://zsk.gov.pl" target="_blank" style="color: #1a365d; text-decoration: none; font-weight: 600;">Zintegrowana Sieć Kolejowa (Portal Rządowy ZSK)</a><span class="tylko-druk" style="display: none;"> (Dostęp online: <a href="https://zsk.gov.pl" target="_blank" style="color: inherit; text-decoration: none;">zsk.gov.pl</a>)</span>&nbsp;– w&nbsp;zakresie oficjalnego, wieloletniego planu rozwoju i&nbsp;schematycznego układu korytarzy transportowych oraz nowych linii kolejowych i&nbsp;terminali intermodalnych;
     </li>
     <li style="margin-bottom: 15px; text-align: justify;">
-        <a href="https://portpolska.pl" target="_blank" style="color: #1a365d; text-decoration: none; font-weight: 600;">Port Polska (Centralny Port Komunikacyjny)</a><span class="tylko-druk"> (Dostęp online: <a href="https://portpolska.pl" target="_blank" style="color: inherit; text-decoration: none;">portpolska.pl</a>)</span>&nbsp;– w&nbsp;zakresie oficjalnych planów&nbsp;strategicznych i&nbsp;korytarzy planowanej magistrali kolejowej CMK-Północ, programu inwestycyjnego węzła&nbsp;transportowego w&nbsp;Baranowie oraz powiązanych strategicznych centrów&nbsp;logistycznych;
+        <a href="https://portpolska.pl" target="_blank" style="color: #1a365d; text-decoration: none; font-weight: 600;">Port Polska (Centralny Port Komunikacyjny)</a><span class="tylko-druk" style="display: none;"> (Dostęp online: <a href="https://portpolska.pl" target="_blank" style="color: inherit; text-decoration: none;">portpolska.pl</a>)</span>&nbsp;– w&nbsp;zakresie oficjalnych planów&nbsp;strategicznych i&nbsp;korytarzy planowanej magistrali kolejowej CMK-Północ, programu inwestycyjnego węzła&nbsp;transportowego w&nbsp;Baranowie oraz powiązanych strategicznych centrów&nbsp;logistycznych;
     </li>
     <li style="margin-bottom: 0; text-align: justify;">
-        <a href="https://www.gov.pl" target="_blank" style="color: #1a365d; text-decoration: none; font-weight: 600;">Organy administracji rządowej i&nbsp;samorządowej (Portal Gov.pl)</a><span class="tylko-druk"> (Dostęp online: <a href="https://www.gov.pl" target="_blank" style="color: inherit; text-decoration: none;">gov.pl</a>)</span>&nbsp;– w&nbsp;zakresie publicznie dostępnych centralnych strategii rozwoju (w&nbsp;tym Ministerstwa Infrastruktury), studiów&nbsp;uwarunkowań, planów&nbsp;zagospodarowania przestrzennego oraz lokalnych strategii rozwoju transformacji energetycznej i&nbsp;transportowej regionu płockiego.
+        <a href="https://www.gov.pl" target="_blank" style="color: #1a365d; text-decoration: none; font-weight: 600;">Organy administracji rządowej i&nbsp;samorządowej (Portal Gov.pl)</a><span class="tylko-druk" style="display: none;"> (Dostęp online: <a href="https://www.gov.pl" target="_blank" style="color: inherit; text-decoration: none;">gov.pl</a>)</span>&nbsp;– w&nbsp;zakresie publicznie dostępnych centralnych strategii rozwoju (w&nbsp;tym Ministerstwa Infrastruktury), studiów&nbsp;uwarunkowań, planów&nbsp;zagospodarowania przestrzennego oraz lokalnych strategii rozwoju transformacji energetycznej i&nbsp;transportowej regionu płockiego.
     </li>
 </ul>
     
