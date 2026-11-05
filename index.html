@@ -502,7 +502,16 @@ p a:hover, li a:hover, td a:hover {
         font-weight: normal !important;
     }
 }
-
+/* 1. TUTAJ WKLEJASZ BLOK DLA DRUKU: */
+    @media print {
+        .bibliografia a[href]:after {
+            content: " (Dostęp online: " attr(href) ")";
+            font-size: 0.85rem !important;
+            font-style: italic !important;
+            color: #000000 !important;
+            font-weight: normal !important;
+        }
+    }
 /* BLOK DLA CZCIONKI GLOBALNEJ */
 @import url('https://googleapis.com');
 body, h1, h2, h3, h4, th, td, .title, .btn {
