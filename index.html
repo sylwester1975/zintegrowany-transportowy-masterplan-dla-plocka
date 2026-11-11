@@ -396,19 +396,19 @@ margin-bottom: 20px;
 clear: both !important;
 }
 /* ==========================================================================
-   5. REGUŁY DRUKU I INTERAKCJI DLA LINKÓW (WERSJA POLSKA)
+   5. REGUŁY DRUKU I INTERAKCJI DLA LINKÓW (WERSJA ANGIELSKA / POLSKA)
    ========================================================================== */
 
-/* --- INTERAKCJA EKRANOWA DLA LINKÓW --- */
+/* --- SCREEN INTERACTION FOR LINKS --- */
 p a, li a, td a {
-    color: #1a365d !important;         /* Głęboki granat w stanie spoczynku */
+    color: #1a365d !important;         /* Deep navy in rest state */
     text-decoration: none !important;  
     font-weight: 500;
     transition: color 0.2s ease;       
 }
 
 p a:hover, li a:hover, td a:hover {
-    color: #2563eb !important;         /* Jasny niebieski po najechaniu */
+    color: #2563eb !important;         /* Bright blue on hover */
     text-decoration: underline !important; 
     text-underline-offset: 4px;        
 }
@@ -430,25 +430,23 @@ p a:hover, li a:hover, td a:hover {
         color: #333333 !important;
         margin: 0 !important;
         padding: 0 !important;
+        padding-bottom: 0 !important;
         font-size: 11pt;
         line-height: 1.6;
     }
     button, .no-print, nav, .btn-to-top, .btn-original, .btn-download-container,
-    #toast-share, [class*="rysunek"], [id*="rysunek"], [class*="zoom"], [id*="zoom"] {
+    #toast-share, [class*="figure"], [id*="figure"], [class*="zoom"], [id*="zoom"] {
         display: none !important;
         visibility: hidden !important;
         opacity: 0 !important;
         height: 0 !important;
     }
-    
-    /* Obsługa koloru linków w druku dla polskiej oraz angielskiej klasy listy */
     .bibliography a, .bibliografia a {
         color: #1a365d !important;       
         text-decoration: none !important; 
         font-weight: 600 !important;      
         cursor: default !important;
     }
-    
     h1, h2, h3, h4 {
         break-after: avoid !important;
         page-break-after: avoid !important;
@@ -464,7 +462,6 @@ p a:hover, li a:hover, td a:hover {
         margin-top: 55px !important;
         padding-top: 0 !important;
     }
-    
     hr {
         break-after: avoid !important;
         page-break-after: avoid !important;
@@ -472,7 +469,6 @@ p a:hover, li a:hover, td a:hover {
         margin-bottom: 15px !important;
         background: #cbd5e0 !important;
     }
-    
     .highlight-box, .toc-box {
         padding: 15px !important;
     }
@@ -491,32 +487,32 @@ p a:hover, li a:hover, td a:hover {
         margin-top: 50px !important;
         clear: both !important;
     }
-
-    /* Wymuszamy stabilne pokazanie adresów w trybie wydruku i w pliku PDF */
     .tylko-druk, .only-print {
         display: inline !important;
+        font-size: 0.85rem !important;
+        font-style: italic !important;
+        color: #555555 !important;
     }
     .tylko-druk a, .only-print a {
-        color: #333333 !important;
+        color: #555555 !important;
         text-decoration: none !important;
         font-weight: normal !important;
+        font-size: 0.85rem !important;
+        font-style: italic !important;
+        overflow-wrap: anywhere !important;
+        word-break: break-word !important;
+    }
+    ul.bibliografia {
+        padding-bottom: 0 !important;
+    }
+    ul.bibliografia li:target {
+        background-color: transparent !important;
+        border-left: none !important;
+        padding: 0 !important;
     }
 }
- /* Wersja cyfrowa (Ekran): ukrywamy surowe adresy tekstowe */
-    .tylko-druk {
-        display: none;
-    }
 
-    @media print {
-        /* ... Twoje inne, dotychczasowe style dla druku ... */
-
-        /* Wklejone dokładnie w miejsce starego kodu: */
-        .tylko-druk {
-            display: inline !important;
-        }
-    }    
-/* BLOK DLA CZCIONKI GLOBALNEJ */
-@import url('https://googleapis.com');
+/* BLOK DLA CZCIONKI GLOBALNEJ I TABEL */
 body, h1, h2, h3, h4, th, td, .title, .btn {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
 } 
@@ -527,6 +523,33 @@ td, th {
     hyphens: none;
     text-wrap: normal;
     vertical-align: top;
+}
+
+/* ==========================================================================
+   6. STYL BIBLIOGRAFII, PRZEWIJANIA I PODŚWIETLENIA (EKRAN)
+   ========================================================================== */
+ul.bibliografia {
+    list-style-type: none !important;
+    padding-left: 0 !important;
+}
+
+@media screen {
+    ul.bibliografia {
+        padding-bottom: 0 !important;
+        margin-bottom: 0 !important;
+    }
+    body {
+        padding-bottom: 65vh !important;
+    }
+}
+
+ul.bibliografia li:target {
+    background-color: #e2ecf9 !important;
+    border-left: 4px solid #1a365d !important;
+    padding: 8px 12px !important;
+    border-radius: 4px !important;
+    display: block !important;
+    transition: background-color 0.4s ease;
 }
 </style>
 </head>
