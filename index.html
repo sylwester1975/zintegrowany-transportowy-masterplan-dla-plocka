@@ -228,12 +228,19 @@
             font-size: 0.85rem;
             font-weight: bold;
             border-radius: 4px;
-            transition: background-color 0.2s;
+            transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
             margin-top: 5px;
         }
-.btn-original:hover {
-    background-color: #27374d;
-}
+        .btn-original:hover, .btn-download-png:hover {
+            background-color: #2b6cb0 !important;
+            color: #ffffff !important;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba(26, 54, 93, 0.25);
+        }
+        .btn-original:focus-visible, .btn-download-png:focus-visible {
+            outline: 3px solid #2563eb !important;
+            outline-offset: 3px !important;
+        }
         .lightbox {
             display: none;
             position: fixed;
@@ -262,7 +269,6 @@
             font-weight: bold;
             cursor: pointer;
         }
-
 html {
     scroll-behavior: smooth;
 }
