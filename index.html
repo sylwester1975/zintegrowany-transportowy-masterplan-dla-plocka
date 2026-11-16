@@ -15,14 +15,19 @@
         /* ==========================================================================
            1. PARAMETRY GLOBALNE I TEKSTOWE (EKRAN)
            ========================================================================== */
-        body {
+ body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.8;
             color: #333333; /* Komfortowy dla oczu antracyt tekstowy */
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+
+        .masterplan-wrapper {
             max-width: 900px;
             margin: 0 auto;
             padding: 40px 20px;
-            background-color: #f8f9fa;
         }
         
         h1 {
@@ -36,7 +41,6 @@
             text-align: center;
             line-height: 1.3;
         }
-        
         h2 {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             font-weight: 700; /* Wyraźne pogrubienie dla rozdziałów */
@@ -380,8 +384,8 @@ transition: opacity 0.3s ease;
 z-index: 10000;
 pointer-events: none;
 }
-h1, h2, h3, h4 {
-scroll-margin-top: 10px !important; /* Komfortowe przewijanie */
+h1, h2, h3, h4, .toc-box, .map-section, ul.bibliografia li {
+    scroll-margin-top: 65px !important; /* Odstęp pod przyklejoną górną belką */
 }
 .page-break {
 display: none;
@@ -541,9 +545,7 @@ ul.bibliografia {
         padding-bottom: 0 !important;
         margin-bottom: 0 !important;
     }
-    body {
-        padding-bottom: 65vh !important;
-    }
+    body .masterplan-wrapper { padding-bottom: 20vh !important; }
 }
 
 ul.bibliografia li:target {
@@ -554,9 +556,215 @@ ul.bibliografia li:target {
     display: block !important;
     transition: background-color 0.4s ease;
 }
+/* ==========================================================================
+   7. NIEZALEŻNA GÓRNA BELKA I STOPKA (PEŁNA SZEROKOŚĆ EKRANU)
+   ========================================================================== */
+.mp-top-bar {
+    width: 100%;
+    background-color: #1a365d;
+    color: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 500;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+}
+
+.mp-top-bar-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    box-sizing: border-box;
+}
+
+.mp-top-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #e2e8f0;
+    letter-spacing: 0.3px;
+}
+
+.mp-top-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.mp-top-link {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.12);
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.mp-top-link:hover {
+    background-color: #2563eb;
+    text-decoration: none !important;
+}
+
+.mp-bottom-footer {
+    width: 100%;
+    background-color: #1a365d;
+    color: #cbd5e0;
+    padding: 30px 20px;
+    margin-top: 40px;
+    box-sizing: border-box;
+    border-top: 3px solid #3182ce;
+}
+
+.mp-bottom-footer-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.mp-bottom-footer-inner p {
+    margin: 0 !important;
+    text-align: left !important;
+    color: #cbd5e0;
+    hyphens: none !important;
+    -webkit-hyphens: none !important;
+}
+
+.mp-bottom-footer-inner a {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-weight: 600;
+}
+
+.mp-bottom-footer-inner a:hover {
+    text-decoration: underline !important;
+}
+
+@media print {
+    .mp-top-bar, .mp-bottom-footer {
+        display: none !important;
+    }
+    .masterplan-wrapper {
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+}
+/* ==========================================================================
+   8. DRUGA, BIAŁA BELKA NARZĘDZIOWA POD GÓRNYM PASKIEM
+   ========================================================================== */
+.mp-sub-bar {
+    width: 100%;
+    background-color: #ffffff;
+    border-bottom: 1px solid #cbd5e0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+}
+
+.mp-sub-bar-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 8px 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+.mp-sub-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #1a365d !important;
+    background-color: #f1f5f9;
+    border: 1px solid #cbd5e0;
+    padding: 5px 12px;
+    border-radius: 4px;
+    text-decoration: none !important;
+    cursor: pointer;
+    line-height: normal;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.mp-sub-btn:hover {
+    background-color: #e2e8f0;
+    border-color: #94a3b8;
+    text-decoration: none !important;
+}
+
+.mp-sub-btn-pdf {
+    background-color: #fff5f5;
+    color: #c53030 !important;
+    border-color: #feb2b2;
+}
+
+.mp-sub-btn-pdf:hover {
+    background-color: #fed7d7;
+    border-color: #fc8181;
+}
+
+@media print {
+    .mp-sub-bar {
+        display: none !important;
+    }
+}
+
+.print-footer {
+    display: none;
+}
+
+@media print {
+    .print-footer {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        height: auto !important;
+        margin-top: 50px !important;
+        padding-top: 10px !important;
+        border-top: 1px solid #cbd5e0 !important;
+        font-size: 8.5pt !important;
+        font-style: italic !important;
+        color: #555555 !important;
+        text-align: center !important;
+        clear: both !important;
+    }
+}
 </style>
 </head>
 <body>
+<header class="mp-top-bar">
+    <div class="mp-top-bar-inner">
+        <a href="https://masterplan-dla-plocka.netlify.app/" class="mp-top-title" style="text-decoration: none; color: #e2e8f0;" title="Powrót do początku dokumentu">Masterplan dla Płocka</a>
+        <div class="mp-top-actions">
+            <a href="https://master-plan-for-plock.netlify.app/" class="mp-top-link" title="Switch to English">EN</a>
+        </div>
+    </div>
+</header>
+
+<div class="mp-sub-bar">
+    <div class="mp-sub-bar-inner">
+        <a href="#spis-tresci" class="mp-sub-btn" onclick="document.querySelector('.toc-box').scrollIntoView({behavior: 'smooth'}); return false;">Spis treści</a>
+        <button type="button" onclick="copyCurrentLink()" class="mp-sub-btn">Kopiuj link</button>
+        <button type="button" onclick="window.print()" class="mp-sub-btn mp-sub-btn-pdf">Pobierz PDF</button>
+    </div>
+</div>
+<main class="masterplan-wrapper">
 <h1 style="padding-bottom: 25px; text-align: center; line-height: 1.4;">
     <!-- Tytuł główny strony (2.26rem, ALL CAPS) -->
     <span style="display: block; font-weight: bold; font-size: 2.26rem; margin-bottom: 25px;">
@@ -1233,8 +1441,17 @@ ul.bibliografia li:target {
     </div>
     
  <div class="signature-wrapper">
-        <span class="signature-text-final">Sylwester Fiet &nbsp;|&nbsp; Płock &nbsp;|&nbsp; 2026</span>
+        <span class="signature-text-final">Sylwester Fiet &nbsp;|&nbsp; Płock, Polska &nbsp;|&nbsp; 2026</span>
     </div>
+
+</main>
+
+<footer class="mp-bottom-footer">
+    <div class="mp-bottom-footer-inner">
+        <p>&copy; 2026 <strong>Sylwester Fiet</strong> &nbsp;|&nbsp; Płock, Polska &nbsp;|&nbsp; Kontakt: <a href="mailto:sylwester1975pl@gmail.com">sylwester1975pl@gmail.com</a></p>
+        <p><a href="https://master-plan-for-plock.netlify.app/">English Version (Master Plan for Płock)</a></p>
+    </div>
+</footer>
 
     <div id="lightbox" class="lightbox" onclick="closeLightbox()">
         <span class="lightbox-close">&times;</span>
@@ -1242,12 +1459,11 @@ ul.bibliografia li:target {
     </div>
 
     <!-- Ukryta stopka z adresem URL - wyświetli się WYŁĄCZNIE na samej ostatniej stronie pliku PDF -->
-    <div class="print-footer" style="display: none;">
+    <div class="print-footer">
+    </main>
+
         Pełna, interaktywna wersja Masterplanu wraz z&nbsp;mapami wysokiej rozdzielczości dostępna online pod adresem: https://masterplan-dla-plocka.netlify.app/
     </div>
-
-    <!-- Przycisk Przewiń do góry - płynnie przewija i wymusza czysty adres główny w przeglądarce -->
-    <a href="javascript:void(0);" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); history.pushState(null, null, window.location.pathname);" class="btn-to-top" title="Przewiń do góry">⬆</a>
 
         <script>
         // 1. FUNKCJA KOPIOWANIA LINKU DO SCHOWKA Z TOASTEM
