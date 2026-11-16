@@ -582,10 +582,16 @@ ul.bibliografia li:target {
 }
 
 .mp-top-title {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #e2e8f0;
-    letter-spacing: 0.3px;
+    padding: 4px 10px !important;
+    margin-left: -10px !important; /* Zachowuje idealne wyrównanie do lewej krawędzi tekstu */
+    border-radius: 6px !important;
+    transition: background-color 0.2s ease, color 0.2s ease !important;
+}
+
+.mp-top-title:hover {
+    background-color: #2563eb !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
 }
 
 .mp-top-actions {
