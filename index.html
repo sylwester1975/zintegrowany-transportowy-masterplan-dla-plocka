@@ -775,6 +775,17 @@ ul.bibliografia li:target {
     box-shadow: 0 -10px 25px -4px rgba(15, 23, 42, 0.35), 
                 0 -3px 8px -1px rgba(0, 0, 0, 0.15) !important;
 }
+@media print {
+    @page {
+        margin: 18mm 15mm 20mm 15mm;
+        @bottom-center {
+            content: "Strona " counter(page) " z " counter(pages);
+            font-family: 'Inter', sans-serif;
+            font-size: 8.5pt;
+            color: #64748b;
+        }
+    }
+}    
 </style>
 </head>
 <body>
