@@ -629,6 +629,10 @@
                 margin-top: 55px !important;
                 padding-top: 0 !important;
             }
+             h2 + h3 {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
             hr {
                 break-after: avoid !important;
                 page-break-after: avoid !important;
@@ -639,10 +643,16 @@
             .highlight-box, .toc-box {
                 padding: 15px !important;
             }
-            p, table, tr, .custom-table, .signature-wrapper, .highlight-box, .toc-box {
-                break-inside: avoid !important;
-                page-break-inside: avoid !important;
-            }
+            p, table, tr, .custom-table, .signature-wrapper, .highlight-box, .toc-box, .map-section {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+    }
+    .map-section img {
+        break-after: avoid !important;
+        page-break-after: avoid !important;
+        max-height: 215mm !important; /* Gwarantuje, że duża mapa wraz z podpisem zmieści się na jednej kartce A4 */
+        width: auto !important;
+    }
             .page-break {
                 display: block !important;
                 clear: both !important;
