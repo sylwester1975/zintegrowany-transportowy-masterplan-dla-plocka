@@ -15,7 +15,11 @@
         /* ==========================================================================
            1. PARAMETRY GLOBALNE I TEKSTOWE (EKRAN)
            ========================================================================== */
- body {
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.8;
             color: #333333; /* Komfortowy dla oczu antracyt tekstowy */
@@ -32,7 +36,7 @@
         
         h1 {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            font-weight: 700; /* Mocne pogrubienie dla głównego tytułu */
+            font-weight: 700;
             color: #1a365d;
             font-size: 2.2rem;
             border-bottom: 3px solid #1a365d;
@@ -41,9 +45,10 @@
             text-align: center;
             line-height: 1.3;
         }
+
         h2 {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            font-weight: 700; /* Wyraźne pogrubienie dla rozdziałów */
+            font-weight: 700;
             color: #1a365d;
             font-size: 1.6rem;
             margin-top: 40px;
@@ -54,7 +59,7 @@
         
         h3 {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            font-weight: 700; /* Średnia, bardzo elegancka grubość dla podrozdziałów takich jak 3.3 */
+            font-weight: 700;
             color: #333333;
             font-size: 1.25rem;
             margin-top: 30px;
@@ -64,7 +69,7 @@
         h4 {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             color: #333333;
-            font-weight: 700; /* Zastąpienie słowa 'bold' twardą wartością liczbową */
+            font-weight: 700;
             font-size: 1.15rem;
             margin-top: 25px;
             margin-bottom: 15px;
@@ -86,11 +91,15 @@
             margin: 40px 0;
         }
 
+        h1, h2, h3, h4, .toc-box, .map-section, ul.bibliografia li {
+            scroll-margin-top: 65px !important; /* Odstęp pod przyklejoną górną belką */
+        }
+
         /* ==========================================================================
-           2. KOMPONENTY BLOKOWE I WYSKAKUJĄCE (EKRAN)
+           2. KOMPONENTY BLOKOWE I SPIS TREŚCI (EKRAN)
            ========================================================================== */
         .highlight-box {
-            background-color: #e6f7ff; /* Żywy, spójny niebieski dla obu elementów */
+            background-color: #e6f7ff;
             border-left: 4px solid #3182ce;
             padding: 20px;
             margin: 30px 0;
@@ -113,6 +122,7 @@
         .highlight-box strong {
             color: #1a365d !important;
         }
+
         .toc-box {
             background-color: #f7fafc;
             border: 1px solid #e2e8f0;
@@ -171,7 +181,7 @@
         }
 
         /* ==========================================================================
-           3. MEDIA, GALERIE I PANEL LINKÓW (EKRAN)
+           3. MEDIA, MAPY I LIGHTBOX (EKRAN)
            ========================================================================== */
         .map-section {
             margin: 35px 0;
@@ -206,34 +216,22 @@
             margin-top: 15px;
             margin-bottom: 5px;
         }
-        .btn-download-png {
+        .btn-download-png, .btn-original {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background-color: #1a365d; /* Ujednolicony głęboki granat w stanie spoczynku */
+            background-color: #1a365d;
             color: #ffffff !important;
             text-decoration: none !important;
             font-size: 0.85rem;
             font-weight: bold;
             padding: 8px 16px;
-            border-radius: 4px;
-            transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
-            margin-top: 5px;
-        }
-        .btn-original {
-            display: inline-block;
-            background-color: #1a365d; /* Ujednolicony głęboki granat w stanie spoczynku */
-            color: #ffffff !important;
-            text-decoration: none !important;
-            padding: 8px 16px;
-            font-size: 0.85rem;
-            font-weight: bold;
             border-radius: 4px;
             transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
             margin-top: 5px;
         }
         .btn-original:hover, .btn-download-png:hover {
-            background-color: #2563eb !important; /* Królewski błękit po najechaniu myszką */
+            background-color: #2563eb !important;
             color: #ffffff !important;
             transform: translateY(-1px);
             box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
@@ -270,34 +268,9 @@
             font-weight: bold;
             cursor: pointer;
         }
-html {
-    scroll-behavior: smooth;
-}
-.btn-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 30px;
-    background-color: #1a365d;
-    color: #f8f9fa !important; /* ZMIANA: Strzałka ma teraz kolor tła strony (biel) */
-    text-decoration: none;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    transition: background-color 0.2s, transform 0.2s;
-    z-index: 999;
-}
-.btn-to-top:hover {
-    background-color: #2563eb;
-    color: #f8f9fa !important; /* ZMIANA: Strzałka zachowuje kolor tła strony po najechaniu */
-    transform: scale(1.05);
-}
+
         /* ==========================================================================
-           4. STRUKTURY SPECJALISTYCZNE I LISTY (EKRAN)
+           4. LISTY, TABELE, PODPIS I POWIADOMIENIA (EKRAN)
            ========================================================================== */
         .clean-left-list {
             list-style-type: none !important;
@@ -356,436 +329,369 @@ html {
             font-weight: bold;
         }
         .custom-table td:nth-child(3) {
-white-space: nowrap;
-}
-.author-signature {
-text-align: right;
-color: #27374d;
-font-size: 0.95rem;
-font-weight: bold;
-margin-top: 50px;
-margin-bottom: 20px;
-letter-spacing: 0.5px;
-}
-#toast-share {
-position: fixed;
-bottom: 30px;
-left: 50%;
-transform: translateX(-50%);
-background-color: #333333;
-color: white;
-padding: 12px 24px;
-border-radius: 8px;
-font-size: 0.9rem;
-font-weight: bold;
-box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-opacity: 0;
-transition: opacity 0.3s ease;
-z-index: 10000;
-pointer-events: none;
-}
-h1, h2, h3, h4, .toc-box, .map-section, ul.bibliografia li {
-    scroll-margin-top: 65px !important; /* Odstęp pod przyklejoną górną belką */
-}
-.page-break {
-display: none;
-}
-.signature-text-final {
-display: inline-block;
-font-size: 10pt !important;
-font-weight: 400 !important;
-color: #555555 !important;
-}
-.signature-wrapper {
-text-align: right;
-margin-top: 40px;
-margin-bottom: 20px;
-clear: both !important;
-}
-/* ==========================================================================
-   5. REGUŁY DRUKU I INTERAKCJI DLA LINKÓW (WERSJA ANGIELSKA / POLSKA)
-   ========================================================================== */
-
-/* --- SCREEN INTERACTION FOR LINKS --- */
-p a, li a, td a {
-    color: #1a365d !important;         /* Deep navy in rest state */
-    text-decoration: none !important;  
-    font-weight: 500;
-    transition: color 0.2s ease;       
-}
-
-p a:hover, li a:hover, td a:hover {
-    color: #2563eb !important;         /* Bright blue on hover */
-    text-decoration: underline !important; 
-    text-underline-offset: 4px;        
-}
-
-/* --- REGUŁA EKRANOWA I CYFROWA PDF --- */
-/* Bezwzględne ukrycie surowych adresów URL na monitorach (w trybie screen) */
-.tylko-druk, .only-print {
-    display: none !important;
-}
-
-/* --- REGUŁY RESTRYKCYJNE WYŁĄCZNIE DLA FIZYCZNEGO WYDRUKU (PAPIER) --- */
-@media print {
-    @page {
-        size: A4 portrait;
-        margin: 20mm 15mm 20mm 15mm !important;
-    }
-    html, body {
-        background-color: #ffffff !important;
-        color: #333333 !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        padding-bottom: 0 !important;
-        font-size: 11pt;
-        line-height: 1.6;
-    }
-    button, .no-print, nav, .btn-to-top, .btn-original, .btn-download-container,
-    #toast-share, [class*="figure"], [id*="figure"], [class*="zoom"], [id*="zoom"] {
-        display: none !important;
-        visibility: hidden !important;
-        opacity: 0 !important;
-        height: 0 !important;
-    }
-    .bibliography a, .bibliografia a {
-        color: #1a365d !important;       
-        text-decoration: none !important; 
-        font-weight: 600 !important;      
-        cursor: default !important;
-    }
-    h1, h2, h3, h4 {
-        break-after: avoid !important;
-        page-break-after: avoid !important;
-        break-inside: avoid !important;
-        page-break-inside: avoid !important;
-    }
-    h2, h3 {
-        margin-top: 10px !important;
-        padding-top: 25px !important;
-        margin-bottom: 15px !important;
-    }
-    h1 + h2 {
-        margin-top: 55px !important;
-        padding-top: 0 !important;
-    }
-    hr {
-        break-after: avoid !important;
-        page-break-after: avoid !important;
-        margin-top: 0 !important;
-        margin-bottom: 15px !important;
-        background: #cbd5e0 !important;
-    }
-    .highlight-box, .toc-box {
-        padding: 15px !important;
-    }
-    p, table, tr, .custom-table, .signature-wrapper, .highlight-box, .toc-box {
-        break-inside: avoid !important;
-        page-break-inside: avoid !important;
-    }
-    .page-break {
-        display: block !important;
-        clear: both !important;
-        break-before: page !important;
-        page-break-before: always !important;
-        height: 0 !important;
-    }
-    .custom-table, .signature-wrapper {
-        margin-top: 50px !important;
-        clear: both !important;
-    }
-    .tylko-druk, .only-print {
-        display: inline !important;
-        font-size: 0.85rem !important;
-        font-style: italic !important;
-        color: #555555 !important;
-    }
-    .tylko-druk a, .only-print a {
-        color: #555555 !important;
-        text-decoration: none !important;
-        font-weight: normal !important;
-        font-size: 0.85rem !important;
-        font-style: italic !important;
-        overflow-wrap: anywhere !important;
-        word-break: break-word !important;
-    }
-    ul.bibliografia {
-        padding-bottom: 0 !important;
-    }
-    ul.bibliografia li:target {
-        background-color: transparent !important;
-        border-left: none !important;
-        padding: 0 !important;
-    }
-}
-
-/* BLOK DLA CZCIONKI GLOBALNEJ I TABEL */
-body, h1, h2, h3, h4, th, td, .title, .btn {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
-} 
-td, th {
-    text-align: left;
-    -webkit-hyphens: none;
-    -ms-hyphens: none;
-    hyphens: none;
-    text-wrap: normal;
-    vertical-align: top;
-}
-
-/* ==========================================================================
-   6. STYL BIBLIOGRAFII, PRZEWIJANIA I PODŚWIETLENIA (EKRAN)
-   ========================================================================== */
-ul.bibliografia {
-    list-style-type: none !important;
-    padding-left: 0 !important;
-}
-
-@media screen {
-    ul.bibliografia {
-        padding-bottom: 0 !important;
-        margin-bottom: 0 !important;
-    }
-    body .masterplan-wrapper { padding-bottom: 20vh !important; }
-}
-
-ul.bibliografia li:target {
-    background-color: #e2ecf9 !important;
-    border-left: 4px solid #1a365d !important;
-    padding: 8px 12px !important;
-    border-radius: 4px !important;
-    display: block !important;
-    transition: background-color 0.4s ease;
-}
-/* ==========================================================================
-   7. NIEZALEŻNA GÓRNA BELKA I STOPKA (PEŁNA SZEROKOŚĆ EKRANU)
-   ========================================================================== */
-.mp-top-bar {
-    width: 100%;
-    background-color: #1a365d;
-    color: #ffffff;
-    position: sticky;
-    top: 0;
-    z-index: 500;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-    box-sizing: border-box;
-}
-
-.mp-top-bar-inner {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
-    box-sizing: border-box;
-}
-
-.mp-top-title {
-    padding: 4px 10px !important;
-    margin-left: -10px !important; /* Zachowuje idealne wyrównanie do lewej krawędzi tekstu */
-    border-radius: 6px !important;
-    transition: background-color 0.2s ease, color 0.2s ease !important;
-}
-
-.mp-top-title:hover {
-    background-color: #2563eb !important;
-    color: #ffffff !important;
-    text-decoration: none !important;
-}
-
-.mp-top-actions {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.mp-top-link {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    min-width: 34px !important;
-    height: 30px !important;
-    padding: 0 8px !important;
-    color: #ffffff !important;
-    text-decoration: none !important;
-    font-size: 0.8rem !important;
-    font-weight: 700 !important;
-    letter-spacing: 0.5px !important;
-    background-color: #1a365d !important;
-    border: 1.5px solid rgba(255, 255, 255, 0.8) !important;
-    border-radius: 6px !important;
-    box-sizing: border-box !important;
-    transition: all 0.2s ease !important;
-}
-
-/* Po najechaniu myszką (chwila przełączenia): królewski błękit jak wcześniej */
-.mp-top-link:hover {
-    background-color: #2563eb !important;
-    color: #ffffff !important;
-    border-color: #2563eb !important;
-    text-decoration: none !important;
-}
-
-.mp-bottom-footer {
-    width: 100%;
-    background-color: #1a365d;
-    color: #cbd5e0;
-    padding: 30px 20px;
-    margin-top: 40px;
-    box-sizing: border-box;
-    border-top: 3px solid #3182ce;
-}
-
-.mp-bottom-footer-inner {
-    max-width: 900px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    font-size: 0.85rem;
-    line-height: 1.5;
-}
-
-.mp-bottom-footer-inner p {
-    margin: 0 !important;
-    text-align: left !important;
-    color: #cbd5e0;
-    hyphens: none !important;
-    -webkit-hyphens: none !important;
-}
-
-.mp-bottom-footer-inner a {
-    color: #ffffff !important;
-    text-decoration: none !important;
-    font-weight: 600;
-}
-
-.mp-bottom-footer-inner a:hover {
-    text-decoration: underline !important;
-}
-
-@media print {
-    .mp-top-bar, .mp-bottom-footer {
-        display: none !important;
-    }
-    .masterplan-wrapper {
-        max-width: 100% !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-}
-/* ==========================================================================
-   8. DRUGA, BIAŁA BELKA NARZĘDZIOWA POD GÓRNYM PASKIEM
-   ========================================================================== */
-.mp-sub-bar {
-    width: 100%;
-    background-color: #ffffff;
-    border-bottom: 1px solid #cbd5e0;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-    box-sizing: border-box;
-}
-
-.mp-sub-bar-inner {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 8px 20px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    box-sizing: border-box;
-}
-
-.mp-sub-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-family: inherit;
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: #1a365d !important;
-    background-color: #f1f5f9;
-    border: 1px solid #cbd5e0;
-    padding: 5px 12px;
-    border-radius: 4px;
-    text-decoration: none !important;
-    cursor: pointer;
-    line-height: normal;
-    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-}
-
-.mp-sub-btn:hover {
-    background-color: #e2e8f0;
-    border-color: #94a3b8;
-    text-decoration: none !important;
-}
-
-.mp-sub-btn-pdf {
-    background-color: #fff5f5;
-    color: #c53030 !important;
-    border-color: #feb2b2;
-}
-
-.mp-sub-btn-pdf:hover {
-    background-color: #fed7d7;
-    border-color: #fc8181;
-}
-
-@media print {
-    .mp-sub-bar {
-        display: none !important;
-    }
-}
-
-.print-footer {
-    display: none;
-}
-
-@media print {
-    .print-footer {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        height: auto !important;
-        margin-top: 50px !important;
-        padding-top: 10px !important;
-        border-top: 1px solid #cbd5e0 !important;
-        font-size: 8.5pt !important;
-        font-style: italic !important;
-        color: #555555 !important;
-        text-align: center !important;
-        clear: both !important;
-    }
-}
-   /* ==========================================================================
-   9. EFEKT GŁĘBI I CIENIA 3D DLA GÓRNEJ BELKI ORAZ STOPKI
-   ========================================================================== */
-.mp-sub-bar {
-    border-bottom: none !important; /* Usuwamy płaską linię */
-    box-shadow: 0 4px 12px -2px rgba(26, 54, 93, 0.12), 
-                0 2px 4px -1px rgba(0, 0, 0, 0.06) !important; /* Miękki cień 3D w dół */
-}
-
-.mp-bottom-footer {
-    border-top: none !important;
-    box-shadow: 0 -10px 25px -4px rgba(15, 23, 42, 0.35), 
-                0 -3px 8px -1px rgba(0, 0, 0, 0.15) !important;
-}
-@media print {
-    @page {
-        margin: 18mm 15mm 20mm 15mm;
-        @bottom-center {
-            content: "Strona " counter(page) " / " counter(pages);
-            font-family: 'Inter', sans-serif;
-            font-size: 8.5pt;
-            color: #555555;
+            white-space: nowrap;
         }
-    }
-}    
+
+        body, h1, h2, h3, h4, th, td, .title, .btn {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+        } 
+        td, th {
+            text-align: left;
+            -webkit-hyphens: none;
+            -ms-hyphens: none;
+            hyphens: none;
+            text-wrap: normal;
+            vertical-align: top;
+        }
+
+        #toast-share {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333333;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 10000;
+            pointer-events: none;
+        }
+
+        .page-break {
+            display: none;
+        }
+
+        .signature-text-final {
+            display: inline-block;
+            font-size: 10pt !important;
+            font-weight: 400 !important;
+            color: #555555 !important;
+        }
+        .signature-wrapper {
+            text-align: right;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            clear: both !important;
+        }
+
+        /* ==========================================================================
+           5. LINKI W TREŚCI I BIBLIOGRAFIA (EKRAN)
+           ========================================================================== */
+        p a, li a, td a {
+            color: #1a365d !important;
+            text-decoration: none !important;  
+            font-weight: 500;
+            transition: color 0.2s ease;       
+        }
+        p a:hover, li a:hover, td a:hover {
+            color: #2563eb !important;
+            text-decoration: underline !important; 
+            text-underline-offset: 4px;        
+        }
+
+        .tylko-druk, .only-print, .print-footer {
+            display: none !important;
+        }
+
+        ul.bibliografia {
+            list-style-type: none !important;
+            padding-left: 0 !important;
+        }
+        @media screen {
+            ul.bibliografia {
+                padding-bottom: 0 !important;
+                margin-bottom: 0 !important;
+            }
+            body .masterplan-wrapper {
+                padding-bottom: 20vh !important;
+            }
+        }
+        ul.bibliografia li:target {
+            background-color: #e2ecf9 !important;
+            border-left: 4px solid #1a365d !important;
+            padding: 8px 12px !important;
+            border-radius: 4px !important;
+            display: block !important;
+            transition: background-color 0.4s ease;
+        }
+
+        /* ==========================================================================
+           6. GÓRNA BELKA, PASEK NARZĘDZIOWY I STOPKA Z CIENIEM 3D (EKRAN)
+           ========================================================================== */
+        .mp-top-bar {
+            width: 100%;
+            background-color: #1a365d;
+            color: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 500;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+            box-sizing: border-box;
+        }
+        .mp-top-bar-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            box-sizing: border-box;
+        }
+        .mp-top-title {
+            padding: 4px 10px !important;
+            margin-left: -10px !important;
+            border-radius: 6px !important;
+            transition: background-color 0.2s ease, color 0.2s ease !important;
+        }
+        .mp-top-title:hover {
+            background-color: #2563eb !important;
+            color: #ffffff !important;
+            text-decoration: none !important;
+        }
+        .mp-top-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .mp-top-link {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            min-width: 34px !important;
+            height: 30px !important;
+            padding: 0 8px !important;
+            color: #ffffff !important;
+            text-decoration: none !important;
+            font-size: 0.8rem !important;
+            font-weight: 700 !important;
+            letter-spacing: 0.5px !important;
+            background-color: #1a365d !important;
+            border: 1.5px solid rgba(255, 255, 255, 0.8) !important;
+            border-radius: 6px !important;
+            box-sizing: border-box !important;
+            transition: all 0.2s ease !important;
+        }
+        .mp-top-link:hover {
+            background-color: #2563eb !important;
+            color: #ffffff !important;
+            border-color: #2563eb !important;
+            text-decoration: none !important;
+        }
+
+        .mp-sub-bar {
+            width: 100%;
+            background-color: #ffffff;
+            border-bottom: none !important;
+            box-shadow: 0 4px 12px -2px rgba(26, 54, 93, 0.12), 
+                        0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+            box-sizing: border-box;
+        }
+        .mp-sub-bar-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 8px 20px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            box-sizing: border-box;
+        }
+        .mp-sub-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: inherit;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #1a365d !important;
+            background-color: #f1f5f9;
+            border: 1px solid #cbd5e0;
+            padding: 5px 12px;
+            border-radius: 4px;
+            text-decoration: none !important;
+            cursor: pointer;
+            line-height: normal;
+            transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+        }
+        .mp-sub-btn:hover {
+            background-color: #e2e8f0;
+            border-color: #94a3b8;
+            text-decoration: none !important;
+        }
+        .mp-sub-btn-pdf {
+            background-color: #fff5f5;
+            color: #c53030 !important;
+            border-color: #feb2b2;
+        }
+        .mp-sub-btn-pdf:hover {
+            background-color: #fed7d7;
+            border-color: #fc8181;
+        }
+
+        .mp-bottom-footer {
+            width: 100%;
+            background-color: #1a365d;
+            color: #cbd5e0;
+            padding: 30px 20px;
+            margin-top: 40px;
+            box-sizing: border-box;
+            border-top: none !important;
+            box-shadow: 0 -10px 25px -4px rgba(15, 23, 42, 0.35), 
+                        0 -3px 8px -1px rgba(0, 0, 0, 0.15) !important;
+        }
+        .mp-bottom-footer-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+        .mp-bottom-footer-inner p {
+            margin: 0 !important;
+            text-align: left !important;
+            color: #cbd5e0;
+            hyphens: none !important;
+            -webkit-hyphens: none !important;
+        }
+        .mp-bottom-footer-inner a {
+            color: #ffffff !important;
+            text-decoration: none !important;
+            font-weight: 600;
+        }
+        .mp-bottom-footer-inner a:hover {
+            text-decoration: underline !important;
+        }
+
+        /* ==========================================================================
+           7. ZINTEGROWANE REGUŁY DRUKU I EKSPORTU DO PDF
+           ========================================================================== */
+        @media print {
+            @page {
+                size: A4 portrait;
+                margin: 18mm 15mm 20mm 15mm !important;
+                @bottom-center {
+                    content: "Strona " counter(page) " / " counter(pages);
+                    font-family: 'Inter', sans-serif;
+                    font-size: 8.5pt;
+                    color: #555555;
+                }
+            }
+            html, body {
+                background-color: #ffffff !important;
+                color: #333333 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                font-size: 11pt;
+                line-height: 1.6;
+            }
+            .masterplan-wrapper {
+                max-width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            button, .no-print, nav, .mp-top-bar, .mp-sub-bar, .mp-bottom-footer,
+            .btn-original, .btn-download-container, #toast-share,
+            [class*="figure"], [id*="figure"], [class*="zoom"], [id*="zoom"] {
+                display: none !important;
+                visibility: hidden !important;
+                opacity: 0 !important;
+                height: 0 !important;
+            }
+            .bibliography a, .bibliografia a {
+                color: #1a365d !important;       
+                text-decoration: none !important; 
+                font-weight: 600 !important;      
+                cursor: default !important;
+            }
+            h1, h2, h3, h4 {
+                break-after: avoid !important;
+                page-break-after: avoid !important;
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
+            h2, h3 {
+                margin-top: 10px !important;
+                padding-top: 25px !important;
+                margin-bottom: 15px !important;
+            }
+            h1 + h2 {
+                margin-top: 55px !important;
+                padding-top: 0 !important;
+            }
+            hr {
+                break-after: avoid !important;
+                page-break-after: avoid !important;
+                margin-top: 0 !important;
+                margin-bottom: 15px !important;
+                background: #cbd5e0 !important;
+            }
+            .highlight-box, .toc-box {
+                padding: 15px !important;
+            }
+            p, table, tr, .custom-table, .signature-wrapper, .highlight-box, .toc-box {
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
+            .page-break {
+                display: block !important;
+                clear: both !important;
+                break-before: page !important;
+                page-break-before: always !important;
+                height: 0 !important;
+            }
+            .custom-table, .signature-wrapper {
+                margin-top: 50px !important;
+                clear: both !important;
+            }
+            .tylko-druk, .only-print {
+                display: inline !important;
+                font-size: 0.85rem !important;
+                font-style: italic !important;
+                color: #555555 !important;
+            }
+            .tylko-druk a, .only-print a {
+                color: #555555 !important;
+                text-decoration: none !important;
+                font-weight: normal !important;
+                font-size: 0.85rem !important;
+                font-style: italic !important;
+                overflow-wrap: anywhere !important;
+                word-break: break-word !important;
+            }
+            ul.bibliografia {
+                padding-bottom: 0 !important;
+            }
+            ul.bibliografia li:target {
+                background-color: transparent !important;
+                border-left: none !important;
+                padding: 0 !important;
+            }
+            .print-footer {
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                height: auto !important;
+                margin-top: 50px !important;
+                padding-top: 10px !important;
+                border-top: 1px solid #cbd5e0 !important;
+                font-size: 8.5pt !important;
+                font-style: italic !important;
+                color: #555555 !important;
+                text-align: center !important;
+                clear: both !important;
+            }
+        }
 </style>
 </head>
 <body>
@@ -805,6 +711,7 @@ ul.bibliografia li:target {
         <button type="button" onclick="window.print()" class="mp-sub-btn mp-sub-btn-pdf">Pobierz PDF</button>
     </div>
 </div>
+
 <main class="masterplan-wrapper">
 <h1 style="padding-bottom: 25px; text-align: center; line-height: 1.4;">
     <!-- Tytuł główny strony (2.26rem, ALL CAPS) -->
@@ -1452,9 +1359,14 @@ ul.bibliografia li:target {
     <p style="margin: 0;">Wszystkie koncepcyjne układy kartograficzne (rys. <a href="#mapa-1" style="color: #1a365d; font-weight: bold; text-decoration: underline;">1</a>, <a href="#mapa-2" style="color: #1a365d; font-weight: bold; text-decoration: underline;">2</a> i <a href="#mapa-3" style="color: #1a365d; font-weight: bold; text-decoration: underline;">3</a>)<br>są odniesione do geograficznego układu współrzędnych <strong style="color: #333333;">WGS 84 (EPSG:4326)</strong>.</p>
     <p style="margin: 0;">Centralny punkt odniesienia węzła aglomeracji płockiej (<a href="#mapa-1" style="color: #1a365d; font-weight: bold; text-decoration: underline;">rys. 1</a>)<br>znajduje się na współrzędnych <a href="https://www.google.com/maps/@?api=1&map_action=map&center=52.5513703,19.7084473&zoom=13&basemap=satellite&hl=pl" target="_blank" rel="noopener noreferrer" style="color: #1a365d; font-weight: bold; text-decoration: underline;">52,5514&deg; N, 19,7084&deg; E</a> <span style="color: #333333;">(Mapy Google)</span>.</p>
     </div>
-    
- <div class="signature-wrapper">
+
+    <div class="signature-wrapper">
         <span class="signature-text-final">Sylwester Fiet &nbsp;|&nbsp; Płock, Polska &nbsp;|&nbsp; 2026</span>
+    </div>
+
+    <!-- Ukryta stopka z adresem URL - wyświetli się WYŁĄCZNIE na samej ostatniej stronie pliku PDF -->
+    <div class="print-footer">
+        Pełna, interaktywna wersja Masterplanu wraz z&nbsp;mapami wysokiej rozdzielczości dostępna online pod adresem: <a href="https://masterplan-dla-plocka.netlify.app/" style="color: #555555 !important; font-style: italic !important; font-weight: normal !important; text-decoration: none !important; border-bottom: none !important;">https://masterplan-dla-plocka.netlify.app</a>
     </div>
 
 </main>
@@ -1466,66 +1378,58 @@ ul.bibliografia li:target {
     </div>
 </footer>
 
-    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-        <span class="lightbox-close">&times;</span>
-        <img id="lightbox-img" src="" alt="Powiększony widok rysunku">
-    </div>
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="Powiększony widok rysunku">
+</div>
 
-    <!-- Ukryta stopka z adresem URL - wyświetli się WYŁĄCZNIE na samej ostatniej stronie pliku PDF -->
-    <div class="print-footer">
-    Pełna, interaktywna wersja Masterplanu wraz z&nbsp;mapami wysokiej rozdzielczości dostępna online pod adresem: <a href="https://masterplan-dla-plocka.netlify.app/" style="color: #555555 !important; font-style: italic !important; font-weight: normal !important; text-decoration: none !important; border-bottom: none !important;">https://masterplan-dla-plocka.netlify.app</a>
-    </div> 
-
-    </main>
-
-        <script>
-        // 1. FUNKCJA KOPIOWANIA LINKU DO SCHOWKA Z TOASTEM
-        function copyCurrentLink() {
-            const cleanUrl = window.location.protocol + '//' + window.location.host + window.location.pathname;
-            navigator.clipboard.writeText(cleanUrl).then(() => {
-                const toast = document.getElementById('toast-share');
-                
-                // Włączamy widoczność elementu jako wyskakujący boks
-                toast.style.display = 'block';
+<script>
+    // 1. FUNKCJA KOPIOWANIA LINKU DO SCHOWKA Z TOASTEM
+    function copyCurrentLink() {
+        const cleanUrl = window.location.protocol + '//' + window.location.host + window.location.pathname;
+        navigator.clipboard.writeText(cleanUrl).then(() => {
+            const toast = document.getElementById('toast-share');
+            if (!toast) return;
+            
+            toast.style.display = 'block';
+            setTimeout(() => {
+                toast.style.opacity = '1';
+            }, 10);
+            
+            setTimeout(() => {
+                toast.style.opacity = '0';
                 setTimeout(() => {
-                    toast.style.opacity = '1';
-                }, 10);
-                
-                // Po 2,5 sekundach płynnie ukrywamy element z powrotem
-                setTimeout(() => {
-                    toast.style.opacity = '0';
-                    setTimeout(() => {
-                        toast.style.display = 'none';
-                    }, 300);
-                }, 2500);
-            }).catch(err => {
-                console.error('Błąd podczas kopiowania linku: ', err);
-            });
-        }
-
-        // 2. FUNKCJE LIGHTBOXA DLA MAP NA STRONIE GŁÓWNEJ
-        function openLightbox(element) {
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = document.getElementById('lightbox-img');
-            if (lightbox && lightboxImg) {
-                lightboxImg.src = element.src;
-                lightbox.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-            }
-        }
-
-        function closeLightbox() {
-            const lightbox = document.getElementById('lightbox');
-            if (lightbox) {
-                lightbox.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        }
-
-        // Zamknięcie Lightboxa klawiszem Escape
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') { closeLightbox(); }
+                    toast.style.display = 'none';
+                }, 300);
+            }, 2500);
+        }).catch(err => {
+            console.error('Błąd podczas kopiowania linku: ', err);
         });
-    </script>
+    }
+
+    // 2. FUNKCJE LIGHTBOXA DLA MAP NA STRONIE GŁÓWNEJ
+    function openLightbox(element) {
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        if (lightbox && lightboxImg) {
+            lightboxImg.src = element.src;
+            lightbox.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    function closeLightbox() {
+        const lightbox = document.getElementById('lightbox');
+        if (lightbox) {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    }
+
+    // Zamknięcie Lightboxa klawiszem Escape
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') { closeLightbox(); }
+    });
+</script>
 </body>
 </html>
