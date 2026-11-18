@@ -94,7 +94,7 @@
         }
 
         h1, h2, h3, h4, .toc-box, .map-section, ul.bibliografia li {
-            scroll-margin-top: 0px !important; /* Odstęp pod przyklejoną górną belką */
+            scroll-margin-top: 65px !important; /* Odstęp pod przyklejoną górną belką */
         }
 
         /* ==========================================================================
@@ -596,8 +596,6 @@
                 padding: 0 !important;
                 font-size: 11pt;
                 line-height: 1.6;
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
             }
             .masterplan-wrapper {
                 max-width: 100% !important;
@@ -618,9 +616,6 @@
                 font-weight: 600 !important;      
                 cursor: default !important;
             }
-            h1, h2, h3, h4, .toc-box, .map-section, ul.bibliografia li, ul.bibliography li {
-                scroll-margin-top: 0 !important;
-            }
             h1, h2, h3, h4 {
                 break-after: avoid !important;
                 page-break-after: avoid !important;
@@ -628,18 +623,18 @@
                 page-break-inside: avoid !important;
             }
             h2, h3 {
-                margin-top: 30px !important;
-                padding-top: 0 !important;
+                margin-top: 10px !important;
+                padding-top: 25px !important;
                 margin-bottom: 15px !important;
             }
             h1 + h2 {
                 margin-top: 55px !important;
                 padding-top: 0 !important;
             }
-            h2 + h3 {
-                margin-top: 0 !important;
-                padding-top: 0 !important;
-            }
+             h2 + h3 {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
             hr {
                 break-after: avoid !important;
                 page-break-after: avoid !important;
@@ -651,15 +646,15 @@
                 padding: 15px !important;
             }
             p, table, tr, .custom-table, .signature-wrapper, .highlight-box, .toc-box, .map-section {
-                break-inside: avoid !important;
-                page-break-inside: avoid !important;
-            }
-            .map-section img {
-                break-after: avoid !important;
-                page-break-after: avoid !important;
-                max-height: 215mm !important; /* Gwarantuje, że duża mapa wraz z podpisem zmieści się na jednej kartce A4 */
-                width: auto !important;
-            }
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+    }
+    .map-section img {
+        break-after: avoid !important;
+        page-break-after: avoid !important;
+        max-height: 215mm !important; /* Gwarantuje, że duża mapa wraz z podpisem zmieści się na jednej kartce A4 */
+        width: auto !important;
+    }
             .page-break {
                 display: block !important;
                 clear: both !important;
