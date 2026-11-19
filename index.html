@@ -331,377 +331,384 @@
             font-weight: bold;
         }
         .custom-table td:nth-child(3) {
-            white-space: nowrap;
-        }
 
-        body, h1, h2, h3, h4, th, td, .title, .btn {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
-        } 
-        td, th {
-            text-align: left;
-            -webkit-hyphens: none;
-            -ms-hyphens: none;
-            hyphens: none;
-            text-wrap: normal;
-            vertical-align: top;
-        }
-
-        #toast-share {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #333333;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: 10000;
-            pointer-events: none;
-        }
-
-        .page-break {
-            display: none;
-        }
-
-        .signature-text-final {
-            display: inline-block;
-            font-size: 10pt !important;
-            font-weight: 400 !important;
-            color: #555555 !important;
-        }
-        .signature-wrapper {
-            text-align: right;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            clear: both !important;
-        }
-
-        /* ==========================================================================
-           5. LINKI W TREŚCI I BIBLIOGRAFIA (EKRAN)
-           ========================================================================== */
-        p a, li a, td a {
-            color: #1a365d !important;
-            text-decoration: none !important;  
-            font-weight: 500;
-            transition: color 0.2s ease;       
-        }
-        p a:hover, li a:hover, td a:hover {
-            color: #2563eb !important;
-            text-decoration: underline !important; 
-            text-underline-offset: 4px;        
-        }
-
-        .tylko-druk, .only-print, .print-footer {
-            display: none !important;
-        }
-
-        ul.bibliografia {
-            list-style-type: none !important;
-            padding-left: 0 !important;
-        }
-        @media screen {
-            ul.bibliografia {
-                padding-bottom: 0 !important;
-                margin-bottom: 0 !important;
-            }
-            body .masterplan-wrapper {
-                padding-bottom: 20vh !important;
-            }
-        }
-        ul.bibliografia li:target {
-            background-color: #e2ecf9 !important;
-            border-left: 4px solid #1a365d !important;
-            padding: 8px 12px !important;
-            border-radius: 4px !important;
-            display: block !important;
-            transition: background-color 0.4s ease;
-        }
-
-        /* ==========================================================================
-           6. GÓRNA BELKA, PASEK NARZĘDZIOWY I STOPKA Z CIENIEM 3D (EKRAN)
-           ========================================================================== */
-        .mp-top-bar {
-            width: 100%;
-            background-color: #1a365d;
-            color: #ffffff;
-            position: sticky;
-            top: 0;
-            z-index: 500;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-            box-sizing: border-box;
-        }
-        .mp-top-bar-inner {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 15px;
-            box-sizing: border-box;
-        }
-        .mp-top-title {
-            padding: 4px 10px !important;
-            margin-left: -10px !important;
-            border-radius: 6px !important;
-            transition: background-color 0.2s ease, color 0.2s ease !important;
-        }
-        .mp-top-title:hover {
-            background-color: #2563eb !important;
-            color: #ffffff !important;
-            text-decoration: none !important;
-        }
-        .mp-top-actions {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .mp-top-link {
-            display: inline-flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            min-width: 34px !important;
-            height: 30px !important;
-            padding: 0 8px !important;
-            color: #ffffff !important;
-            text-decoration: none !important;
-            font-size: 0.8rem !important;
-            font-weight: 700 !important;
-            letter-spacing: 0.5px !important;
-            background-color: #1a365d !important;
-            border: 1.5px solid rgba(255, 255, 255, 0.8) !important;
-            border-radius: 6px !important;
-            box-sizing: border-box !important;
-            transition: all 0.2s ease !important;
-        }
-        .mp-top-link:hover {
-            background-color: #2563eb !important;
-            color: #ffffff !important;
-            border-color: #2563eb !important;
-            text-decoration: none !important;
-        }
-
-        .mp-sub-bar {
-            width: 100%;
-            background-color: #ffffff;
-            border-bottom: none !important;
-            box-shadow: 0 4px 12px -2px rgba(26, 54, 93, 0.12), 
-                        0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
-            box-sizing: border-box;
-        }
-        .mp-sub-bar-inner {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 8px 20px;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-            box-sizing: border-box;
-        }
-        .mp-sub-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-family: inherit;
-            font-size: 0.82rem;
-            font-weight: 600;
-            color: #1a365d !important;
-            background-color: #f1f5f9;
-            border: 1px solid #cbd5e0;
-            padding: 5px 12px;
-            border-radius: 4px;
-            text-decoration: none !important;
-            cursor: pointer;
-            line-height: normal;
-            transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-        }
-        .mp-sub-btn:hover {
-            background-color: #e2e8f0;
-            border-color: #94a3b8;
-            text-decoration: none !important;
-        }
-        .mp-sub-btn-pdf {
-            background-color: #fff5f5;
-            color: #c53030 !important;
-            border-color: #feb2b2;
-        }
-        .mp-sub-btn-pdf:hover {
-            background-color: #fed7d7;
-            border-color: #fc8181;
-        }
-
-        .mp-bottom-footer {
-            width: 100%;
-            background-color: #1a365d;
-            color: #cbd5e0;
-            padding: 30px 20px;
-            margin-top: 40px;
-            box-sizing: border-box;
-            border-top: none !important;
-            box-shadow: 0 -10px 25px -4px rgba(15, 23, 42, 0.35), 
-                        0 -3px 8px -1px rgba(0, 0, 0, 0.15) !important;
-        }
-        .mp-bottom-footer-inner {
-            max-width: 900px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            font-size: 0.85rem;
-            line-height: 1.5;
-        }
-        .mp-bottom-footer-inner p {
-            margin: 0 !important;
-            text-align: left !important;
-            color: #cbd5e0;
-            hyphens: none !important;
-            -webkit-hyphens: none !important;
-        }
-        .mp-bottom-footer-inner a {
-            color: #ffffff !important;
-            text-decoration: none !important;
-            font-weight: 600;
-        }
-        .mp-bottom-footer-inner a:hover {
-            text-decoration: underline !important;
-        }
-
-        /* ==========================================================================
-           7. ZINTEGROWANE REGUŁY DRUKU I EKSPORTU DO PDF
-           ========================================================================== */
-        @media print {
-            @page {
-                size: A4 portrait;
-                margin: 18mm 15mm 20mm 15mm !important;
-                @bottom-center {
-                    content: "Strona " counter(page) " / " counter(pages);
-                    font-family: 'Inter', sans-serif;
-                    font-size: 8.5pt;
-                    color: #555555;
-                }
-            }
-            html, body {
-                background-color: #ffffff !important;
-                color: #333333 !important;
-                margin: 0 !important;
-                padding: 0 !important;
-                font-size: 11pt;
-                line-height: 1.6;
-            }
-            .masterplan-wrapper {
-                max-width: 100% !important;
-                margin: 0 !important;
-                padding: 0 !important;
-            }
-            button, .no-print, nav, .mp-top-bar, .mp-sub-bar, .mp-bottom-footer,
-            .btn-original, .btn-download-container, #toast-share,
-            [class*="figure"], [id*="figure"], [class*="zoom"], [id*="zoom"] {
-                display: none !important;
-                visibility: hidden !important;
-                opacity: 0 !important;
-                height: 0 !important;
-            }
-            .bibliography a, .bibliografia a {
-                color: #1a365d !important;       
-                text-decoration: none !important; 
-                font-weight: 600 !important;      
-                cursor: default !important;
-            }
-            h1, h2, h3, h4 {
-                break-after: avoid !important;
-                page-break-after: avoid !important;
-                break-inside: avoid !important;
-                page-break-inside: avoid !important;
-            }
-            h2, h3 {
-                margin-top: 10px !important;
-                padding-top: 25px !important;
-                margin-bottom: 15px !important;
-            }
-            h1 + h2 {
-                margin-top: 55px !important;
-                padding-top: 0 !important;
-            }
-             h2 + h3 {
-        margin-top: 0 !important;
-        padding-top: 0 !important;
-    }
-            hr {
-                break-after: avoid !important;
-                page-break-after: avoid !important;
-                margin-top: 0 !important;
-                margin-bottom: 15px !important;
-                background: #cbd5e0 !important;
-            }
-            .highlight-box, .toc-box {
-                padding: 15px !important;
-            }
-            p, table, tr, .custom-table, .signature-wrapper, .highlight-box, .toc-box, .map-section {
-        break-inside: avoid !important;
-        page-break-inside: avoid !important;
-    }
-    .map-section img {
-        break-after: avoid !important;
-        page-break-after: avoid !important;
-        max-height: 215mm !important; /* Gwarantuje, że duża mapa wraz z podpisem zmieści się na jednej kartce A4 */
-        width: auto !important;
-    }
-            .page-break {
-                display: block !important;
-                clear: both !important;
-                break-before: page !important;
-                page-break-before: always !important;
-                height: 0 !important;
-            }
-            .custom-table, .signature-wrapper {
-                margin-top: 50px !important;
-                clear: both !important;
-            }
-            .tylko-druk, .only-print {
-                display: inline !important;
-                font-size: 0.85rem !important;
-                font-style: italic !important;
-                color: #555555 !important;
-            }
-            .tylko-druk a, .only-print a {
-                color: #555555 !important;
-                text-decoration: none !important;
-                font-weight: normal !important;
-                font-size: 0.85rem !important;
-                font-style: italic !important;
-                overflow-wrap: anywhere !important;
-                word-break: break-word !important;
-            }
-            ul.bibliografia {
-                padding-bottom: 0 !important;
-            }
-            ul.bibliografia li:target {
-                background-color: transparent !important;
-                border-left: none !important;
-                padding: 0 !important;
-            }
-            .print-footer {
-                display: block !important;
-                visibility: visible !important;
-                opacity: 1 !important;
-                height: auto !important;
-                margin-top: 50px !important;
-                padding-top: 10px !important;
-                border-top: 1px solid #cbd5e0 !important;
-                font-size: 8.5pt !important;
-                font-style: italic !important;
-                color: #555555 !important;
-                text-align: center !important;
-                clear: both !important;
+white-space: nowrap;
+}
+body, h1, h2, h3, h4, th, td, .title, .btn {
+font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+}
+td, th {
+text-align: left;
+-webkit-hyphens: none;
+-ms-hyphens: none;
+hyphens: none;
+text-wrap: normal;
+vertical-align: top;
+}
+#toast-share {
+position: fixed;
+bottom: 30px;
+left: 50%;
+transform: translateX(-50%);
+background-color: #333333;
+color: white;
+padding: 12px 24px;
+border-radius: 8px;
+font-size: 0.9rem;
+font-weight: bold;
+box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+opacity: 0;
+transition: opacity 0.3s ease;
+z-index: 10000;
+pointer-events: none;
+}
+.page-break {
+display: none;
+}
+.signature-text-final {
+display: inline-block;
+font-size: 10pt !important;
+font-weight: 400 !important;
+color: #555555 !important;
+}
+.signature-wrapper {
+text-align: right;
+margin-top: 40px;
+margin-bottom: 20px;
+clear: both !important;
+}
+/* ==========================================================================
+5. LINKI W TREŚCI I BIBLIOGRAFIA (EKRAN)
+========================================================================== */
+p a, li a, td a {
+color: #1a365d !important;
+text-decoration: none !important;
+font-weight: 500;
+transition: color 0.2s ease;
+}
+p a:hover, li a:hover, td a:hover {
+color: #2563eb !important;
+text-decoration: underline !important;
+text-underline-offset: 4px;
+}
+.tylko-druk, .only-print, .print-footer {
+display: none !important;
+}
+ul.bibliografia {
+list-style-type: none !important;
+padding-left: 0 !important;
+}
+@media screen {
+ul.bibliografia {
+padding-bottom: 0 !important;
+margin-bottom: 0 !important;
+}
+body .masterplan-wrapper {
+padding-bottom: 20vh !important;
+}
+}
+ul.bibliografia li:target {
+background-color: #e2ecf9 !important;
+border-left: 4px solid #1a365d !important;
+padding: 8px 12px !important;
+border-radius: 4px !important;
+display: block !important;
+transition: background-color 0.4s ease;
+}
+/* ==========================================================================
+6. GÓRNA BELKA, PASEK NARZĘDZIOWY I STOPKA Z CIENIEM 3D (EKRAN)
+========================================================================== */
+.mp-top-bar {
+width: 100%;
+background-color: #1a365d;
+color: #ffffff;
+position: sticky;
+top: 0;
+z-index: 500;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+box-sizing: border-box;
+}
+.mp-top-bar-inner {
+max-width: 900px;
+margin: 0 auto;
+padding: 10px 20px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 15px;
+box-sizing: border-box;
+}
+.mp-top-title {
+padding: 4px 10px !important;
+margin-left: -10px !important;
+border-radius: 6px !important;
+transition: background-color 0.2s ease, color 0.2s ease !important;
+}
+.mp-top-title:hover {
+background-color: #2563eb !important;
+color: #ffffff !important;
+text-decoration: none !important;
+}
+.mp-top-actions {
+display: flex;
+align-items: center;
+gap: 12px;
+}
+.mp-top-link {
+display: inline-flex !important;
+align-items: center !important;
+justify-content: center !important;
+min-width: 34px !important;
+height: 30px !important;
+padding: 0 8px !important;
+color: #ffffff !important;
+text-decoration: none !important;
+font-size: 0.8rem !important;
+font-weight: 700 !important;
+letter-spacing: 0.5px !important;
+background-color: #1a365d !important;
+border: 1.5px solid rgba(255, 255, 255, 0.8) !important;
+border-radius: 6px !important;
+box-sizing: border-box !important;
+transition: all 0.2s ease !important;
+}
+.mp-top-link:hover {
+background-color: #2563eb !important;
+color: #ffffff !important;
+border-color: #2563eb !important;
+text-decoration: none !important;
+}
+.mp-sub-bar {
+width: 100%;
+background-color: #ffffff;
+border-bottom: none !important;
+box-shadow: 0 4px 12px -2px rgba(26, 54, 93, 0.12),
+0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+box-sizing: border-box;
+}
+.mp-sub-bar-inner {
+max-width: 900px;
+margin: 0 auto;
+padding: 8px 20px;
+display: flex;
+justify-content: flex-end;
+align-items: center;
+gap: 10px;
+flex-wrap: wrap;
+box-sizing: border-box;
+}
+.mp-sub-btn {
+display: inline-flex;
+align-items: center;
+gap: 6px;
+font-family: inherit;
+font-size: 0.82rem;
+font-weight: 600;
+color: #1a365d !important;
+background-color: #f1f5f9;
+border: 1px solid #cbd5e0;
+padding: 5px 12px;
+border-radius: 4px;
+text-decoration: none !important;
+cursor: pointer;
+line-height: normal;
+transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.mp-sub-btn:hover {
+background-color: #e2e8f0;
+border-color: #94a3b8;
+text-decoration: none !important;
+}
+.mp-sub-btn-pdf {
+background-color: #fff5f5;
+color: #c53030 !important;
+border-color: #feb2b2;
+}
+.mp-sub-btn-pdf:hover {
+background-color: #fed7d7;
+border-color: #fc8181;
+}
+.mp-bottom-footer {
+width: 100%;
+background-color: #1a365d;
+color: #cbd5e0;
+padding: 30px 20px;
+margin-top: 40px;
+box-sizing: border-box;
+border-top: none !important;
+box-shadow: 0 -10px 25px -4px rgba(15, 23, 42, 0.35),
+0 -3px 8px -1px rgba(0, 0, 0, 0.15) !important;
+}
+.mp-bottom-footer-inner {
+max-width: 900px;
+margin: 0 auto;
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 15px;
+font-size: 0.85rem;
+line-height: 1.5;
+}
+.mp-bottom-footer-inner p {
+margin: 0 !important;
+text-align: left !important;
+color: #cbd5e0;
+hyphens: none !important;
+-webkit-hyphens: none !important;
+}
+.mp-bottom-footer-inner a {
+color: #ffffff !important;
+text-decoration: none !important;
+font-weight: 600;
+}
+.mp-bottom-footer-inner a:hover {
+text-decoration: underline !important;
+}
+/* ==========================================================================
+7. ZINTEGROWANE REGUŁY DRUKU I EKSPORTU DO PDF
+========================================================================== */
+@media print {
+* {
+-webkit-print-color-adjust: exact !important;
+print-color-adjust: exact !important;
+}
+@page {
+size: A4 portrait;
+margin: 18mm 15mm 20mm 15mm !important;
+@bottom-center {
+content: "Strona " counter(page) " / " counter(pages);
+font-family: 'Inter', sans-serif;
+font-size: 8.5pt;
+color: #555555;
+}
+}
+html, body {
+background-color: #ffffff !important;
+color: #333333 !important;
+margin: 0 !important;
+padding: 0 !important;
+font-size: 11pt;
+line-height: 1.6;
+}
+.masterplan-wrapper {
+max-width: 100% !important;
+margin: 0 !important;
+padding: 0 !important;
+}
+button, .no-print, nav, .mp-top-bar, .mp-sub-bar, .mp-bottom-footer,
+.btn-original, .btn-download-container, #toast-share,
+[class*="figure"], [id*="figure"], [class*="zoom"], [id*="zoom"] {
+display: none !important;
+visibility: hidden !important;
+opacity: 0 !important;
+height: 0 !important;
+}
+.bibliography a, .bibliografia a {
+color: #1a365d !important;
+text-decoration: none !important;
+font-weight: 600 !important;
+cursor: default !important;
+}
+h1, h2, h3, h4 {
+break-after: avoid !important;
+page-break-after: avoid !important;
+break-inside: avoid !important;
+page-break-inside: avoid !important;
+}
+h2, h3 {
+margin-top: 10px !important;
+padding-top: 25px !important;
+margin-bottom: 15px !important;
+}
+h1 + h2 {
+margin-top: 55px !important;
+padding-top: 0 !important;
+}
+h2 + h3 {
+margin-top: 0 !important;
+padding-top: 0 !important;
+}
+hr {
+break-after: avoid !important;
+page-break-after: avoid !important;
+margin-top: 0 !important;
+margin-bottom: 15px !important;
+background: #cbd5e0 !important;
+}
+p, li {
+orphans: 3;
+widows: 3;
+}
+thead {
+display: table-header-group;
+}
+.highlight-box, .toc-box {
+padding: 15px !important;
+}
+.map-section, .toc-box, .highlight-box {
+box-shadow: none !important;
+}
+tr, .signature-wrapper, .highlight-box, .toc-box, .map-section {
+break-inside: avoid !important;
+page-break-inside: avoid !important;
+}
+.map-section img {
+break-after: avoid !important;
+page-break-after: avoid !important;
+max-height: 215mm !important; /* Gwarantuje, że duża mapa wraz z podpisem zmieści się na jednej kartce A4 */
+width: auto !important;
+}
+.page-break {
+display: block !important;
+clear: both !important;
+break-before: page !important;
+page-break-before: always !important;
+height: 0 !important;
+}
+.custom-table, .signature-wrapper {
+margin-top: 50px !important;
+clear: both !important;
+}
+.tylko-druk, .only-print {
+display: inline !important;
+font-size: 0.85rem !important;
+font-style: italic !important;
+color: #555555 !important;
+}
+.tylko-druk a, .only-print a {
+color: #555555 !important;
+text-decoration: none !important;
+font-weight: normal !important;
+font-size: 0.85rem !important;
+font-style: italic !important;
+overflow-wrap: anywhere !important;
+word-break: break-word !important;
+}
+ul.bibliografia {
+padding-bottom: 0 !important;
+}
+ul.bibliografia li:target {
+background-color: transparent !important;
+border-left: none !important;
+padding: 0 !important;
+}
+.print-footer {
+display: block !important;
+visibility: visible !important;
+opacity: 1 !important;
+height: auto !important;
+margin-top: 50px !important;
+padding-top: 10px !important;
+border-top: 1px solid #cbd5e0 !important;
+font-size: 8.5pt !important;
+font-style: italic !important;
+color: #555555 !important;
+text-align: center !important;
+clear: both !important;
+}
+h1, h2, h3, h4, .toc-box, .map-section, ul.bibliografia li, ul.bibliography li {
+                scroll-margin-top: 0 !important;
             }
         }
 </style>
