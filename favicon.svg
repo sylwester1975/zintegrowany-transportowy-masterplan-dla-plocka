@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Tło w ciemnym granacie -->
+  <rect width="64" height="64" rx="14" fill="#1a365d"/>
+  <!-- 100% biała, wyraźna obwódka -->
+  <rect x="2.5" y="2.5" width="59" height="59" rx="11.5" fill="none" stroke="#ffffff" stroke-width="2.5"/>
+  
+  <!-- Litera M (czysta biel) -->
+  <path d="M11 45 V19 H17.5 L24 31 L30.5 19 H37 V45 H31 V29.5 L24 41.5 L17 29.5 V45 Z" fill="#ffffff"/>
+  
+  <!-- Litera P (czysta biel) -->
+  <path d="M40.5 19 H50.5 C55.2 19 58 22.1 58 26.8 C58 31.5 55.2 34.6 50.5 34.6 H46.5 V45 H40.5 Z M46.5 24 V29.6 H49.8 C51.6 29.6 52.6 28.5 52.6 26.8 C52.6 25.1 51.6 24 49.8 24 Z" fill="#ffffff"/>
+</svg>
