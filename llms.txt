@@ -10,6 +10,6 @@
 - **Komponent intermodalny (1,5–2,0 mld PLN):** Port rzeczno-kolejowo-drogowy IV klasy (E40) nad Zbiornikiem Włocławskim integrujący cargo z Portem Polska w Baranowie.
 
 ## Struktura i linki
-- [Pełny tekst Masterplanu dla Płocka](https://masterplan-dla-plocka.netlify.app/) (9 rozdziałów, tabela CapEx, macierz ryzyk).
-- [Rysunek 1: Układ transportowy](https://masterplan-dla-plocka.netlify.app/uklad-transportowy-plocka.html) | [Rysunek 2: Droga S60](https://masterplan-dla-plocka.netlify.app/droga-ekspresowa-s60.html) | [Rysunek 3: Oś kolejowa](https://masterplan-dla-plocka.netlify.app/kolej-strategiczna.html)
+- [Pełny tekst Masterplanu dla Płocka](https://masterplan-plock.org/) (9 rozdziałów, tabela CapEx, macierz ryzyk).
+- [Rysunek 1: Układ transportowy](https://masterplan-plock.org/uklad-transportowy-plocka.html) | [Rysunek 2: Droga S60](https://masterplan-plock.org/droga-ekspresowa-s60.html) | [Rysunek 3: Oś kolejowa](https://masterplan-plock.org/kolej-strategiczna.html)
 - [English Version](https://master-plan-for-plock.netlify.app/)
