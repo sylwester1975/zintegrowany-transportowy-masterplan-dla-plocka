@@ -23,79 +23,148 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: white;
-            /* KROK 2: Podmiana kroju pisma na Inter (bez zmian w kolorach czy grubościach) */
+            background-color: #ffffff;
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            height: 100vh;
+            height: 100dvh;
+            display: flex;
+            flex-direction: column;
             overflow: hidden;
         }
 
+        /* 1. GÓRNA GRANATOWA BELKA Z PEŁNYM BIAŁYM LOGO I PRZYCISKAMI */
         .top-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px 24px;
-            background: #ffffff;
-            border-bottom: 1px solid #eaeaea;
-            position: sticky;
-            top: 0;
+            padding: 8px 24px;
+            background: #1a365d;
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
             z-index: 1000;
-            height: 60px;
-            box-sizing: border-box;
+            flex-shrink: 0;
+            gap: 16px;
         }
-        
-        .title {
-            font-size: 14px;
-            font-weight: 600;
-            color: #24292e;
-            margin: 0;
+
+        .logo-link {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+        .logo-link:hover {
+            opacity: 0.92;
+            transform: translateY(-1px);
+        }
+
+        .site-logo {
+            height: 42px;
+            width: auto;
+            display: block;
+            cursor: pointer;
         }
 
         .button-group {
             display: flex;
             gap: 8px;
+            flex-shrink: 0;
         }
 
         .btn {
-            padding: 8px 16px;
+            padding: 7px 14px;
             text-decoration: none;
             border-radius: 6px;
             font-size: 13px;
-            font-weight: 500;
-            transition: background 0.2s;
+            font-weight: 600;
+            transition: background 0.2s, border-color 0.2s;
             cursor: pointer;
-            border: 1px solid #24292e;
             display: inline-flex;
             align-items: center;
             gap: 6px;
             white-space: nowrap;
         }
 
-        .btn-copy { background-color: white; color: #24292e; }
-        .btn-copy:hover { background-color: #f6f8fa; }
-
-        .btn-download { background-color: #24292e; color: white; }
-        .btn-download:hover { background-color: #444d56; }
-
-        #hint-bar {
-            text-align: center;
-            font-size: 12px;
-            color: #444d56;
-            padding: 8px;
-            background: #f6f8fa;
-            border-bottom: 1px solid #eaeaea;
-            user-select: none;
+        .btn-copy {
+            background-color: rgba(255, 255, 255, 0.12);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.55);
+        }
+        .btn-copy:hover {
+            background-color: rgba(255, 255, 255, 0.22);
         }
 
+        .btn-download {
+            background-color: #ffffff;
+            color: #1a365d;
+            border: 1px solid #ffffff;
+        }
+        .btn-download:hover {
+            background-color: #e2e8f0;
+        }
+
+        /* 2. OBNIŻONY PASEK Z TYTUŁEM MAPY I PEŁNĄ NOTĄ LICENCYJNĄ */
+        .sub-header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 6px 20px;
+            padding: 8px 24px;
+            background: #f8fafc;
+            border-bottom: 1px solid #e2e8f0;
+            flex-shrink: 0;
+        }
+
+        .title {
+            font-size: 13.5px;
+            font-weight: 500;
+            color: #1a365d;
+            margin: 0;
+        }
+
+        .license-note {
+            font-size: 11px;
+            line-height: 1.45;
+            color: #475569;
+            margin: 0;
+            text-align: right;
+        }
+
+        .license-note a {
+            color: #1a365d;
+            font-weight: 600;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .license-note a:hover {
+            color: #2563eb;
+        }
+
+        /* 3. PODPOWIEDŹ POWIĘKSZENIA */
+        #hint-bar {
+            text-align: center;
+            font-size: 11.5px;
+            color: #444d56;
+            padding: 5px 12px;
+            background: #f1f5f9;
+            border-bottom: 1px solid #e2e8f0;
+            user-select: none;
+            flex-shrink: 0;
+        }
+
+        /* 4. OBSZAR MAPY */
         .map-wrapper {
+            flex: 1;
             width: 100%;
-            height: calc(100vh - 60px);
             overflow: auto;
             text-align: center;
-            background-color: white;
+            background-color: #ffffff;
             -webkit-overflow-scrolling: touch;
         }
 
-        img {
+        .map-wrapper img {
             max-width: 100%;
             height: auto;
             display: inline-block;
@@ -104,27 +173,39 @@
             margin: 0;
         }
 
-        img.zoomed {
+        .map-wrapper img.zoomed {
             max-width: none;
             display: block;
             margin: 0;
             cursor: zoom-out;
         }
 
-        @media (max-width: 650px) {
+        /* DOPASOWANIE DO SMARTFONÓW */
+        @media (max-width: 768px) {
             .top-bar {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 10px 15px;
-                gap: 10px;
-                height: auto;
+                padding: 7px 12px;
+                gap: 8px;
             }
-            .map-wrapper {
-                height: calc(100vh - 100px);
+            .site-logo {
+                height: 32px;
             }
-            .title { font-size: 13px; }
-            .button-group { width: 100%; }
-            .btn { flex: 1; justify-content: center; padding: 7px 10px; font-size: 12px; }
+            .btn {
+                padding: 6px 10px;
+                font-size: 11.5px;
+            }
+            .sub-header-bar {
+                padding: 7px 12px;
+                gap: 4px;
+            }
+            .title {
+                font-size: 12px;
+                line-height: 1.35;
+            }
+            .license-note {
+                font-size: 10px;
+                line-height: 1.35;
+                text-align: left;
+            }
         }
 
         #toast {
@@ -132,8 +213,8 @@
             bottom: 25px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(36, 41, 46, 0.95);
-            color: white;
+            background: rgba(26, 54, 93, 0.95);
+            color: #ffffff;
             padding: 10px 20px;
             border-radius: 30px;
             font-size: 12px;
@@ -141,14 +222,53 @@
             opacity: 0;
             transition: opacity 0.3s ease;
             z-index: 2000;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
         }
     </style>
 </head>
 <body>
 
     <div class="top-bar">
-        <div class="title">Ogólna koncepcja ukształtowania zintegrowanego układu transportowego Płocka</div>
+        <a href="https://masterplan-plock.org" class="logo-link" title="Masterplan dla Płocka – Strona główna" aria-label="Masterplan dla Płocka – Strona główna">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 436 90" class="site-logo" role="img" aria-label="Masterplan Płock">
+                <g transform="translate(1, 1)">
+                    <rect x="0" y="0" width="88" height="88" rx="17" fill="none" stroke="#ffffff" stroke-width="4" />
+                    <g fill="#ffffff">
+                        <path d="M 16 59 L 16 29 L 23.5 29 L 31.5 47.5 L 39.5 29 L 47 29 L 47 59 L 40.5 59 L 40.5 39.5 L 33.5 55 L 29.5 55 L 22.5 39.5 L 22.5 59 Z" />
+                        <path d="M 53 59 L 53 29 L 65.5 29 C 71.8 29 75.5 32.6 75.5 38.5 C 75.5 44.4 71.8 48 65.5 48 L 59.5 48 L 59.5 59 Z M 59.5 42.3 L 64.8 42.3 C 67.8 42.3 69.2 40.8 69.2 38.5 C 69.2 36.2 67.8 34.7 64.8 34.7 L 59.5 34.7 Z" />
+                    </g>
+                </g>
+                <g transform="translate(112, -10)">
+                    <g fill="none" stroke="#ffffff" stroke-linecap="round">
+                        <path d="M 38 62 Q 152 12 266 62" stroke-width="2.4" />
+                        <line x1="76" y1="47.5" x2="76" y2="62" stroke-width="1.2" stroke-opacity="0.85" />
+                        <line x1="114" y1="39.5" x2="114" y2="62" stroke-width="1.2" stroke-opacity="0.85" />
+                        <line x1="152" y1="37" x2="152" y2="62" stroke-width="1.2" stroke-opacity="0.85" />
+                        <line x1="190" y1="39.5" x2="190" y2="62" stroke-width="1.2" stroke-opacity="0.85" />
+                        <line x1="228" y1="47.5" x2="228" y2="62" stroke-width="1.2" stroke-opacity="0.85" />
+                        <line x1="12" y1="62" x2="292" y2="62" stroke-width="2.2" />
+                    </g>
+                    <g fill="#ffffff" transform="translate(43.5, 78)">
+                        <path d="M 0 10 L 0 0 L 2.2 0 L 5 6.4 L 7.8 0 L 10 0 L 10 10 L 8.1 10 L 8.1 3.1 L 5.6 8.6 L 4.4 8.6 L 1.9 3.1 L 1.9 10 Z" />
+                        <path d="M 16 10 L 19.6 0 L 21.8 0 L 25.4 10 L 23.3 10 L 22.5 7.6 L 18.9 7.6 L 18.1 10 Z M 19.4 6 L 22 6 L 20.7 2.1 Z" />
+                        <path d="M 31.2 7.2 L 33.1 7.1 C 33.3 8.1 34.2 8.6 35.5 8.6 C 36.8 8.6 37.6 8.1 37.6 7.2 C 37.6 6.4 37 6 35.3 5.6 L 34.1 5.3 C 32.3 4.9 31.5 4 31.5 2.7 C 31.5 1 33.1 0 35.4 0 C 37.7 0 39.2 1 39.4 2.7 L 37.5 2.8 C 37.3 1.9 36.5 1.5 35.4 1.5 C 34.2 1.5 33.4 2 33.4 2.7 C 33.4 3.4 34 3.8 35.6 4.1 L 36.8 4.4 C 38.7 4.8 39.6 5.7 39.6 7.1 C 39.6 8.9 37.9 10.1 35.4 10.1 C 32.9 10.1 31.4 9 31.2 7.2 Z" />
+                        <path d="M 48.2 10 L 48.2 1.6 L 45.1 1.6 L 45.1 0 L 53.3 0 L 53.3 1.6 L 50.2 1.6 L 50.2 10 Z" />
+                        <path d="M 59.3 10 L 59.3 0 L 66.3 0 L 66.3 1.6 L 61.3 1.6 L 61.3 4.1 L 65.8 4.1 L 65.8 5.7 L 61.3 5.7 L 61.3 8.4 L 66.4 8.4 L 66.4 10 Z" />
+                        <path d="M 72.6 10 L 72.6 0 L 76.7 0 C 78.8 0 80.1 1.2 80.1 3.1 C 80.1 4.5 79.3 5.6 78 6 L 80.3 10 L 78.1 10 L 76.1 6.3 L 74.6 6.3 L 74.6 10 Z M 74.6 4.8 L 76.5 4.8 C 77.6 4.8 78.2 4.2 78.2 3.1 C 78.2 2.1 77.6 1.5 76.5 1.5 L 74.6 1.5 Z" />
+ <path d="M 86.5 10 L 86.5 0 L 90.5 0 C 92.6 0 93.9 1.2 93.9 3.2 C 93.9 5.2 92.6 6.4 90.5 6.4 L 88.5 6.4 L 88.5 10 Z M 88.5 4.8 L 90.3 4.8 C 91.4 4.8 92 4.2 92 3.2 C 92 2.2 91.4 1.6 90.3 1.6 L 88.5 1.6 Z" />
+                        <path d="M 99.8 10 L 99.8 0 L 101.8 0 L 101.8 8.4 L 106.5 8.4 L 106.5 10 Z" />
+                        <path d="M 111.5 10 L 115.1 0 L 117.3 0 L 120.9 10 L 118.8 10 L 118 7.6 L 114.4 7.6 L 113.6 10 Z M 114.9 6 L 117.5 6 L 116.2 2.1 Z" />
+                        <path d="M 126.7 10 L 126.7 0 L 128.5 0 L 133.2 6.8 L 133.2 0 L 135.1 0 L 135.1 10 L 133.4 10 L 128.6 3.1 L 128.6 10 Z" />
+                        <path d="M 150.5 10 L 150.5 0 L 154.5 0 C 156.6 0 157.9 1.2 157.9 3.2 C 157.9 5.2 156.6 6.4 154.5 6.4 L 152.5 6.4 L 152.5 10 Z M 152.5 4.8 L 154.3 4.8 C 155.4 4.8 156 4.2 156 3.2 C 156 2.2 155.4 1.6 154.3 1.6 L 152.5 1.6 Z" />
+                        <path d="M 164.2 10 L 164.2 6.2 L 162.8 6.8 L 162.8 5.4 L 164.2 4.8 L 164.2 0 L 166.2 0 L 166.2 4 L 168 3.2 L 168 4.6 L 166.2 5.4 L 166.2 8.4 L 170.9 8.4 L 170.9 10 Z" />
+                        <path d="M 176.2 5 C 176.2 1.9 178.2 0 181.2 0 C 184.2 0 186.2 1.9 186.2 5 C 186.2 8.1 184.2 10.1 181.2 10.1 C 178.2 10.1 176.2 8.1 176.2 5 Z M 178.2 5 C 178.2 7.2 179.4 8.5 181.2 8.5 C 183 8.5 184.2 7.2 184.2 5 C 184.2 2.8 183 1.5 181.2 1.5 C 179.4 1.5 178.2 2.8 178.2 5 Z" />
+                        <path d="M 192.2 5 C 192.2 1.9 194.2 0 197.2 0 C 199.5 0 201.1 1.1 201.6 3.1 L 199.6 3.5 C 199.2 2.2 198.4 1.6 197.2 1.6 C 195.4 1.6 194.2 2.9 194.2 5 C 194.2 7.1 195.4 8.4 197.2 8.4 C 198.5 8.4 199.3 7.8 199.7 6.5 L 201.7 6.9 C 201.1 8.9 199.5 10.1 197.2 10.1 C 194.2 10.1 192.2 8.1 192.2 5 Z" />
+                        <path d="M 207.8 10 L 207.8 0 L 209.8 0 L 209.8 4.4 L 214.1 0 L 216.6 0 L 212.1 4.5 L 216.9 10 L 214.4 10 L 210.7 5.8 L 209.8 6.7 L 209.8 10 Z" />
+                    </g>
+                </g>
+            </svg>
+        </a>
+
         <div class="button-group">
             <button onclick="copyLink()" class="btn btn-copy">
                 <span>🔗</span> Kopiuj link
@@ -156,6 +276,14 @@
             <a href="uklad-transportowy-plocka.png" download="uklad-transportowy-plocka.png" class="btn btn-download">
                 Pobierz rysunek (PNG)
             </a>
+        </div>
+    </div>
+
+    <div class="sub-header-bar">
+        <div class="title">Ogólna koncepcja ukształtowania zintegrowanego układu transportowego Płocka</div>
+        <div class="license-note">
+            &copy; 2026 <strong>Sylwester Fiet</strong> &nbsp;|&nbsp; Płock, Polska &nbsp;|&nbsp; Kontakt: <a href="mailto:mail@masterplan-plock.org">mail@masterplan-plock.org</a><br>
+            Treść, logo i autorskie warstwy map: <a href="https://creativecommons.org/licenses/by/4.0/deed.pl" target="_blank" rel="license noopener noreferrer">licencja CC BY 4.0</a> (z wyłączeniem podkładów mapowych).
         </div>
     </div>
 
