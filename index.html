@@ -361,21 +361,23 @@ text-wrap: wrap;
 vertical-align: top;
 }
 #toast-share {
-position: fixed;
-bottom: 30px;
-left: 50%;
-transform: translateX(-50%);
-background-color: #333333;
-color: white;
-padding: 12px 24px;
-border-radius: 8px;
-font-size: 0.9rem;
-font-weight: bold;
-box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-opacity: 0;
-transition: opacity 0.3s ease;
-z-index: 10000;
-pointer-events: none;
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(26, 54, 93, 0.95);
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 10000;
+    pointer-events: none;
+    white-space: nowrap;
 }
 .page-break {
 display: none;
