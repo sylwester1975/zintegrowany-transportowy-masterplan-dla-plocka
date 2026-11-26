@@ -456,14 +456,7 @@ transition: background-color 0.4s ease;
 }
 
 .mp-top-title {
-  padding: 2px 10px !important; /* Zmniejszono z 4px na 2px */
-  margin-left: -10px !important;
-  border-radius: 14px !important;
-  background-color: transparent !important;
-  text-decoration: none !important;
-}
-.mp-top-title {
-  padding: 4px 10px !important;
+  padding: 2px 10px !important;
   margin-left: -10px !important;
   border-radius: 14px !important;
   background-color: transparent !important;
@@ -476,12 +469,25 @@ transition: background-color 0.4s ease;
 }
 
 .mp-top-title svg {
+  height: 54px;
+  width: auto;
+  display: block;
   transition: transform 0.2s ease, filter 0.2s ease;
 }
 
 .mp-top-title:hover svg {
   filter: brightness(1.14) drop-shadow(0 2px 10px rgba(255, 255, 255, 0.28));
   transform: translateY(-1px);
+}
+
+.mp-top-title:active svg {
+  transform: translateY(0);
+}
+
+@media (max-width: 600px) {
+  .mp-top-title svg {
+    height: 42px;
+  }
 }
 
 .mp-top-title:active svg {
